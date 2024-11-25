@@ -4,11 +4,6 @@ const prismaClientSingleton = () => {
   return new PrismaClient({
     log: ['error'],
     errorFormat: 'pretty',
-    datasources: {
-      db: {
-        url: process.env.DATABASE_URL,
-      },
-    },
   })
 }
 
@@ -20,4 +15,5 @@ const prisma = globalThis.prisma ?? prismaClientSingleton()
 
 if (process.env.NODE_ENV !== 'production') globalThis.prisma = prisma
 
+export { prisma }
 export default prisma 

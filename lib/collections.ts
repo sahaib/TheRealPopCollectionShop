@@ -1,12 +1,14 @@
+export type CategoryContent = string[] | { [key: string]: string[] }
+
 export interface Collection {
   id: string;
   name: string;
   categories: {
-    [key: string]: string[];
+    [key: string]: CategoryContent;
   };
 }
 
-export const collections = {
+export const collections: { [key: string]: Collection } = {
   'bollywood-action': {
     id: 'bollywood-action',
     name: "Bollywood Action & Thriller",

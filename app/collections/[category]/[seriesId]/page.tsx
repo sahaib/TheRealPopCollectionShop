@@ -1,12 +1,13 @@
 import { collections } from '@/lib/collections'
-import MovieCard from '@/components/MovieCard'
+
+type CategoryKey = keyof typeof collections
 
 export default function SeriesPage({ 
   params 
 }: { 
   params: { category: string; seriesId: string } 
 }) {
-  const collection = collections[params.category]
+  const collection = collections[params.category as CategoryKey]
   const seriesName = decodeURIComponent(params.seriesId)
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))

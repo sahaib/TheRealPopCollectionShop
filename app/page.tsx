@@ -1,14 +1,14 @@
-import Hero from './components/Hero'
-import FeaturedCollections from './components/FeaturedCollections'
-import Benefits from './components/Benefits'
-import ProductListing from './components/ProductListing'
-import { collections } from '@/lib/collections'
+import Hero from '@/app/components/Hero'
+import Benefits from '@/app/components/Benefits'
+import FeaturedCollections from '@/app/components/FeaturedCollections'
+import ProductListing from '@/app/components/ProductListing'
+import { collections, Collection } from '@/lib/collections'
 
 export default function Home() {
-  const featuredCollections = Object.values(collections).slice(0, 4)
+  const featuredCollections: Collection[] = Object.values(collections).slice(0, 3)
 
   return (
-    <div className="container mx-auto px-4">
+    <div>
       <Hero />
       <Benefits />
       <FeaturedCollections collections={featuredCollections} />
