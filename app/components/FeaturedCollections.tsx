@@ -23,7 +23,9 @@ export default function FeaturedCollections({ collections }: FeaturedCollections
               />
               <div className="p-4">
                 <h3 className="text-xl font-semibold">{collection.name}</h3>
-                <p className="text-sm text-gray-600 mt-2">{collection.subcategories.length} subcategories</p>
+                <p className="text-sm text-gray-600 mt-2">
+                  {Object.keys(collection.categories).length} categories
+                </p>
               </div>
             </div>
           </Link>

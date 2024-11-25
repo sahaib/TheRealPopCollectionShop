@@ -5,7 +5,7 @@ import ProductListing from './components/ProductListing'
 import { collections } from '@/lib/collections'
 
 export default function Home() {
-  const featuredCollections = collections.slice(0, 4)
+  const featuredCollections = Object.values(collections).slice(0, 4)
 
   return (
     <div className="container mx-auto px-4">

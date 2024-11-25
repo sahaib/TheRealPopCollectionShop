@@ -1,300 +1,1084 @@
-export interface Subcategory {
-  name: string;
-  items: string[];
-}
-
 export interface Collection {
   id: string;
   name: string;
-  subcategories: Subcategory[];
+  categories: {
+    [key: string]: string[];
+  };
 }
 
-export const collections: Collection[] = [
-  {
-    id: 'bollywood',
-    name: 'Bollywood Action & Thriller',
-    subcategories: [
-      {
-        name: 'Popular Series',
-        items: [
-          'War', 'Pathaan', 'Tiger Zinda Hai', 'Dhoom Series', 'Race Series',
-          'Don Series', 'Krrish Series', 'Bang Bang!', 'Ek Tha Tiger',
-          'Phantom', 'Baby', 'Sooryavanshi', 'Singham Series', 'Dabangg Series'
-        ]
-      },
-      {
-        name: 'Action Blockbusters',
-        items: [
-          'Wanted', 'Kick', 'Baaghi Series', 'Force Series', 'Saaho',
-          'Dishoom', 'Brothers', 'Commando Series', 'Holiday', 'Rowdy Rathore',
-          'Boss', 'Gabbar is Back', 'Ra.One', 'Agent Vinod', 'D-Day'
-        ]
-      },
-      {
-        name: 'Thrillers',
-        items: [
-          'A Wednesday', 'Special 26', 'Naam Shabana', 'Mardaani Series',
-          'Kaabil', 'Ghajini', 'Talaash', 'Andhadhun', 'Badla', 'Kahaani Series',
-          'Te3n', 'Ittefaq', 'Mom', 'NH10', 'Drishyam', 'Talvar', 'Raazi',
-          'Uri: The Surgical Strike', 'Romeo Akbar Walter', 'Bell Bottom',
-          'Batla House', 'Article 15', 'Raat Akeli Hai', 'Section 375'
-        ]
-      }
-    ]
+export const collections = {
+  'bollywood-action': {
+    id: 'bollywood-action',
+    name: "Bollywood Action & Thriller",
+    categories: {
+      "Action Blockbusters": [
+        "War",
+        "Pathaan",
+        "Tiger Zinda Hai",
+        "Dhoom Trilogy",
+        "Race Series",
+        "Don Series",
+        "Krrish Series",
+        "Bang Bang!",
+        "Ek Tha Tiger"
+      ],
+      "Crime & Action": [
+        "Baby",
+        "Sooryavanshi",
+        "Singham Series",
+        "Dabangg Series",
+        "Wanted",
+        "Kick",
+        "Baaghi Series"
+      ],
+      "Thriller & Mystery": [
+        "Andhadhun",
+        "Badla",
+        "Kahaani Series",
+        "Drishyam Series",
+        "Raazi",
+        "Article 15",
+        "Raat Akeli Hai"
+      ]
+    }
   },
-  {
+  'hollywood-action': {
     id: 'hollywood-action',
-    name: 'Hollywood Action & Adventure',
-    subcategories: [
-      {
-        name: 'Superhero Universe',
-        items: [
-          'The Avengers Series', 'Iron Man Trilogy', 'Captain America Trilogy',
-          'Thor Series', 'Black Panther', 'Doctor Strange', 'Spider-Man MCU Trilogy',
-          'Guardians of the Galaxy', 'Ant-Man Series', 'Black Widow', 'Eternals',
-          'Shang-Chi', 'DCEU Series', 'Wonder Woman', 'Suicide Squad', 'Justice League',
-          'Aquaman', 'Shazam!', 'Birds of Prey', 'The Batman', 'Black Adam'
-        ]
-      },
-      {
-        name: 'Action Franchises',
-        items: [
-          'Mission Impossible Series', 'Fast & Furious Series', 'John Wick Series',
-          'James Bond Series', 'Jason Bourne Series', 'The Expendables Series',
-          'Bad Boys Series', 'Rush Hour Trilogy', 'Die Hard Series', 'Rambo Series',
-          'Rocky Series', 'Creed Series', 'The Transporter Trilogy', 'Taken Trilogy',
-          'Ocean\'s Series'
-        ]
-      },
-      {
-        name: 'Adventure & Action',
-        items: [
-          'Indiana Jones Series', 'National Treasure', 'Jumanji Series',
-          'The Mummy Trilogy', 'Tomb Raider Series', 'King Kong', 'Godzilla MonsterVerse',
-          'Pacific Rim', '300', 'Troy', 'Gladiator', 'Robin Hood', 'The Last Samurai',
-          'Kingdom of Heaven', 'Alexander', 'Apocalypto', 'The Patriot', 'Braveheart'
-        ]
-      },
-      {
-        name: 'Modern Action Hits',
-        items: [
-          'Top Gun', 'Edge of Tomorrow', 'Inception', 'The Equalizer Series',
-          'Atomic Blonde', 'Baby Driver', 'Mad Max: Fury Road', 'The Gray Man',
-          'Extraction', 'The Old Guard', 'Nobody', 'Bullet Train', 'Free Guy',
-          'Uncharted', 'The Adam Project', '6 Underground', 'Red Notice',
-          'Without Remorse', 'The Tomorrow War', 'Bloodshot', '21 Bridges',
-          'Mile 22', 'Den of Thieves', 'Triple Frontier', 'The Magnificent Seven',
-          'Sicario Series', 'Heat', 'Speed', 'Point Break', 'Con Air', 'Face/Off',
-          'Air Force One'
-        ]
-      }
-    ]
+    name: "Hollywood Action & Adventure",
+    categories: {
+      "Superhero Universe": [
+        "The Avengers Series",
+        "Iron Man Trilogy",
+        "Captain America Trilogy",
+        "Thor Series",
+        "Black Panther Series",
+        "Doctor Strange Series",
+        "Spider-Man MCU Trilogy",
+        "Guardians of the Galaxy Series",
+        "Ant-Man Series"
+      ],
+      "Action Franchises": [
+        "Mission Impossible Series",
+        "Fast & Furious Series",
+        "John Wick Series",
+        "James Bond Series",
+        "Jason Bourne Series",
+        "The Expendables Series",
+        "Bad Boys Series",
+        "Die Hard Series"
+      ],
+      "Modern Action": [
+        "Top Gun: Maverick",
+        "The Gray Man",
+        "Extraction Series",
+        "The Old Guard",
+        "Nobody",
+        "Bullet Train",
+        "Free Guy"
+      ]
+    }
   },
-  {
-    id: 'hollywood-scifi',
-    name: 'Hollywood Sci-Fi & Fantasy',
-    subcategories: [
-      {
-        name: 'Epic Fantasy Series',
-        items: [
-          'The Lord of the Rings Trilogy', 'The Hobbit Trilogy', 'Harry Potter Series',
-          'Fantastic Beasts Series', 'The Chronicles of Narnia', 'Percy Jackson Series'
-        ]
-      },
-      {
-        name: 'Sci-Fi Franchises',
-        items: [
-          'Star Wars Series', 'The Matrix Series', 'Alien Series', 'Terminator Series',
-          'Planet of the Apes Series', 'Jurassic Park Series'
-        ]
-      },
-      {
-        name: 'Modern Sci-Fi Epics',
-        items: [
-          'Dune', 'Blade Runner Series', 'Inception', 'Interstellar', 'Tenet',
-          'Avatar Series', 'Edge of Tomorrow', 'Arrival', 'Gravity', 'The Martian',
-          'Ad Astra', 'First Man', 'Life', 'Passengers', 'Elysium', 'District 9',
-          'Chappie', 'Ex Machina', 'Annihilation', 'Looper', 'Source Code', 'Moon',
-          'Sunshine', 'Oblivion', 'Ready Player One', 'Alita: Battle Angel',
-          'Valerian', 'Jupiter Ascending', 'Ender\'s Game', 'Pacific Rim'
-        ]
-      },
-      {
-        name: 'Time Travel & Alternate Reality',
-        items: [
-          'Back to the Future Trilogy', 'Edge of Tomorrow', 'Predestination',
-          'Project Almanac', 'About Time', 'The Butterfly Effect', 'Donnie Darko',
-          'Coherence', 'Primer', '12 Monkeys', 'The Time Machine', 'Frequency',
-          'Timeline', 'Source Code'
-        ]
-      }
-    ]
+  'scifi-fantasy': {
+    id: 'scifi-fantasy',
+    name: "Science Fiction & Fantasy",
+    categories: {
+      "Epic Fantasy Series": [
+        "The Lord of the Rings Trilogy",
+        "The Hobbit Trilogy",
+        "Harry Potter Series",
+        "Fantastic Beasts Series",
+        "The Chronicles of Narnia",
+        "Percy Jackson Series"
+      ],
+      "Sci-Fi Franchises": [
+        "Star Wars Complete Saga",
+        "The Matrix Series",
+        "Alien Series",
+        "Terminator Series",
+        "Planet of the Apes Series",
+        "Jurassic Park & World Series"
+      ],
+      "Modern Sci-Fi Epics": [
+        "Dune",
+        "Blade Runner Series",
+        "Inception",
+        "Interstellar",
+        "Tenet",
+        "Avatar Series",
+        "Edge of Tomorrow",
+        "Arrival"
+      ],
+      "Time Travel & Reality": [
+        "Back to the Future Trilogy",
+        "Predestination",
+        "About Time",
+        "The Butterfly Effect",
+        "Donnie Darko",
+        "Source Code",
+        "12 Monkeys"
+      ]
+    }
   },
-  {
-    id: 'international',
-    name: 'International Cinema',
-    subcategories: [
-      {
-        name: 'Korean Cinema',
-        items: [
-          'Parasite', 'Oldboy', 'Train to Busan', 'The Handmaiden',
-          'Memories of Murder', 'Mother', 'I Saw the Devil', 'A Tale of Two Sisters',
-          'The Host', 'The Wailing', 'Burning', 'Decision to Leave', 'Peninsula',
-          'The Man from Nowhere', 'A Bittersweet Life', 'Joint Security Area',
-          'Spring, Summer, Fall, Winter... and Spring', 'Poetry', 'Thirst',
-          'The Good, the Bad, the Weird', 'The Yellow Sea', 'New World', 'The Chaser',
-          'The Attorney', 'Sympathy for Mr. Vengeance', 'Lady Vengeance',
-          'The Villainess', 'A Taxi Driver', 'Snowpiercer', 'Space Sweepers'
+  'international-cinema': {
+    id: 'international-cinema',
+    name: "International Cinema",
+    categories: {
+      "Korean Cinema": [
+        "Parasite",
+        "Oldboy",
+        "Train to Busan",
+        "The Handmaiden",
+        "Memories of Murder",
+        "Decision to Leave"
+      ],
+      "Japanese Cinema": {
+        "Studio Ghibli": [
+          "Spirited Away",
+          "My Neighbor Totoro",
+          "Princess Mononoke",
+          "Howl's Moving Castle",
+          "Castle in the Sky"
+        ],
+        "Live Action": [
+          "Seven Samurai",
+          "Rashomon",
+          "Tokyo Story",
+          "Drive My Car",
+          "Shoplifters"
         ]
       },
-      {
-        name: 'Japanese Cinema',
-        items: [
-          'Spirited Away', 'My Neighbor Totoro', 'Princess Mononoke',
-          'Howl\'s Moving Castle', 'Castle in the Sky', 'Kiki\'s Delivery Service',
-          'Grave of the Fireflies', 'Your Name', 'Weathering with You',
-          'Perfect Blue', 'Akira', 'Ghost in the Shell', 'Paprika', 'Summer Wars',
-          'Wolf Children', 'Seven Samurai', 'Rashomon', 'Tokyo Story', 'Ran',
-          'Battle Royale', '13 Assassins', 'Ringu', 'Audition', 'Departures',
-          'Like Father, Like Son', 'Nobody Knows', 'Confessions', 'Shoplifters',
-          'Drive My Car', 'Still Walking'
-        ]
-      },
-      {
-        name: 'Chinese/Hong Kong Cinema',
-        items: [
-          'Ip Man Series', 'Hero', 'House of Flying Daggers',
-          'Crouching Tiger, Hidden Dragon', 'Internal Affairs Series',
-          'Police Story Series', 'Once Upon a Time in China Series', 'Red Cliff',
-          'The Raid Series', 'Hard Boiled', 'A Better Tomorrow', 'Kung Fu Hustle',
-          'Shaolin Soccer', 'In the Mood for Love', '2046', 'Chungking Express',
-          'Fallen Angels', 'The Grandmaster', 'Let the Bullets Fly', 'Lost in Thailand'
-        ]
-      }
-    ]
+      "European Masters": [
+        "Amélie",
+        "La Haine",
+        "Pan's Labyrinth",
+        "Cinema Paradiso",
+        "Life is Beautiful",
+        "Run Lola Run"
+      ],
+      "Indian Regional": [
+        "Baahubali Series",
+        "RRR",
+        "KGF Series",
+        "Super Deluxe",
+        "Vikram",
+        "Kantara"
+      ]
+    }
   },
-  {
+  'animation': {
     id: 'animation',
-    name: 'Animation',
-    subcategories: [
-      {
-        name: 'Disney Classics',
-        items: [
-          'Snow White and the Seven Dwarfs', 'Pinocchio', 'Fantasia', 'Dumbo',
-          'Bambi', 'Cinderella', 'Alice in Wonderland', 'Peter Pan',
-          'Lady and the Tramp', 'Sleeping Beauty', 'One Hundred and One Dalmatians',
-          'The Jungle Book', 'The Little Mermaid', 'Beauty and the Beast', 'Aladdin',
-          'The Lion King', 'Pocahontas', 'The Hunchback of Notre Dame', 'Hercules',
-          'Mulan', 'Tarzan', 'Lilo & Stitch', 'Treasure Planet', 'Brother Bear',
-          'The Princess and the Frog', 'Tangled', 'Frozen Series', 'Big Hero 6',
-          'Zootopia', 'Moana', 'Raya and the Last Dragon', 'Encanto'
-        ]
-      },
-      {
-        name: 'Pixar Universe',
-        items: [
-          'Toy Story Series', 'A Bug\'s Life', 'Monsters, Inc.', 'Finding Nemo',
-          'The Incredibles Series', 'Cars Series', 'Ratatouille', 'WALL-E', 'Up',
-          'Brave', 'Inside Out', 'The Good Dinosaur', 'Coco', 'Onward', 'Soul',
-          'Luca', 'Turning Red', 'Elemental'
-        ]
-      },
-      {
-        name: 'DreamWorks Animation',
-        items: [
-          'Shrek Series', 'Madagascar Series', 'Kung Fu Panda Series',
-          'How to Train Your Dragon Series', 'The Prince of Egypt',
-          'Spirit: Stallion of the Cimarron', 'Shark Tale', 'Over the Hedge',
-          'Bee Movie', 'Monsters vs. Aliens', 'Megamind', 'Rise of the Guardians',
-          'The Croods Series', 'Turbo', 'Mr. Peabody & Sherman', 'Home',
-          'Trolls Series', 'The Boss Baby Series', 'Abominable', 'The Bad Guys'
-        ]
-      }
-    ]
+    name: "Animation Collection",
+    categories: {
+      "Disney Classics": [
+        "Snow White and the Seven Dwarfs",
+        "The Lion King",
+        "Beauty and the Beast",
+        "Aladdin",
+        "Frozen Series",
+        "Moana",
+        "Encanto"
+      ],
+      "Pixar Universe": [
+        "Toy Story Series",
+        "The Incredibles Series",
+        "Finding Nemo/Dory",
+        "Inside Out",
+        "Coco",
+        "Soul",
+        "Up"
+      ],
+      "DreamWorks Animation": [
+        "Shrek Series",
+        "How to Train Your Dragon Trilogy",
+        "Kung Fu Panda Series",
+        "Madagascar Series",
+        "The Prince of Egypt"
+      ],
+      "Stop Motion & Artistic": [
+        "Spider-Man: Into the Spider-Verse",
+        "Coraline",
+        "Kubo and the Two Strings",
+        "The Nightmare Before Christmas",
+        "Wallace & Gromit Series"
+      ]
+    }
   },
-  {
-    id: 'classics',
-    name: 'Classics (1920s-1980s)',
-    subcategories: [
-      {
-        name: 'Silent Era Masterpieces (1920s)',
-        items: [
-          'The Kid', 'Metropolis', 'Nosferatu', 'The Gold Rush', 'The General',
-          'The Cabinet of Dr. Caligari', 'Safety Last!',
-          'The Passion of Joan of Arc', 'Sunrise: A Song of Two Humans',
-          'City Lights'
-        ]
-      },
-      {
-        name: 'Golden Age Hollywood (1930s-1950s)',
-        items: [
-          'Gone with the Wind', 'Casablanca', 'Citizen Kane', 'The Wizard of Oz',
-          'It\'s a Wonderful Life', 'Singin\' in the Rain', 'Sunset Boulevard',
-          'Roman Holiday', 'All About Eve', 'The Third Man', 'Double Indemnity',
-          'Vertigo', 'Rear Window', 'North by Northwest', 'The Maltese Falcon',
-          'The Big Sleep', 'To Kill a Mockingbird', 'Ben-Hur', 'On the Waterfront',
-          'Some Like It Hot'
-        ]
-      },
-      {
-        name: 'New Hollywood Era (1960s-1970s)',
-        items: [
-          'The Godfather Series', 'Apocalypse Now', 'Taxi Driver', 'Chinatown',
-          'The Graduate', 'Easy Rider', 'Bonnie and Clyde', 'The Exorcist', 'Jaws',
-          'One Flew Over the Cuckoo\'s Nest', 'A Clockwork Orange',
-          '2001: A Space Odyssey', 'The French Connection', 'Dog Day Afternoon',
-          'Network', 'Annie Hall', 'The Deer Hunter', 'Rocky',
-          'Star Wars: A New Hope', 'The Empire Strikes Back'
-        ]
-      }
-    ]
+  'classic-cinema': {
+    id: 'classic-cinema',
+    name: "Classic Collection",
+    categories: {
+      "Golden Age Hollywood": [
+        "Casablanca",
+        "Citizen Kane",
+        "Gone with the Wind",
+        "The Wizard of Oz",
+        "Singin' in the Rain",
+        "It's a Wonderful Life"
+      ],
+      "New Hollywood Era": [
+        "The Godfather Series",
+        "Apocalypse Now",
+        "Taxi Driver",
+        "Jaws",
+        "One Flew Over the Cuckoo's Nest"
+      ],
+      "Film Noir Classics": [
+        "The Maltese Falcon",
+        "Double Indemnity",
+        "Touch of Evil",
+        "The Third Man",
+        "The Big Sleep"
+      ],
+      "International Classics": [
+        "Seven Samurai",
+        "8½",
+        "Bicycle Thieves",
+        "The 400 Blows",
+        "Breathless"
+      ]
+    }
   },
-  {
+  'modern-classics': {
     id: 'modern-classics',
-    name: 'Modern Classics (1990s-2020s)',
-    subcategories: [
-      {
-        name: '1990s Masterpieces',
-        items: [
-          'Pulp Fiction', 'The Shawshank Redemption', 'Schindler\'s List',
-          'Goodfellas', 'The Silence of the Lambs', 'Forrest Gump', 'Fight Club',
-          'The Matrix', 'Saving Private Ryan', 'American Beauty', 'Jurassic Park',
-          'Terminator 2: Judgment Day', 'The Lion King', 'Titanic', 'Se7en',
-          'The Usual Suspects', 'Heat', 'Casino', 'L.A. Confidential',
-          'Good Will Hunting'
-        ]
-      },
-      {
-        name: '2000s Landmarks',
-        items: [
-          'The Lord of the Rings Trilogy', 'The Dark Knight', 'Gladiator',
-          'Memento', 'City of God', 'Spirited Away', 'The Departed',
-          'No Country for Old Men', 'There Will Be Blood', 'The Prestige',
-          'Pan\'s Labyrinth', 'Eternal Sunshine of the Spotless Mind',
-          'Children of Men', 'The Pianist', 'Mulholland Drive',
-          'In the Mood for Love', 'Amelie', 'Requiem for a Dream', 'Oldboy',
-          'Lost in Translation'
-        ]
-      },
-      {
-        name: '2010s Masterworks',
-        items: [
-          'Inception', 'The Social Network', 'Mad Max: Fury Road', 'Whiplash',
-          'La La Land', 'Moonlight', 'Parasite', 'The Grand Budapest Hotel',
-          'Interstellar', 'Get Out', 'Arrival', 'Black Swan', 'Drive',
-          'The Wolf of Wall Street', 'Birdman', '12 Years a Slave', 'Inside Out',
-          'Spider-Man: Into the Spider-Verse', 'Roma', 'Portrait of a Lady on Fire'
-        ]
-      },
-      {
-        name: '2020s (So Far)',
-        items: [
-          'Dune', 'Everything Everywhere All at Once', 'The Power of the Dog',
-          'CODA', 'Nomadland', 'Drive My Car', 'The Father', 'Minari',
-          'Sound of Metal', 'Promising Young Woman'
-        ]
-      }
-    ]
+    name: "Modern Classics (1990s-2020s)",
+    categories: {
+      "90s Masterpieces": [
+        "Pulp Fiction",
+        "The Shawshank Redemption",
+        "Schindler's List",
+        "Goodfellas",
+        "The Silence of the Lambs",
+        "Fight Club"
+      ],
+      "2000s Landmarks": [
+        "The Dark Knight",
+        "There Will Be Blood",
+        "No Country for Old Men",
+        "Memento",
+        "City of God",
+        "Eternal Sunshine of the Spotless Mind"
+      ],
+      "2010s Masterworks": [
+        "Inception",
+        "Mad Max: Fury Road",
+        "Parasite",
+        "The Grand Budapest Hotel",
+        "Whiplash",
+        "La La Land"
+      ],
+      "Recent Acclaimed": [
+        "Everything Everywhere All at Once",
+        "Dune",
+        "The Power of the Dog",
+        "Drive My Car",
+        "Nomadland"
+      ]
+    }
+  },
+  'documentary': {
+    id: 'documentary',
+    name: "Documentary Masterpieces",
+    categories: {
+      "Nature & Science": [
+        "Planet Earth Series",
+        "Blue Planet Series",
+        "My Octopus Teacher",
+        "March of the Penguins",
+        "Chasing Coral",
+        "A Life on Our Planet"
+      ],
+      "Social & Cultural": [
+        "Won't You Be My Neighbor?",
+        "RBG",
+        "The Last Dance",
+        "Summer of Soul",
+        "Free Solo",
+        "Amy"
+      ],
+      "True Crime": [
+        "The Thin Blue Line",
+        "Making a Murderer",
+        "The Jinx",
+        "Don't F**k with Cats",
+        "Tiger King",
+        "The Keepers"
+      ],
+      "Music & Arts": [
+        "What Happened, Miss Simone?",
+        "Searching for Sugar Man",
+        "20 Feet from Stardom",
+        "Woodstock",
+        "This Is It",
+        "Amazing Grace"
+      ]
+    }
+  },
+  'cult-classics': {
+    id: 'cult-classics',
+    name: "Cult & Underground Classics",
+    categories: {
+      "Midnight Movies": [
+        "The Rocky Horror Picture Show",
+        "The Room",
+        "Pink Flamingos",
+        "Eraserhead",
+        "Repo Man",
+        "They Live"
+      ],
+      "Cult Action": [
+        "The Warriors",
+        "Big Trouble in Little China",
+        "Army of Darkness",
+        "Escape from New York",
+        "Flash Gordon",
+        "Barbarella"
+      ],
+      "Cult Horror": [
+        "Evil Dead Series",
+        "Phantasm Series",
+        "Re-Animator",
+        "Night of the Demons",
+        "Basket Case",
+        "Troll 2"
+      ],
+      "Cult Comedy": [
+        "This Is Spinal Tap",
+        "The Big Lebowski",
+        "Office Space",
+        "Clerks",
+        "Napoleon Dynamite",
+        "Wet Hot American Summer"
+      ]
+    }
+  },
+  'genre-horror': {
+    id: 'genre-horror',
+    name: "Horror Collection",
+    categories: {
+      "Classic Horror": [
+        "The Exorcist",
+        "The Shining",
+        "Halloween",
+        "A Nightmare on Elm Street",
+        "Rosemary's Baby",
+        "The Thing"
+      ],
+      "Modern Horror": [
+        "Get Out",
+        "Hereditary",
+        "A Quiet Place",
+        "The Babadook",
+        "It Follows",
+        "Midsommar"
+      ],
+      "Supernatural": [
+        "The Conjuring Universe",
+        "Insidious Series",
+        "Sinister",
+        "The Others",
+        "The Ring",
+        "Drag Me to Hell"
+      ],
+      "Psychological": [
+        "Black Swan",
+        "The Silence of the Lambs",
+        "Mother!",
+        "The Lighthouse",
+        "Saint Maud",
+        "The Witch"
+      ]
+    }
+  },
+  'genre-romance': {
+    id: 'genre-romance',
+    name: "Romance Collection",
+    categories: {
+      "Classic Romance": [
+        "Casablanca",
+        "Gone with the Wind",
+        "Roman Holiday",
+        "Breakfast at Tiffany's",
+        "An Affair to Remember",
+        "Doctor Zhivago"
+      ],
+      "Modern Romance": [
+        "The Notebook",
+        "Eternal Sunshine of the Spotless Mind",
+        "500 Days of Summer",
+        "La La Land",
+        "Call Me by Your Name",
+        "The Shape of Water"
+      ],
+      "Romantic Comedy": [
+        "When Harry Met Sally",
+        "Pretty Woman",
+        "Notting Hill",
+        "Bridget Jones's Diary",
+        "Love Actually",
+        "Crazy Rich Asians"
+      ],
+      "International Romance": [
+        "In the Mood for Love",
+        "Amélie",
+        "Cinema Paradiso",
+        "Y Tu Mamá También",
+        "Portrait of a Lady on Fire",
+        "The Handmaiden"
+      ]
+    }
+  },
+  'director-showcase': {
+    id: 'director-showcase',
+    name: "Director Showcases",
+    categories: {
+      "Christopher Nolan": [
+        "Inception",
+        "Interstellar",
+        "The Dark Knight Trilogy",
+        "Memento",
+        "Dunkirk",
+        "Tenet",
+        "Oppenheimer"
+      ],
+      "Martin Scorsese": [
+        "Goodfellas",
+        "The Departed",
+        "Taxi Driver",
+        "Raging Bull",
+        "The Wolf of Wall Street",
+        "Casino",
+        "Killers of the Flower Moon"
+      ],
+      "Steven Spielberg": [
+        "Jurassic Park",
+        "E.T.",
+        "Schindler's List",
+        "Saving Private Ryan",
+        "Raiders of the Lost Ark",
+        "Jaws",
+        "The Fabelmans"
+      ],
+      "Quentin Tarantino": [
+        "Pulp Fiction",
+        "Kill Bill Vol. 1 & 2",
+        "Inglourious Basterds",
+        "Django Unchained",
+        "Once Upon a Time in Hollywood",
+        "Reservoir Dogs"
+      ]
+    }
+  },
+  'award-winners': {
+    id: 'award-winners',
+    name: "Award-Winning Cinema",
+    categories: {
+      "Best Picture Oscar Winners": [
+        "CODA (2022)",
+        "Nomadland (2021)",
+        "Parasite (2020)",
+        "Green Book (2019)",
+        "The Shape of Water (2018)",
+        "Moonlight (2017)",
+        "Spotlight (2016)"
+      ],
+      "Foreign Language Oscar Winners": [
+        "Drive My Car (2022)",
+        "Another Round (2021)",
+        "Parasite (2020)",
+        "Roma (2019)",
+        "A Fantastic Woman (2018)",
+        "The Salesman (2017)"
+      ],
+      "Cannes Palm d'Or Winners": [
+        "Triangle of Sadness (2022)",
+        "Titane (2021)",
+        "Parasite (2019)",
+        "Shoplifters (2018)",
+        "The Square (2017)",
+        "I, Daniel Blake (2016)"
+      ],
+      "Venice Golden Lion Winners": [
+        "All the Beauty and the Bloodshed (2022)",
+        "Happening (2021)",
+        "Nomadland (2020)",
+        "Joker (2019)",
+        "Roma (2018)",
+        "The Shape of Water (2017)"
+      ]
+    }
+  },
+  'family-children': {
+    id: 'family-children',
+    name: "Family & Children's Collection",
+    categories: {
+      "Live-Action Adventures": [
+        "The Chronicles of Narnia Series",
+        "Harry Potter Series",
+        "Mary Poppins Returns",
+        "Paddington Series",
+        "The Princess Bride",
+        "The NeverEnding Story"
+      ],
+      "Family Comedies": [
+        "Home Alone Series",
+        "Night at the Museum Series",
+        "Mrs. Doubtfire",
+        "The Parent Trap",
+        "Honey, I Shrunk the Kids",
+        "The Goonies"
+      ],
+      "Educational & Inspiring": [
+        "Hidden Figures",
+        "Wonder",
+        "The Theory of Everything",
+        "October Sky",
+        "Remember the Titans",
+        "Bridge to Terabithia"
+      ],
+      "Holiday Classics": [
+        "The Polar Express",
+        "Elf",
+        "How the Grinch Stole Christmas",
+        "A Christmas Story",
+        "Miracle on 34th Street",
+        "The Santa Clause"
+      ]
+    }
+  },
+  'sports-adventure': {
+    id: 'sports-adventure',
+    name: "Sports & Adventure",
+    categories: {
+      "Sports Dramas": [
+        "Rocky Series",
+        "Creed Series",
+        "Moneyball",
+        "Remember the Titans",
+        "Coach Carter",
+        "The Blind Side",
+        "Million Dollar Baby"
+      ],
+      "Adventure Epics": [
+        "Indiana Jones Series",
+        "The Mummy Series",
+        "National Treasure Series",
+        "Jumanji Series",
+        "Journey to the Center of the Earth",
+        "Tomb Raider Series"
+      ],
+      "Survival Stories": [
+        "Cast Away",
+        "Life of Pi",
+        "127 Hours",
+        "The Martian",
+        "Gravity",
+        "All Is Lost"
+      ],
+      "Extreme Sports": [
+        "Point Break",
+        "Lords of Dogtown",
+        "Blue Crush",
+        "Steep",
+        "The Art of Flight",
+        "Free Solo"
+      ]
+    }
+  },
+  'war-films': {
+    id: 'war-films',
+    name: "War Cinema",
+    categories: {
+      "World War II": [
+        "Saving Private Ryan",
+        "Schindler's List",
+        "Dunkirk",
+        "The Pianist",
+        "Hacksaw Ridge",
+        "Inglourious Basterds"
+      ],
+      "Modern Warfare": [
+        "Black Hawk Down",
+        "Zero Dark Thirty",
+        "The Hurt Locker",
+        "American Sniper",
+        "1917",
+        "Jarhead"
+      ],
+      "Vietnam War": [
+        "Apocalypse Now",
+        "Full Metal Jacket",
+        "Platoon",
+        "Good Morning, Vietnam",
+        "Born on the Fourth of July",
+        "We Were Soldiers"
+      ],
+      "War & Society": [
+        "The Deer Hunter",
+        "Letters from Iwo Jima",
+        "The Bridge on the River Kwai",
+        "Das Boot",
+        "Life Is Beautiful",
+        "Grave of the Fireflies"
+      ]
+    }
+  },
+  'comedy-classics': {
+    id: 'comedy-classics',
+    name: "Comedy Collection",
+    categories: {
+      "Classic Comedy": [
+        "Some Like It Hot",
+        "Dr. Strangelove",
+        "The Great Dictator",
+        "Duck Soup",
+        "Modern Times",
+        "It Happened One Night"
+      ],
+      "Modern Comedy": [
+        "The Hangover Series",
+        "Bridesmaids",
+        "Superbad",
+        "The Grand Budapest Hotel",
+        "Shaun of the Dead",
+        "The Big Sick"
+      ],
+      "Romantic Comedy": [
+        "When Harry Met Sally",
+        "Pretty Woman",
+        "Bridget Jones's Diary",
+        "10 Things I Hate About You",
+        "Crazy, Stupid, Love",
+        "500 Days of Summer"
+      ],
+      "Parody & Satire": [
+        "Airplane!",
+        "Blazing Saddles",
+        "This Is Spinal Tap",
+        "Galaxy Quest",
+        "The Princess Bride",
+        "Monty Python Series"
+      ]
+    }
+  },
+  'thriller': {
+    id: 'thriller',
+    name: "Thriller Collection",
+    categories: {
+      "Psychological Thrillers": [
+        "Gone Girl",
+        "Black Swan",
+        "Shutter Island",
+        "Memento",
+        "Fight Club",
+        "Inception",
+        "Mulholland Drive"
+      ],
+      "Crime Thrillers": [
+        "Seven",
+        "Prisoners",
+        "Zodiac",
+        "No Country for Old Men",
+        "Sicario",
+        "Nightcrawler",
+        "Wind River"
+      ],
+      "Spy Thrillers": [
+        "The Bourne Series",
+        "Bridge of Spies",
+        "Tinker Tailor Soldier Spy",
+        "Zero Dark Thirty",
+        "Munich",
+        "The Lives of Others"
+      ],
+      "Mystery Thrillers": [
+        "Knives Out",
+        "The Girl with the Dragon Tattoo",
+        "The Usual Suspects",
+        "L.A. Confidential",
+        "Mystic River",
+        "The Silence of the Lambs"
+      ]
+    }
+  },
+  'film-noir': {
+    id: 'film-noir',
+    name: "Film Noir Collection",
+    categories: {
+      "Classic Noir": [
+        "Double Indemnity",
+        "The Maltese Falcon",
+        "Touch of Evil",
+        "The Big Sleep",
+        "Out of the Past",
+        "The Third Man"
+      ],
+      "Neo-Noir": [
+        "Chinatown",
+        "Blade Runner",
+        "L.A. Confidential",
+        "Drive",
+        "Sin City",
+        "The Long Goodbye"
+      ],
+      "Modern Noir": [
+        "Gone Baby Gone",
+        "Brick",
+        "Dark City",
+        "Memento",
+        "Mulholland Drive",
+        "Nightcrawler"
+      ],
+      "International Noir": [
+        "Oldboy",
+        "The Lives of Others",
+        "Tell No One",
+        "A Prophet",
+        "The Secret in Their Eyes",
+        "Victoria"
+      ]
+    }
+  },
+  'musicals': {
+    id: 'musicals',
+    name: "Musical Collection",
+    categories: {
+      "Classic Musicals": [
+        "Singin' in the Rain",
+        "The Sound of Music",
+        "West Side Story (1961)",
+        "My Fair Lady",
+        "The Wizard of Oz",
+        "Mary Poppins"
+      ],
+      "Modern Musicals": [
+        "La La Land",
+        "Les Misérables",
+        "Chicago",
+        "Moulin Rouge!",
+        "The Greatest Showman",
+        "West Side Story (2021)"
+      ],
+      "Rock & Pop Musicals": [
+        "A Star Is Born",
+        "Bohemian Rhapsody",
+        "Rocketman",
+        "Across the Universe",
+        "Rock of Ages",
+        "Mamma Mia!"
+      ],
+      "Animated Musicals": [
+        "Beauty and the Beast",
+        "The Lion King",
+        "Encanto",
+        "Frozen",
+        "Coco",
+        "Aladdin"
+      ]
+    }
+  },
+  'experimental': {
+    id: 'experimental',
+    name: "Experimental & Avant-garde",
+    categories: {
+      "Surrealist Cinema": [
+        "Un Chien Andalou",
+        "The Holy Mountain",
+        "Eraserhead",
+        "Meshes of the Afternoon",
+        "Last Year at Marienbad",
+        "Enter the Void"
+      ],
+      "Experimental Narratives": [
+        "Synecdoche, New York",
+        "The Tree of Life",
+        "Holy Motors",
+        "Upstream Color",
+        "Persona",
+        "8½"
+      ],
+      "Visual Experiments": [
+        "Koyaanisqatsi",
+        "Samsara",
+        "Baraka",
+        "Russian Ark",
+        "The Fall",
+        "Loving Vincent"
+      ],
+      "Art House": [
+        "The Seventh Seal",
+        "Wings of Desire",
+        "Three Colors Trilogy",
+        "Uncle Boonmee",
+        "Holy Motors",
+        "The Great Beauty"
+      ]
+    }
+  },
+  'asian-action': {
+    id: 'asian-action',
+    name: "Asian Action Cinema",
+    categories: {
+      "Martial Arts Classics": [
+        "Enter the Dragon",
+        "Fist of Fury",
+        "The 36th Chamber of Shaolin",
+        "Once Upon a Time in China",
+        "Drunken Master",
+        "Hero"
+      ],
+      "Modern Martial Arts": [
+        "Crouching Tiger, Hidden Dragon",
+        "House of Flying Daggers",
+        "Ip Man Series",
+        "The Raid Series",
+        "Ong-Bak",
+        "The Grandmaster"
+      ],
+      "Korean Action": [
+        "Oldboy",
+        "The Man from Nowhere",
+        "A Bittersweet Life",
+        "The Good, the Bad, the Weird",
+        "The Villainess",
+        "Train to Busan"
+      ],
+      "Japanese Action": [
+        "13 Assassins",
+        "Blade of the Immortal",
+        "Zatoichi",
+        "Azumi",
+        "Rurouni Kenshin Series",
+        "Battle Royale"
+      ]
+    }
+  },
+  'crime-gangster': {
+    id: 'crime-gangster',
+    name: "Crime & Gangster Films",
+    categories: {
+      "Classic Gangster": [
+        "The Godfather Trilogy",
+        "Goodfellas",
+        "Casino",
+        "Once Upon a Time in America",
+        "The Untouchables",
+        "Miller's Crossing"
+      ],
+      "Modern Crime": [
+        "The Departed",
+        "Heat",
+        "The Town",
+        "Drive",
+        "No Country for Old Men",
+        "Hell or High Water"
+      ],
+      "Heist Films": [
+        "Ocean's Series",
+        "Inside Man",
+        "The Italian Job",
+        "Heat",
+        "Inception",
+        "Baby Driver"
+      ],
+      "True Crime": [
+        "The Wolf of Wall Street",
+        "American Gangster",
+        "Black Mass",
+        "Donnie Brasco",
+        "Public Enemies",
+        "Catch Me If You Can"
+      ]
+    }
+  },
+  'fantasy': {
+    id: 'fantasy',
+    name: "Fantasy Collection",
+    categories: {
+      "Epic Fantasy": [
+        "The Lord of the Rings Trilogy",
+        "The Hobbit Trilogy",
+        "The Chronicles of Narnia Series",
+        "Pan's Labyrinth",
+        "The NeverEnding Story",
+        "Stardust"
+      ],
+      "Urban Fantasy": [
+        "Harry Potter Series",
+        "Fantastic Beasts Series",
+        "Doctor Strange",
+        "Constantine",
+        "Hellboy Series",
+        "The Golden Compass"
+      ],
+      "Dark Fantasy": [
+        "The Dark Crystal",
+        "Coraline",
+        "MirrorMask",
+        "The Shape of Water",
+        "Crimson Peak",
+        "The City of Lost Children"
+      ],
+      "Mythological": [
+        "Clash of the Titans",
+        "300",
+        "Immortals",
+        "Gods of Egypt",
+        "Percy Jackson Series",
+        "Troy"
+      ]
+    }
+  },
+  'historical-epics': {
+    id: 'historical-epics',
+    name: "Historical Epics",
+    categories: {
+      "Ancient World": [
+        "Gladiator",
+        "Troy",
+        "300",
+        "Alexander",
+        "Kingdom of Heaven",
+        "Ben-Hur"
+      ],
+      "Medieval": [
+        "Braveheart",
+        "Robin Hood",
+        "The Last Duel",
+        "Outlaw King",
+        "The King",
+        "Elizabeth"
+      ],
+      "Renaissance & Colonial": [
+        "The Last of the Mohicans",
+        "The Mission",
+        "The Other Boleyn Girl",
+        "The New World",
+        "Master and Commander",
+        "Barry Lyndon"
+      ],
+      "Modern History": [
+        "Lawrence of Arabia",
+        "The Last Emperor",
+        "Gandhi",
+        "Schindler's List",
+        "The Pianist",
+        "Apocalypse Now"
+      ]
+    }
+  },
+  'biographical': {
+    id: 'biographical',
+    name: "Biographical Films",
+    categories: {
+      "Artists & Musicians": [
+        "Amadeus",
+        "Ray",
+        "Walk the Line",
+        "Bohemian Rhapsody",
+        "Rocketman",
+        "Frida"
+      ],
+      "Political Figures": [
+        "Lincoln",
+        "Darkest Hour",
+        "The Iron Lady",
+        "Gandhi",
+        "JFK",
+        "The Queen"
+      ],
+      "Scientists & Innovators": [
+        "The Theory of Everything",
+        "A Beautiful Mind",
+        "The Imitation Game",
+        "Hidden Figures",
+        "Tesla",
+        "Steve Jobs"
+      ],
+      "Sports Legends": [
+        "Ali",
+        "Rush",
+        "Moneyball",
+        "42",
+        "The Blind Side",
+        "Ford v Ferrari"
+      ]
+    }
+  },
+  'teen-coming-age': {
+    id: 'teen-coming-age',
+    name: "Teen & Coming of Age",
+    categories: {
+      "Classic Coming of Age": [
+        "Stand By Me",
+        "Dead Poets Society",
+        "The Breakfast Club",
+        "Ferris Bueller's Day Off",
+        "Dazed and Confused",
+        "American Graffiti"
+      ],
+      "Modern Teen": [
+        "Lady Bird",
+        "The Perks of Being a Wallflower",
+        "Juno",
+        "Easy A",
+        "Booksmart",
+        "The Edge of Seventeen"
+      ],
+      "High School Stories": [
+        "Mean Girls",
+        "10 Things I Hate About You",
+        "Clueless",
+        "Superbad",
+        "Election",
+        "Fast Times at Ridgemont High"
+      ],
+      "International Coming of Age": [
+        "Y Tu Mamá También",
+        "Amélie",
+        "Cinema Paradiso",
+        "The 400 Blows",
+        "Boyhood",
+        "Call Me by Your Name"
+      ]
+    }
+  },
+  'political-thriller': {
+    id: 'political-thriller',
+    name: "Political Thrillers",
+    categories: {
+      "Conspiracy": [
+        "All the President's Men",
+        "The Manchurian Candidate",
+        "Three Days of the Condor",
+        "JFK",
+        "The Parallax View",
+        "Z"
+      ],
+      "Espionage": [
+        "Bridge of Spies",
+        "The Lives of Others",
+        "Munich",
+        "Zero Dark Thirty",
+        "Argo",
+        "The Good Shepherd"
+      ],
+      "Political Drama": [
+        "The Post",
+        "Spotlight",
+        "Vice",
+        "The Report",
+        "Fair Game",
+        "Official Secrets"
+      ],
+      "International Politics": [
+        "Eye in the Sky",
+        "Charlie Wilson's War",
+        "The Last King of Scotland",
+        "No",
+        "The Constant Gardener",
+        "Miss Sloane"
+      ]
+    }
   }
-];
+}
 
