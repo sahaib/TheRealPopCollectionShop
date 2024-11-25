@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">The Real Pop Collection</h3>
+            <h3 className="text-xl font-bold mb-4">The Real Pop Collection Shop</h3>
             <p className="mb-4">Reviving the old era with physical media that creates tangible memories.</p>
             <div className="flex space-x-4">
               <Link href="#" aria-label="Facebook"><Facebook className="w-6 h-6" /></Link>
@@ -34,7 +34,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p>&copy; 2023 The Real Pop Collection. All rights reserved.</p>
+          <p>&copy; 2023 The Real Pop Collection Shop. All rights reserved.</p>
         </div>
       </div>
     </footer>

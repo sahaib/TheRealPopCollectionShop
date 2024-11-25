@@ -12,17 +12,18 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="my-16 bg-gray-100 py-16 rounded-lg">
+    <section className="my-16 bg-white dark:bg-gray-800/50 py-16 rounded-lg">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center">
-Why Choose Physical Media?</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center dark:text-white">
+          Why Choose Physical Media?
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-start space-x-4">
-              <benefit.icon className="w-8 h-8 text-blue-600 flex-shrink-0" />
+              <benefit.icon className="w-8 h-8 text-blue-600 dark:text-blue-400 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="text-xl font-semibold mb-2 dark:text-white">{benefit.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{benefit.description}</p>
               </div>
             </div>
           ))}

@@ -8,7 +8,7 @@ export default function Home() {
   const featuredCollections: Collection[] = Object.values(collections).slice(0, 3)
 
   return (
-    <div>
+    <div className="container mx-auto px-4 max-w-7xl">
       <Hero />
       <Benefits />
       <FeaturedCollections collections={featuredCollections} />

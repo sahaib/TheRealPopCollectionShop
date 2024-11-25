@@ -59,12 +59,8 @@ export default function ProfilePage() {
 
   const handleRemoveFavorite = async (favoriteId: string, movieTitle: string) => {
     try {
-      const response = await fetch('/api/favorites', {
+      const response = await fetch(`/api/favorites/${favoriteId}`, {
         method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ favoriteId }),
       })
 
       if (!response.ok) throw new Error('Failed to remove from favorites')
