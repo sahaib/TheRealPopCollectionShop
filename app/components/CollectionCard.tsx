@@ -29,7 +29,7 @@ const gradientClasses = {
 
 export default function CollectionCard({ title, href, gradient }: CollectionCardProps) {
   const collectionType = title.split(' ')[0]
-  const gradientClass = gradientClasses[collectionType] || gradientClasses.default
+  const gradientClass = gradientClasses[collectionType as keyof typeof gradientClasses] || gradientClasses.default
 
   return (
     <Link href={href} className="group">
