@@ -26,7 +26,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <CartProvider>
               <Header />
-              <main className="pt-16">{children}</main>
+              <main id="main-content" className="pt-16 transition-all duration-300">{children}</main>
               <Footer />
             </CartProvider>
           </ThemeProvider>

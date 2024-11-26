@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Heart, ShoppingCart } from 'lucide-react'
 import { toast } from 'sonner'
 import { useSession } from 'next-auth/react'
+import { useCart } from '@/hooks/useCart'
 
 interface MovieCardProps {
   title: string
@@ -14,7 +15,7 @@ interface MovieCardProps {
 
 export default function MovieCard({ title, href, gradient }: MovieCardProps) {
   const [isFavorite, setIsFavorite] = useState(false)
-  const [isInCart, setIsInCart] = useState(false)
+  const { addToCart, state } = useCart()
   const { data: session } = useSession()
 
   const handleFavorite = async (e: React.MouseEvent) => {
@@ -48,36 +49,23 @@ export default function MovieCard({ title, href, gradient }: MovieCardProps) {
     }
   }
 
-  const handleAddToCart = async (e: React.MouseEvent) => {
+  const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault()
-    
-    if (!session) {
-      toast.error('Please sign in to add to cart')
-      return
-    }
-
     try {
-      const response = await fetch('/api/cart', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title }),
+      addToCart({
+        id: title,
+        title: title,
+        price: 29.99,
+        quantity: 1
       })
-
-      if (!response.ok) throw new Error('Failed to update cart')
-
-      setIsInCart(!isInCart)
-      toast.success(
-        isInCart ? 
-        `Removed ${title} from cart` : 
-        `Added ${title} to cart`
-      )
+      toast.success(`Added ${title} to cart`)
     } catch (error) {
-      toast.error('Failed to update cart')
-      console.error('Error updating cart:', error)
+      toast.error('Failed to add to cart')
+      console.error('Error adding to cart:', error)
     }
   }
+
+  const isInCart = state.items.some(item => item.id === title)
 
   return (
     <div className="group relative block overflow-hidden rounded-xl">
@@ -103,11 +91,14 @@ export default function MovieCard({ title, href, gradient }: MovieCardProps) {
             
             <button
               onClick={handleAddToCart}
-              className={`p-2 rounded-full ${isInCart ? 'bg-green-500' : 'bg-white/20'} hover:bg-green-500 transition-colors`}
+              className={`p-2 rounded-full ${
+                isInCart 
+                  ? 'bg-green-500 text-white' 
+                  : 'bg-white/20 hover:bg-white/30 text-white'
+              }`}
+              disabled={isInCart}
             >
-              <ShoppingCart 
-                className={`h-5 w-5 ${isInCart ? 'text-white fill-current' : 'text-white'}`}
-              />
+              {isInCart ? '✓ In Cart' : 'Add to Cart'}
             </button>
           </div>
         </div>

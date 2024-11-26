@@ -1,8 +1,9 @@
 "use client"
 import { Search, X } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { collections } from '@/lib/collections'
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
 
 interface SearchResult {
   title: string
@@ -18,6 +19,18 @@ interface SearchOverlayProps {
 export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<SearchResult[]>([])
+  const { theme } = useTheme()
+
+  // Add/remove blur class on main content when search is opened/closed
+  useEffect(() => {
+    const mainContent = document.getElementById('main-content')
+    if (isOpen) {
+      mainContent?.classList.add('blur-xl')
+    } else {
+      mainContent?.classList.remove('blur-xl')
+    }
+    return () => mainContent?.classList.remove('blur-xl')
+  }, [isOpen])
 
   const handleSearch = (searchQuery: string) => {
     setQuery(searchQuery)
@@ -28,10 +41,8 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
 
     const searchResults: SearchResult[] = []
     
-    // Use Object.entries to iterate over the collections object
     Object.entries(collections).forEach(([categoryKey, collection]) => {
       Object.entries(collection.categories).forEach(([subcategoryName, items]) => {
-        // Handle both array and nested object cases
         const movieList = Array.isArray(items) 
           ? items 
           : Object.values(items).flat()
@@ -54,39 +65,51 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50">
-      <div className="container mx-auto px-4 pt-20">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 max-w-2xl mx-auto">
+    <div className="fixed inset-0 z-[999]">
+      {/* Semi-transparent overlay */}
+      <div className="fixed inset-0 bg-black/60" onClick={onClose} />
+      
+      {/* Search Container */}
+      <div className="fixed top-20 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4">
+        <div className="relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
             placeholder="Search movies..."
-            className="w-full p-2 border rounded"
+            className={`search-input search-input-glow ${theme === 'dark' ? 'search-input-dark' : ''} 
+              text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400
+              pl-12 pr-12`}
             value={query}
             onChange={(e) => handleSearch(e.target.value)}
             autoFocus
           />
-          
-          <div className="mt-4 max-h-96 overflow-y-auto">
-            {results.map((result, index) => (
-              <Link
-                key={index}
-                href={result.url}
-                onClick={onClose}
-                className="block p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
-              >
-                <div className="font-medium">{result.title}</div>
-                <div className="text-sm text-gray-500">{result.category}</div>
-              </Link>
-            ))}
-          </div>
-          
           <button
             onClick={onClose}
-            className="mt-4 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700/50 transition-colors"
+            aria-label="Close search"
           >
-            Close
+            <X className="w-5 h-5 text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" />
           </button>
         </div>
+
+        {/* Results */}
+        {results.length > 0 && (
+          <div className="mt-2 bg-white/10 dark:bg-black/20 rounded-xl shadow-2xl backdrop-blur-xl">
+            <div className="max-h-[60vh] overflow-y-auto">
+              {results.map((result, index) => (
+                <Link
+                  key={index}
+                  href={result.url}
+                  onClick={onClose}
+                  className="block p-4 hover:bg-white/10 dark:hover:bg-gray-700/30 transition-colors"
+                >
+                  <div className="font-medium text-gray-900 dark:text-white">{result.title}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{result.category}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

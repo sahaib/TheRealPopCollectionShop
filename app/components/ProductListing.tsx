@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { useCart } from '@/hooks/useCart'
+import { toast } from 'sonner'
 
 const products = [
   { id: 1, name: 'Back to the Future Trilogy', price: 29.99, image: '/placeholder.svg?height=300&width=200' },
@@ -11,7 +12,22 @@ const products = [
 ]
 
 export default function ProductListing() {
-  const { addToCart } = useCart()
+  const { addToCart, state } = useCart()
+
+  const handleAddToCart = (product: typeof products[0]) => {
+    try {
+      addToCart({
+        id: product.id,
+        title: product.name,
+        price: product.price,
+        quantity: 1
+      })
+      toast.success(`Added ${product.name} to cart`)
+    } catch (error) {
+      toast.error('Failed to add item to cart')
+      console.error('Error adding to cart:', error)
+    }
+  }
 
   return (
     <section className="my-16">
@@ -33,15 +49,11 @@ export default function ProductListing() {
               <p className="text-gray-600 dark:text-gray-300">${product.price.toFixed(2)}</p>
               <div className="mt-auto pt-4">
                 <Button 
-                  onClick={() => addToCart({ 
-                    id: product.id, 
-                    title: product.name, 
-                    price: product.price,
-                    quantity: 1
-                  })}
+                  onClick={() => handleAddToCart(product)}
                   className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white"
+                  disabled={state.items.some(item => item.id === product.id)}
                 >
-                  Add to Cart
+                  {state.items.some(item => item.id === product.id) ? 'In Cart' : 'Add to Cart'}
                 </Button>
               </div>
             </div>
