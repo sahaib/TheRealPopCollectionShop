@@ -63,12 +63,8 @@ export default function Header() {
             >
               <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
-            <div className="p-1.5 sm:p-2">
-              <DarkModeToggle />
-            </div>
-            <div className="p-1.5 sm:p-2">
-              <AuthButton />
-            </div>
+            <DarkModeToggle className="p-1.5 sm:p-2" />
+            <AuthButton className="p-1.5 sm:p-2" />
             <button
               onClick={() => setIsCartOpen(true)}
               className="p-1.5 sm:p-2 rounded-full glass-button relative"

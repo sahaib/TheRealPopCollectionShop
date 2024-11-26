@@ -1,10 +1,55 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
+import { useState, useRef } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
+import { toast } from 'sonner'
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
+  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const token = await recaptchaRef.current?.executeAsync()
+      if (!token) {
+        throw new Error('reCAPTCHA verification failed')
+      }
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message'),
+          recaptchaToken: token,
+        }),
+      })
+
+      if (!response.ok) throw new Error('Failed to send message')
+
+      toast.success('Message sent successfully!')
+      form.reset()
+      recaptchaRef.current?.reset()
+
+    } catch (error) {
+      toast.error('Failed to send message. Please try again.')
+      console.error('Contact form error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 relative">
       <h1 className="text-4xl font-bold mb-12 text-center">Contact Us</h1>
       
       <div className="max-w-6xl mx-auto bg-white/10 dark:bg-gray-800/30 backdrop-blur-lg rounded-2xl shadow-xl p-8 border border-white/20">
@@ -37,7 +82,7 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <form className="space-y-6 bg-white/5 dark:bg-gray-800/50 p-6 rounded-xl backdrop-blur-sm">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block font-medium mb-2">
                 Name
@@ -45,6 +90,8 @@ export default function ContactPage() {
               <input
                 type="text"
                 id="name"
+                name="name"
+                required
                 className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 backdrop-blur-sm"
                 placeholder="Your name"
               />
@@ -57,6 +104,8 @@ export default function ContactPage() {
               <input
                 type="email"
                 id="email"
+                name="email"
+                required
                 className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 backdrop-blur-sm"
                 placeholder="your@email.com"
               />
@@ -68,18 +117,36 @@ export default function ContactPage() {
               </label>
               <textarea
                 id="message"
+                name="message"
+                required
                 rows={6}
                 className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 backdrop-blur-sm"
                 placeholder="Your message..."
               ></textarea>
             </div>
 
-            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white">
-              Send Message
-            </Button>
+            <div className="flex flex-col gap-4">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors disabled:opacity-50"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+              
+              <div className="absolute bottom-0 right-0 transform translate-y-full">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  size="invisible"
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                />
+              </div>
+            </div>
           </form>
         </div>
       </div>
+
+      <div className="h-20" />
     </div>
   )
 } 

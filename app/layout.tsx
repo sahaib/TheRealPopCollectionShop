@@ -1,3 +1,4 @@
+
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Header from './components/Header'
@@ -23,13 +24,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} text-gray-900 dark:text-gray-100 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800`}>
         <AuthProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <CartProvider>
+          <CartProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Header />
-              <main id="main-content" className="pt-16 transition-all duration-300">{children}</main>
+              <main id="main-content" className="pt-16 transition-all duration-300">
+                {children}
+              </main>
               <Footer />
-            </CartProvider>
-          </ThemeProvider>
+            </ThemeProvider>
+          </CartProvider>
         </AuthProvider>
         <Toaster position="top-center" />
       </body>

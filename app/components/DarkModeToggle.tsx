@@ -34,7 +34,11 @@ export default function DarkModeToggle({ className = "" }: DarkModeToggleProps) 
       className={`rounded-full glass-button ${className}`}
       aria-label="Toggle dark mode"
     >
-      {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+      {isDark ? (
+        <Sun className="w-4 h-4 sm:w-5 sm:h-5" />
+      ) : (
+        <Moon className="w-4 h-4 sm:w-5 sm:h-5" />
+      )}
     </button>
   )
 } 

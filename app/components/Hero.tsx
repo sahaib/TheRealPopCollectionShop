@@ -8,7 +8,7 @@ export default function Hero() {
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Revive the Magic of Physical Media</h1>
         <p className="text-xl mb-8">Experience movies like never before with our curated DVD collection</p>
         <Link href="/collections">
-          <Button size="lg" className="glass-button">
+          <Button size="lg" className="glass-button transition-transform duration-300 hover:scale-105 hover:shadow-lg">
             Explore Collections
           </Button>
         </Link>

@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { Heart, ShoppingCart } from 'lucide-react'
 import { toast } from 'sonner'
+import { useCart } from '@/hooks/useCart'
 
 interface Favorite {
   id: string
@@ -22,6 +23,7 @@ export default function ProfilePage() {
   const [favorites, setFavorites] = useState<Favorite[]>([])
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [orders, setOrders] = useState<string[]>([])
+  const { addToCart, state } = useCart()
 
   useEffect(() => {
     if (session?.user?.email) {
@@ -73,8 +75,23 @@ export default function ProfilePage() {
     }
   }
 
+  const handleAddToCart = (movieTitle: string) => {
+    try {
+      addToCart({
+        id: movieTitle,
+        title: movieTitle,
+        price: 29.99,
+        quantity: 1
+      })
+      toast.success(`Added ${movieTitle} to cart`)
+    } catch (error) {
+      toast.error('Failed to add item to cart')
+      console.error('Error adding to cart:', error)
+    }
+  }
+
   const isInCart = (movieTitle: string) => {
-    return cartItems.some(item => item.movieTitle === movieTitle)
+    return state.items.some(item => item.id === movieTitle)
   }
 
   const isOrdered = (movieTitle: string) => {
@@ -122,21 +139,21 @@ export default function ProfilePage() {
                 <p className="text-sm text-gray-500 mb-3">
                   Added on {new Date(favorite.createdAt).toLocaleDateString()}
                 </p>
-                {isOrdered(favorite.movieTitle) ? (
-                  <button className="w-full py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700">
-                    Buy Again
+                {!isOrdered(favorite.movieTitle) && !isInCart(favorite.movieTitle) ? (
+                  <button 
+                    className="flex items-center justify-center gap-2 w-full py-2 px-4 bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600"
+                    onClick={() => handleAddToCart(favorite.movieTitle)}
+                  >
+                    <ShoppingCart className="h-4 w-4" />
+                    Add to Cart
                   </button>
                 ) : isInCart(favorite.movieTitle) ? (
                   <div className="text-green-600 text-sm font-medium">
                     ✓ In Cart
                   </div>
                 ) : (
-                  <button 
-                    className="flex items-center justify-center gap-2 w-full py-2 px-4 bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600"
-                    onClick={() => {/* Add to cart logic */}}
-                  >
-                    <ShoppingCart className="h-4 w-4" />
-                    Add to Cart
+                  <button className="w-full py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700">
+                    Buy Again
                   </button>
                 )}
               </div>
