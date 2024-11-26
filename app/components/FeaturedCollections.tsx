@@ -6,6 +6,14 @@ interface FeaturedCollectionsProps {
   collections: Collection[]
 }
 
+// Predefined gradient classes for different collection types
+const gradientClasses = {
+  'Bollywood': 'bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500',
+  'Hollywood': 'bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600',
+  'Science Fiction': 'bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-500',
+  'default': 'bg-gradient-to-br from-gray-500 via-slate-500 to-zinc-500'
+}
+
 export default function FeaturedCollections({ collections }: FeaturedCollectionsProps) {
   return (
     <section className="my-16">
@@ -13,23 +21,38 @@ export default function FeaturedCollections({ collections }: FeaturedCollections
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {collections.map((collection) => (
           <Link key={collection.id} href={`/collections/${collection.id}`} className="group">
-            <div className="bg-white dark:bg-gray-800/50 rounded-lg overflow-hidden transition-transform transform group-hover:scale-105 shadow-md flex flex-col h-full">
-              <div className="relative aspect-[16/9] w-full">
-                <Image 
-                  src={`/placeholder.svg?height=200&width=200&text=${encodeURIComponent(collection.name)}`} 
-                  alt={collection.name} 
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-semibold mb-2 dark:text-white">{collection.name}</h3>
-                <div className="mt-auto">
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {Object.keys(collection.categories).length} categories
+            <div className="relative h-full rounded-lg overflow-hidden transition-all duration-500 
+                          shadow-lg group-hover:shadow-2xl group-hover:scale-105">
+              {/* Gradient Background */}
+              <div className={`absolute inset-0 ${
+                gradientClasses[collection.name.split(' ')[0]] || gradientClasses.default
+              } opacity-90`} />
+              
+              {/* Decorative Elements */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-grid-white/[0.2] bg-grid" />
+              
+              {/* Content */}
+              <div className="relative p-8 h-[300px] flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">{collection.name}</h3>
+                  <div className="w-16 h-1 bg-white/50 rounded-full mb-4" />
+                  <p className="text-white/80">
+                    Explore our curated selection of {collection.name.toLowerCase()} films
                   </p>
                 </div>
+                
+                {/* Categories Count */}
+                <div className="flex items-center gap-2">
+                  <div className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm
+                                text-sm text-white font-medium">
+                    {Object.keys(collection.categories).length} categories
+                  </div>
+                </div>
+                
+                {/* Decorative Circle */}
+                <div className="absolute -right-12 -bottom-12 w-48 h-48 
+                              bg-white/10 rounded-full blur-2xl" />
               </div>
             </div>
           </Link>
