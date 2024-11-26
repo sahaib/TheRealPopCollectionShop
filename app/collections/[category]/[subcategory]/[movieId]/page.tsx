@@ -5,13 +5,27 @@ import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { useCart } from '@/hooks/useCart'
 import { motion } from 'framer-motion'
-import { Star, Clock, Film, Award, Share2 } from 'lucide-react'
+import { Star, Clock, Film, Award, Share2, Heart } from 'lucide-react'
 import { toast } from 'sonner'
-import { getMovieDetails } from '@/lib/tmdb'
+import { collections } from '@/lib/collections'
+import { useSession } from 'next-auth/react'
+import { getMoviePoster } from '@/lib/tmdb'
+import { useImageLoader } from '@/hooks/useImageLoader'
 
-export default function MoviePage({ 
-  params 
-}: { 
+interface PageProps {
+  params: {
+    category: string
+    id: string
+  }
+}
+
+export default function MoviePage({ params }: PageProps) {
+  const { category, id } = params
+  const movie = collections[category]?.[id]
+  const { data: session } = useSession()
+  const isFavorite = session?.user?.favorites?.includes(id)
+  const { imageSrc, isLoading: imageLoading } = useImageLoader(getMoviePoster(movie.id))
+}
   params: { 
     category: string
     subcategory: string
