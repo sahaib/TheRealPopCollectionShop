@@ -362,40 +362,6 @@ export const collections: { [key: string]: Collection } = {
         },
         // Add more movies...
       },
-      "Japanese Cinema": {
-        "Studio-Ghibli": {
-          "Spirited-Away": {
-            id: "Spirited-Away",
-            title: "Spirited Away",
-            price: 49.99,
-            image: "/images/movies/spirited-away.jpg",
-            releaseYear: 2001,
-            duration: "2h 23m",
-            rating: 4.8,
-            description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-            director: "Joss Whedon",
-            cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-            genre: ["Action", "Adventure", "Sci-Fi"]
-          },
-          // Add more movies...
-        },
-        "Live-Action": {
-          "Seven-Samurai": {
-            id: "Seven-Samurai",
-            title: "Seven Samurai",
-            price: 49.99,
-            image: "/images/movies/seven-samurai.jpg",
-            releaseYear: 1954,
-            duration: "2h 23m",
-            rating: 4.8,
-            description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-            director: "Joss Whedon",
-            cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-            genre: ["Action", "Adventure", "Sci-Fi"]
-          },
-          // Add more movies...
-        }
-      },
       "European-Masters": {
         "Amélie": {
           id: "Amélie",
