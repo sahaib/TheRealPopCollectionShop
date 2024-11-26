@@ -21,7 +21,6 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
   const [results, setResults] = useState<SearchResult[]>([])
   const { theme } = useTheme()
 
-  // Add/remove blur class on main content when search is opened/closed
   useEffect(() => {
     const mainContent = document.getElementById('main-content')
     if (isOpen) {
@@ -42,17 +41,18 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     const searchResults: SearchResult[] = []
     
     Object.entries(collections).forEach(([categoryKey, collection]) => {
-      Object.entries(collection.categories).forEach(([subcategoryName, items]) => {
-        const movieList = Array.isArray(items) 
-          ? items 
-          : Object.values(items).flat()
+      if (!collection?.categories) return
 
-        movieList.forEach(item => {
-          if (item.toLowerCase().includes(searchQuery.toLowerCase())) {
+      Object.entries(collection.categories).forEach(([subcategoryKey, movies]) => {
+        if (!movies) return
+
+        Object.values(movies).forEach(movie => {
+          if (movie && movie.title && 
+              movie.title.toLowerCase().includes(searchQuery.toLowerCase())) {
             searchResults.push({
-              title: item,
+              title: movie.title,
               category: collection.name,
-              url: `/collections/${categoryKey}/${item.toLowerCase().replace(/\s+/g, '-')}`
+              url: `/collections/${categoryKey}/${subcategoryKey}/${movie.id}`
             })
           }
         })
