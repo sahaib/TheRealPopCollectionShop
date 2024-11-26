@@ -16,7 +16,7 @@ function CartBadge() {
   if (itemCount === 0) return null
 
   return (
-    <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+    <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-red-500 text-white rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center text-[10px] sm:text-xs">
       {itemCount}
     </span>
   )
@@ -29,20 +29,18 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            {/* <div className="w-8 h-8 relative rounded-full overflow-hidden">
-              <div className="absolute inset-0 rounded-full bg-white dark:bg-gray-900" />
+        <div className="flex items-center justify-between gap-2">
+          <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
+            <div className="w-8 h-8 relative">
               <Image 
-                src="/images/dvd-logo.gif"
+                src="/images/trpc-logo.png"
                 alt="TRP Shop"
                 width={32}
                 height={32}
-                className="object-contain relative z-10 mix-blend-multiply dark:mix-blend-difference"
-                unoptimized
+                className="object-contain dark:invert"
               />
-            </div> */}
-            <span className="text-2xl font-bold">The Real Pop Collection Shop</span>
+            </div>
+            <span className="text-xl font-bold hidden sm:inline">TRPC Shop</span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -57,22 +55,22 @@ export default function Header() {
             </Link>
           </nav>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 rounded-full glass-button"
+              className="p-1.5 sm:p-2 rounded-full glass-button"
               aria-label="Search"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
-            <DarkModeToggle />
-            <AuthButton />
+            <DarkModeToggle className="p-1.5 sm:p-2" />
+            <AuthButton className="p-1.5 sm:p-2" />
             <button
               onClick={() => setIsCartOpen(true)}
-              className="p-2 rounded-full glass-button relative"
+              className="p-1.5 sm:p-2 rounded-full glass-button relative"
               aria-label="Shopping cart"
             >
-              <ShoppingCart className="w-5 h-5" />
+              <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
               <CartBadge />
             </button>
           </div>

@@ -2,7 +2,11 @@
 import { useState, useEffect } from 'react'
 import { Moon, Sun } from 'lucide-react'
 
-export default function DarkModeToggle() {
+interface DarkModeToggleProps {
+  className?: string;
+}
+
+export default function DarkModeToggle({ className = "" }: DarkModeToggleProps) {
   const [isDark, setIsDark] = useState(false)
 
   useEffect(() => {
@@ -27,7 +31,7 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={toggleDarkMode}
-      className="p-2 rounded-full glass-button"
+      className={`rounded-full glass-button ${className}`}
       aria-label="Toggle dark mode"
     >
       {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
