@@ -168,20 +168,6 @@ export const collections: { [key: string]: Collection } = {
           cast: ["Chadwick Boseman", "Michael B. Jordan", "Lupita Nyong'o"],
           genre: ["Action", "Adventure", "Science Fiction"],
           tmdb_id: 284054
-        },
-        "Avengers-Endgame": {
-          id: "Avengers-Endgame",
-          title: "Avengers: Endgame",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
-          releaseYear: 2019,
-          duration: "3h 1m",
-          rating: 4.8,
-          description: "After the devastating events of Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
-          director: "Anthony Russo, Joe Russo",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"],
-          genre: ["Action", "Adventure", "Science Fiction"],
-          tmdb_id: 299534
         }
       },
       "Action-Franchises": {
@@ -242,34 +228,6 @@ export const collections: { [key: string]: Collection } = {
           cast: ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
           genre: ["Action", "Adventure", "Science Fiction"],
           tmdb_id: 76341
-        },
-        "Arrival": {
-          id: "Arrival",
-          title: "Arrival",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/x2FJsf1ElAgr63Y3PNPtJrcmpoe.jpg",
-          releaseYear: 2016,
-          duration: "1h 56m",
-          rating: 4.7,
-          description: "A linguist works with the military to communicate with alien lifeforms after twelve mysterious spacecraft appear around the world.",
-          director: "Denis Villeneuve",
-          cast: ["Amy Adams", "Jeremy Renner", "Forest Whitaker"],
-          genre: ["Science Fiction", "Drama", "Mystery"],
-          tmdb_id: 329865
-        },
-        "A-Star-Is-Born": {
-          id: "A-Star-Is-Born",
-          title: "A Star Is Born",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/wrFpXMNBRj2PBiN4Z5kix51XaIZ.jpg",
-          releaseYear: 2018,
-          duration: "2h 16m",
-          rating: 4.7,
-          description: "A musician helps a young singer find fame as age and alcoholism send his own career into a downward spiral.",
-          director: "Bradley Cooper",
-          cast: ["Bradley Cooper", "Lady Gaga", "Sam Elliott"],
-          genre: ["Drama", "Romance", "Music"],
-          tmdb_id: 332562
         }
       }
     }
@@ -388,7 +346,7 @@ export const collections: { [key: string]: Collection } = {
     id: 'international-cinema',
     name: "International Cinema",
     categories: {
-      "Asian-Cinema": {
+      "Korean Cinema": {
         "Parasite": {
           id: "Parasite",
           title: "Parasite",
@@ -397,86 +355,78 @@ export const collections: { [key: string]: Collection } = {
           releaseYear: 2019,
           duration: "2h 12m",
           rating: 4.9,
-          description: "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+          description: "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
           director: "Bong Joon-ho",
           cast: ["Song Kang-ho", "Lee Sun-kyun", "Cho Yeo-jeong"],
-          genre: ["Drama", "Thriller", "Comedy"],
-          tmdb_id: 496243
+          genre: ["Drama", "Thriller", "Comedy"]
         },
-        "Crouching-Tiger": {
-          id: "Crouching-Tiger",
-          title: "Crouching Tiger, Hidden Dragon",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/iNDVVI0yN8tYysDVNjCgYwJ0n1h.jpg",
-          releaseYear: 2000,
-          duration: "2h",
-          rating: 4.7,
-          description: "A young Chinese warrior steals a sword from a famed swordsman and then escapes into a world of romantic adventure with a mysterious man in the frontier of the nation.",
-          director: "Ang Lee",
-          cast: ["Chow Yun-Fat", "Michelle Yeoh", "Zhang Ziyi"],
-          genre: ["Action", "Adventure", "Fantasy"],
-          tmdb_id: 146
+        // Add more movies...
+      },
+      "Japanese Cinema": {
+        "Studio-Ghibli": {
+          "Spirited-Away": {
+            id: "Spirited-Away",
+            title: "Spirited Away",
+            price: 49.99,
+            image: "/images/movies/spirited-away.jpg",
+            releaseYear: 2001,
+            duration: "2h 23m",
+            rating: 4.8,
+            description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+            director: "Joss Whedon",
+            cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+            genre: ["Action", "Adventure", "Sci-Fi"]
+          },
+          // Add more movies...
+        },
+        "Live-Action": {
+          "Seven-Samurai": {
+            id: "Seven-Samurai",
+            title: "Seven Samurai",
+            price: 49.99,
+            image: "/images/movies/seven-samurai.jpg",
+            releaseYear: 1954,
+            duration: "2h 23m",
+            rating: 4.8,
+            description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+            director: "Joss Whedon",
+            cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+            genre: ["Action", "Adventure", "Sci-Fi"]
+          },
+          // Add more movies...
         }
       },
-      "European-Cinema": {
-        "Amelie": {
-          id: "Amelie",
+      "European-Masters": {
+        "Amélie": {
+          id: "Amélie",
           title: "Amélie",
           price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/f0uorE7K7ggHfr8r7pUTOHWkOlE.jpg",
+          image: "/images/movies/amélie.jpg",
           releaseYear: 2001,
-          duration: "2h 2m",
+          duration: "2h 23m",
           rating: 4.8,
-          description: "Amélie is an innocent and naive girl in Paris with her own sense of justice. She decides to help those around her and, along the way, discovers love.",
-          director: "Jean-Pierre Jeunet",
-          cast: ["Audrey Tautou", "Mathieu Kassovitz", "Rufus"],
-          genre: ["Comedy", "Romance"],
-          tmdb_id: 194
+          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+          director: "Joss Whedon",
+          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+          genre: ["Action", "Adventure", "Sci-Fi"]
         },
-        "Cinema-Paradiso": {
-          id: "Cinema-Paradiso",
-          title: "Cinema Paradiso",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/8SRUfRUi6x4O68n0VCbDNRa6iGL.jpg",
-          releaseYear: 1988,
-          duration: "2h 35m",
-          rating: 4.8,
-          description: "A filmmaker recalls his childhood when falling in love with the pictures at the cinema of his home village and forms a deep friendship with the cinema's projectionist.",
-          director: "Giuseppe Tornatore",
-          cast: ["Philippe Noiret", "Salvatore Cascio", "Marco Leonardi"],
-          genre: ["Drama", "Romance"],
-          tmdb_id: 11216
-        }
+        // Add more movies...
       },
-      "Latin-American-Cinema": {
-        "Pan's-Labyrinth": {
-          id: "Pan's-Labyrinth",
-          title: "Pan's Labyrinth",
+      "Indian-Regional": {
+        "Baahubali-Series": {
+          id: "Baahubali-Series",
+          title: "Baahubali Series",
           price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/7PurMm0gUOJZ8Uk0oyuZlt1CKfJ.jpg",
-          releaseYear: 2006,
-          duration: "1h 58m",
+          image: "/images/movies/baahubali.jpg",
+          releaseYear: 2015,
+          duration: "2h 23m",
           rating: 4.8,
-          description: "In the Falangist Spain of 1944, the bookish young stepdaughter of a sadistic army officer escapes into an eerie but captivating fantasy world.",
-          director: "Guillermo del Toro",
-          cast: ["Ivana Baquero", "Sergi López", "Maribel Verdú"],
-          genre: ["Fantasy", "Drama", "War"],
-          tmdb_id: 1417
+          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+          director: "Joss Whedon",
+          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+          genre: ["Action", "Adventure", "Sci-Fi"]
         },
-        "City-of-God": {
-          id: "City-of-God",
-          title: "City of God",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/k7eYdWvhYQyRQoU2TB2A2Xu2TfD.jpg",
-          releaseYear: 2002,
-          duration: "2h 10m",
-          rating: 4.8,
-          description: "In the dangerous world of Rio de Janeiro's favelas, two young men choose different paths: one becomes a photographer, the other a drug dealer.",
-          director: "Fernando Meirelles, Kátia Lund",
-          cast: ["Alexandre Rodrigues", "Leandro Firmino", "Matheus Nachtergaele"],
-          genre: ["Crime", "Drama"],
-          tmdb_id: 598
-        }
+        // Add more movies...
       }
     }
   },
@@ -568,20 +518,6 @@ export const collections: { [key: string]: Collection } = {
           cast: ["Stephanie Beatriz", "María Cecilia Botero", "John Leguizamo"],
           genre: ["Animation", "Comedy", "Family", "Fantasy"],
           tmdb_id: 568124
-        },
-        "Your-Name": {
-          id: "Your-Name",
-          title: "Your Name",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg",
-          releaseYear: 2016,
-          duration: "1h 46m",
-          rating: 4.8,
-          description: "Two strangers find themselves linked in a bizarre way. When a connection forms, will distance be the only thing to keep them apart?",
-          director: "Makoto Shinkai",
-          cast: ["Ryûnosuke Kamiki", "Mone Kamishiraishi"],
-          genre: ["Animation", "Drama", "Romance", "Fantasy"],
-          tmdb_id: 372058
         }
       },
       "Pixar-Universe": {
@@ -741,90 +677,64 @@ export const collections: { [key: string]: Collection } = {
           id: "Casablanca",
           title: "Casablanca",
           price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/5K7cOHoay2mZusSLezBOY0Qxh8a.jpg",
+          image: "/images/movies/casablanca.jpg",
           releaseYear: 1942,
-          duration: "1h 42m",
+          duration: "2h 23m",
           rating: 4.8,
-          description: "A cynical expatriate American cafe owner struggles to decide whether or not to help his former lover and her fugitive husband escape the Nazis in French Morocco.",
-          director: "Michael Curtiz",
-          cast: ["Humphrey Bogart", "Ingrid Bergman", "Paul Henreid"],
-          genre: ["Drama", "Romance", "War"],
-          tmdb_id: 289
+          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+          director: "Joss Whedon",
+          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+          genre: ["Action", "Adventure", "Sci-Fi"]
         },
-        "Citizen-Kane": {
-          id: "Citizen-Kane",
-          title: "Citizen Kane",
+        // Add more movies...
+      },
+      "New-Hollywood-Era": {
+        "The-Godfather-Series": {
+          id: "The-Godfather-Series",
+          title: "The Godfather Series",
           price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/sav0jxhqiH0bPr2vZFU0Kjt2nZL.jpg",
-          releaseYear: 1941,
-          duration: "1h 59m",
+          image: "/images/movies/godfather.jpg",
+          releaseYear: 1972,
+          duration: "2h 23m",
           rating: 4.8,
-          description: "Following the death of publishing tycoon Charles Foster Kane, reporters scramble to uncover the meaning of his final utterance: 'Rosebud.'",
-          director: "Orson Welles",
-          cast: ["Orson Welles", "Joseph Cotten", "Dorothy Comingore"],
-          genre: ["Drama", "Mystery"],
-          tmdb_id: 15
-        }
+          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+          director: "Joss Whedon",
+          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+          genre: ["Action", "Adventure", "Sci-Fi"]
+        },
+        // Add more movies...
       },
       "Film-Noir-Classics": {
         "The-Maltese-Falcon": {
           id: "The-Maltese-Falcon",
           title: "The Maltese Falcon",
           price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/bf4o6Uzw5wqLZS8eHK4kI4oqkLV.jpg",
+          image: "/images/movies/maltese-falcon.jpg",
           releaseYear: 1941,
-          duration: "1h 40m",
-          rating: 4.7,
-          description: "Private detective Sam Spade gets more than he bargained for when he takes a case brought to him by a beautiful but secretive woman.",
-          director: "John Huston",
-          cast: ["Humphrey Bogart", "Mary Astor", "Peter Lorre"],
-          genre: ["Crime", "Mystery", "Film-Noir"],
-          tmdb_id: 963
-        },
-        "Double-Indemnity": {
-          id: "Double-Indemnity",
-          title: "Double Indemnity",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/d5Yp0NSHVWYqbGOcRGBgXHhfXW4.jpg",
-          releaseYear: 1944,
-          duration: "1h 47m",
+          duration: "2h 23m",
           rating: 4.8,
-          description: "An insurance representative lets himself be talked by a seductive housewife into a murder/insurance fraud scheme that arouses an insurance investigator's suspicions.",
-          director: "Billy Wilder",
-          cast: ["Fred MacMurray", "Barbara Stanwyck", "Edward G. Robinson"],
-          genre: ["Crime", "Drama", "Film-Noir"],
-          tmdb_id: 996
-        }
+          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+          director: "Joss Whedon",
+          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+          genre: ["Action", "Adventure", "Sci-Fi"]
+        },
+        // Add more movies...
       },
       "International-Classics": {
         "Seven-Samurai": {
           id: "Seven-Samurai",
           title: "Seven Samurai",
           price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/8OKmBV5BUFzmozIC3pPWKHy17kx.jpg",
+          image: "/images/movies/seven-samurai.jpg",
           releaseYear: 1954,
-          duration: "3h 27m",
+          duration: "2h 23m",
           rating: 4.8,
-          description: "A poor village under attack by bandits recruits seven unemployed samurai to help them defend themselves.",
-          director: "Akira Kurosawa",
-          cast: ["Toshiro Mifune", "Takashi Shimura", "Keiko Tsushima"],
-          genre: ["Action", "Drama", "Adventure"],
-          tmdb_id: 346
+          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+          director: "Joss Whedon",
+          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+          genre: ["Action", "Adventure", "Sci-Fi"]
         },
-        "8½": {
-          id: "8½",
-          title: "8½",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/yJ9LWcYUeVkW2gp5UcE3VHZW1V8.jpg",
-          releaseYear: 1963,
-          duration: "2h 18m",
-          rating: 4.7,
-          description: "A harried movie director retreats into his memories and fantasies.",
-          director: "Federico Fellini",
-          cast: ["Marcello Mastroianni", "Claudia Cardinale", "Anouk Aimée"],
-          genre: ["Drama", "Fantasy"],
-          tmdb_id: 422
-        }
+        // Add more movies...
       }
     }
   },
@@ -900,97 +810,71 @@ export const collections: { [key: string]: Collection } = {
   },
   'documentary': {
     id: 'documentary',
-    name: "Documentary Collection",
+    name: "Documentary Masterpieces",
     categories: {
-      "Nature-Wildlife": {
-        "Planet-Earth": {
-          id: "Planet-Earth",
-          title: "Planet Earth",
+      "Nature-&-Science": {
+        "Planet-Earth-Series": {
+          id: "Planet-Earth-Series",
+          title: "Planet Earth Series",
           price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/cXjHnourrWgwpGnGX8uQGK5Utup.jpg",
+          image: "/images/movies/planet-earth.jpg",
           releaseYear: 2006,
-          duration: "Series",
-          rating: 4.9,
-          description: "Emmy Award-winning, 11 episodes, five years in the making, the most expensive nature documentary series ever commissioned by the BBC.",
-          director: "Alastair Fothergill",
-          cast: ["David Attenborough"],
-          genre: ["Documentary", "Nature"],
-          tmdb_id: 1137
+          duration: "2h 23m",
+          rating: 4.8,
+          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+          director: "Joss Whedon",
+          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+          genre: ["Action", "Adventure", "Sci-Fi"]
         },
-        "March-of-the-Penguins": {
-          id: "March-of-the-Penguins",
-          title: "March of the Penguins",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/9A0wR0cJ5JgXFqp3V9DzUBmzQYN.jpg",
-          releaseYear: 2005,
-          duration: "1h 20m",
-          rating: 4.7,
-          description: "A look at the annual journey of Emperor penguins as they march -- single file -- to their traditional breeding ground.",
-          director: "Luc Jacquet",
-          cast: ["Morgan Freeman"],
-          genre: ["Documentary", "Nature"],
-          tmdb_id: 1255
-        }
+        // Add more movies...
       },
-      "Social-Cultural": {
-        "Free-Solo": {
-          id: "Free-Solo",
-          title: "Free Solo",
+      "Social-&-Cultural": {
+        "Won't-You-Be-My-Neighbor": {
+          id: "Won't-You-Be-My-Neighbor",
+          title: "Won't You Be My Neighbor?",
           price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/3vlzqwWdTYGvhvtB4BOEJvqgzWo.jpg",
+          image: "/images/movies/won't-you-be-my-neighbor.jpg",
           releaseYear: 2018,
-          duration: "1h 40m",
+          duration: "2h 23m",
           rating: 4.8,
-          description: "Follow Alex Honnold as he becomes the first person to ever free solo climb Yosemite's 3,000ft high El Capitan wall.",
-          director: "Jimmy Chin, Elizabeth Chai Vasarhelyi",
-          cast: ["Alex Honnold"],
-          genre: ["Documentary", "Adventure"],
-          tmdb_id: 515042
+          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+          director: "Joss Whedon",
+          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+          genre: ["Action", "Adventure", "Sci-Fi"]
         },
-        "The-Social-Dilemma": {
-          id: "The-Social-Dilemma",
-          title: "The Social Dilemma",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/k3ZZzuobMCXGkjHAQtXik1nTEXg.jpg",
-          releaseYear: 2020,
-          duration: "1h 34m",
-          rating: 4.7,
-          description: "Explores the dangerous human impact of social networking, with tech experts sounding the alarm on their own creations.",
-          director: "Jeff Orlowski",
-          cast: ["Tristan Harris", "Jeff Seibert", "Bailey Richardson"],
-          genre: ["Documentary", "Drama"],
-          tmdb_id: 656690
-        }
+        // Add more movies...
       },
-      "Music-Arts": {
-        "Amy": {
-          id: "Amy",
-          title: "Amy",
+      "True-Crime": {
+        "The-Thin-Blue-Line": {
+          id: "The-Thin-Blue-Line",
+          title: "The Thin Blue Line",
           price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/wZ8Ut8kaYbhGHHrwDlYvXEHhZx6.jpg",
-          releaseYear: 2015,
-          duration: "2h 8m",
-          rating: 4.7,
-          description: "The story of Amy Winehouse in her own words, featuring unseen archival footage and unheard tracks.",
-          director: "Asif Kapadia",
-          cast: ["Amy Winehouse"],
-          genre: ["Documentary", "Music"],
-          tmdb_id: 309570
-        },
-        "Searching-for-Sugar-Man": {
-          id: "Searching-for-Sugar-Man",
-          title: "Searching for Sugar Man",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/6RcHHMGfMcIhW6XVyMU6qWJ0lC2.jpg",
-          releaseYear: 2012,
-          duration: "1h 26m",
+          image: "/images/movies/the-thin-blue-line.jpg",
+          releaseYear: 1988,
+          duration: "2h 23m",
           rating: 4.8,
-          description: "Two South Africans set out to discover what happened to their unlikely musical hero, the mysterious 1970s rock n roller, Rodriguez.",
-          director: "Malik Bendjelloul",
-          cast: ["Rodriguez", "Stephen Segerman"],
-          genre: ["Documentary", "Music"],
-          tmdb_id: 84175
-        }
+          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+          director: "Joss Whedon",
+          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+          genre: ["Action", "Adventure", "Sci-Fi"]
+        },
+        // Add more movies...
+      },
+      "Music-&-Arts": {
+        "What-Happened-Miss-Simone": {
+          id: "What-Happened-Miss-Simone",
+          title: "What Happened, Miss Simone?",
+          price: 49.99,
+          image: "/images/movies/what-happened-miss-simone.jpg",
+          releaseYear: 2015,
+          duration: "2h 23m",
+          rating: 4.8,
+          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+          director: "Joss Whedon",
+          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+          genre: ["Action", "Adventure", "Sci-Fi"]
+        },
+        // Add more movies...
       }
     }
   },
@@ -1626,156 +1510,28 @@ export const collections: { [key: string]: Collection } = {
   },
   'thriller': {
     id: 'thriller',
-    name: "Thriller Collection",
+    name: "Thriller Movies",
     categories: {
       "Psychological-Thrillers": {
         "Gone-Girl": {
           id: "Gone-Girl",
           title: "Gone Girl",
           price: 49.99,
-          image: "/images/movies/gone-girl.jpg",
+          image: "https://image.tmdb.org/t/p/w500/qymaJhucquOApseDHoNVYc1hoZZ.jpg",
           releaseYear: 2014,
-          duration: "2h 23m",
+          duration: "2h 29m",
           rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
-      },
-     "crime-thriller": {
-  id: "crime-thriller",
-  name: "Crime & Thriller",
-  categories: {
-    "Modern-Crime": {
-      "Gone-Girl": {
-        id: "Gone-Girl",
-        title: "Gone Girl",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/qymaJhucquOApseDHoNVYc1hoZZ.jpg",
-        releaseYear: 2014,
-        duration: "2h 29m",
-        rating: 4.8,
-        description: "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him when it's suspected that he may not be innocent.",
-        director: "David Fincher",
-        cast: ["Ben Affleck", "Rosamund Pike", "Neil Patrick Harris"],
-        genre: ["Drama", "Thriller", "Mystery"],
-        tmdb_id: 210577
-      },
-      "Knives-Out": {
-        id: "Knives-Out",
-        title: "Knives Out",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg",
-        releaseYear: 2019,
-        duration: "2h 11m",
-        rating: 4.7,
-        description: "When renowned crime novelist Harlan Thrombey is found dead at his estate, the inquisitive Detective Benoit Blanc is mysteriously enlisted to investigate.",
-        director: "Rian Johnson",
-        cast: ["Daniel Craig", "Chris Evans", "Ana de Armas"],
-        genre: ["Comedy", "Crime", "Mystery", "Thriller"],
-        tmdb_id: 546554
-      }
-    },
-    "Classic-Thrillers": {
-      "Se7en": {
-        id: "Se7en",
-        title: "Se7en",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/6yoghtyTpznpBik8EngEmJskVUO.jpg",
-        releaseYear: 1995,
-        duration: "2h 7m",
-        rating: 4.8,
-        description: "Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.",
-        director: "David Fincher",
-        cast: ["Brad Pitt", "Morgan Freeman", "Gwyneth Paltrow"],
-        genre: ["Crime", "Mystery", "Thriller"],
-        tmdb_id: 807
-      },
-      "Silence-of-the-Lambs": {
-        id: "Silence-of-the-Lambs",
-        title: "The Silence of the Lambs",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/rplLJ2hPcOQmkFhTqUte0MkEaO2.jpg",
-        releaseYear: 1991,
-        duration: "1h 58m",
-        rating: 4.8,
-        description: "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
-        director: "Jonathan Demme",
-        cast: ["Jodie Foster", "Anthony Hopkins", "Scott Glenn"],
-        genre: ["Crime", "Drama", "Thriller"],
-        tmdb_id: 274
-      }
-    },
-    "Psychological-Thrillers": {
-      "Shutter-Island": {
-        id: "Shutter-Island",
-        title: "Shutter Island",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/4GDy0PHYX3VRXUtwK5ysFbg3kEx.jpg",
-        releaseYear: 2010,
-        duration: "2h 18m",
-        rating: 4.7,
-        description: "In 1954, a U.S. Marshal investigates the disappearance of a murderer who escaped from a hospital for the criminally insane.",
-        director: "Martin Scorsese",
-        cast: ["Leonardo DiCaprio", "Mark Ruffalo", "Ben Kingsley"],
-        genre: ["Mystery", "Thriller"],
-        tmdb_id: 11324
-      },
-      "Memento": {
-        id: "Memento",
-        title: "Memento",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/yuNs09hvpHVU1cBTCAk9zxsL2oW.jpg",
-        releaseYear: 2000,
-        duration: "1h 53m",
-        rating: 4.8,
-        description: "A man with short-term memory loss attempts to track down his wife's murderer.",
-        director: "Christopher Nolan",
-        cast: ["Guy Pearce", "Carrie-Anne Moss", "Joe Pantoliano"],
-        genre: ["Mystery", "Thriller"],
-        tmdb_id: 77
-      }
-    }
-        // Add more movies...
-      },
-      "Spy-Thrillers": {
-        "The-Bourne-Series": {
-          id: "The-Bourne-Series",
-          title: "The Bourne Series",
-          price: 49.99,
-          image: "/images/movies/bourne.jpg",
-          releaseYear: 2007,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
-      },
-      "Mystery-Thrillers": {
-        "Knives-Out": {
-          id: "Knives-Out",
-          title: "Knives Out",
-          price: 49.99,
-          image: "/images/movies/knives-out.jpg",
-          releaseYear: 2019,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
+          description: "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him when it's suspected that he may not be innocent.",
+          director: "David Fincher",
+          cast: ["Ben Affleck", "Rosamund Pike", "Neil Patrick Harris"],
+          genre: ["Drama", "Thriller", "Mystery"],
+          tmdb_id: 210577
+        }
       }
     }
   },
-  'film-noir': {
-    id: 'film-noir',
+  'filmnoir': {
+    id: 'filmnoir',
     name: "Film Noir Collection",
     categories: {
       "Classic-Noir": {
@@ -1783,64 +1539,16 @@ export const collections: { [key: string]: Collection } = {
           id: "Double-Indemnity",
           title: "Double Indemnity",
           price: 49.99,
-          image: "/images/movies/double-indemnity.jpg",
+          image: "https://image.tmdb.org/t/p/w500/qvqyDj34Uivf1aXvdzhwCzOvRHr.jpg",
           releaseYear: 1944,
-          duration: "2h 23m",
+          duration: "1h 47m",
           rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
-      },
-      "Neo-Noir": {
-        "Chinatown": {
-          id: "Chinatown",
-          title: "Chinatown",
-          price: 49.99,
-          image: "/images/movies/chinatown.jpg",
-          releaseYear: 1974,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
-      },
-      "Modern-Noir": {
-        "Gone-Baby-Gone": {
-          id: "Gone-Baby-Gone",
-          title: "Gone Baby Gone",
-          price: 49.99,
-          image: "/images/movies/gone-baby-gone.jpg",
-          releaseYear: 2007,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
-      },
-      "International-Noir": {
-        "Oldboy": {
-          id: "Oldboy",
-          title: "Oldboy",
-          price: 49.99,
-          image: "/images/movies/oldboy.jpg",
-          releaseYear: 2003,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
+          description: "An insurance representative lets himself be talked by a seductive housewife into a murder/insurance fraud scheme that arouses the suspicion of an insurance investigator.",
+          director: "Billy Wilder",
+          cast: ["Fred MacMurray", "Barbara Stanwyck", "Edward G. Robinson"],
+          genre: ["Crime", "Drama", "Film-Noir", "Mystery"],
+          tmdb_id: 996
+        }
       }
     }
   },
@@ -1849,68 +1557,94 @@ export const collections: { [key: string]: Collection } = {
     name: "Musical Collection",
     categories: {
       "Classic-Musicals": {
-        "Singin'-in-the-Rain": {
-          id: "Singin'-in-the-Rain",
+        "Singin-in-the-Rain": {
+          id: "Singin-in-the-Rain",
           title: "Singin' in the Rain",
           price: 49.99,
-          image: "/images/movies/singin-in-the-rain.jpg",
+          image: "https://image.tmdb.org/t/p/w500/w03EiUVwFfy5nqVqGwpZGFt7Hgk.jpg",
           releaseYear: 1952,
-          duration: "2h 23m",
+          duration: "1h 43m",
           rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          description: "A silent film production company and cast make a difficult transition to sound.",
+          director: "Stanley Donen, Gene Kelly",
+          cast: ["Gene Kelly", "Donald O'Connor", "Debbie Reynolds"],
+          genre: ["Comedy", "Musical", "Romance"],
+          tmdb_id: 872
         },
-        // Add more movies...
+        "The-Sound-of-Music": {
+          id: "The-Sound-of-Music",
+          title: "The Sound of Music",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/kRGbwPIyLKlKBR0gNcTiCvmZH8F.jpg",
+          releaseYear: 1965,
+          duration: "2h 54m",
+          rating: 4.8,
+          description: "A woman leaves an Austrian convent to become a governess to the children of a Naval officer widower.",
+          director: "Robert Wise",
+          cast: ["Julie Andrews", "Christopher Plummer", "Eleanor Parker"],
+          genre: ["Drama", "Family", "Musical"],
+          tmdb_id: 15121
+        }
       },
       "Modern-Musicals": {
         "La-La-Land": {
           id: "La-La-Land",
           title: "La La Land",
           price: 49.99,
-          image: "/images/movies/la-la-land.jpg",
+          image: "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg",
           releaseYear: 2016,
-          duration: "2h 23m",
+          duration: "2h 8m",
           rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          description: "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
+          director: "Damien Chazelle",
+          cast: ["Ryan Gosling", "Emma Stone", "John Legend"],
+          genre: ["Comedy", "Drama", "Music", "Romance"],
+          tmdb_id: 313369
         },
-        // Add more movies...
+        "Les-Miserables": {
+          id: "Les-Miserables",
+          title: "Les Misérables",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/90PpcfqHWdR4kHFhBBGbaSIO7ny.jpg",
+          releaseYear: 2012,
+          duration: "2h 38m",
+          rating: 4.7,
+          description: "In 19th-century France, Jean Valjean, who for decades has been hunted by the ruthless policeman Javert after breaking parole, agrees to care for a factory worker's daughter.",
+          director: "Tom Hooper",
+          cast: ["Hugh Jackman", "Russell Crowe", "Anne Hathaway"],
+          genre: ["Drama", "History", "Musical"],
+          tmdb_id: 82695
+        }
       },
-      "Rock-&-Pop-Musicals": {
+      "Contemporary-Musical-Drama": {
         "A-Star-Is-Born": {
           id: "A-Star-Is-Born",
           title: "A Star Is Born",
           price: 49.99,
-          image: "/images/movies/a-star-is-born.jpg",
+          image: "https://image.tmdb.org/t/p/w500/wrFpXMNBRj2PBiN4Z5kix51XaIZ.jpg",
           releaseYear: 2018,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          duration: "2h 16m",
+          rating: 4.7,
+          description: "A musician helps a young singer find fame as age and alcoholism send his own career into a downward spiral.",
+          director: "Bradley Cooper",
+          cast: ["Bradley Cooper", "Lady Gaga", "Sam Elliott"],
+          genre: ["Drama", "Music", "Romance"],
+          tmdb_id: 332562
         },
-        // Add more movies...
-      },
-      "Animated-Musicals": {
-        "Beauty-and-the-Beast": {
-          id: "Beauty-and-the-Beast",
-          title: "Beauty and the Beast",
+        "The-Greatest-Showman": {
+          id: "The-Greatest-Showman",
+          title: "The Greatest Showman",
           price: 49.99,
-          image: "/images/movies/beauty-and-the-beast.jpg",
-          releaseYear: 1991,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
+          image: "https://image.tmdb.org/t/p/w500/b9CeobiihCx1uG1tpw8hXmpi7nm.jpg",
+          releaseYear: 2017,
+          duration: "1h 45m",
+          rating: 4.7,
+          description: "Celebrates the birth of show business and tells of a visionary who rose from nothing to create a spectacle that became a worldwide sensation.",
+          director: "Michael Gracey",
+          cast: ["Hugh Jackman", "Michelle Williams", "Zac Efron"],
+          genre: ["Biography", "Drama", "Musical"],
+          tmdb_id: 316029
+        }
       }
     }
   },
@@ -1923,64 +1657,90 @@ export const collections: { [key: string]: Collection } = {
           id: "Un-Chien-Andalou",
           title: "Un Chien Andalou",
           price: 49.99,
-          image: "/images/movies/un-chien-andalou.jpg",
-          releaseYear: 1959,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          image: "https://image.tmdb.org/t/p/w500/42WDqnRXEidUwNoYCVqzqnXvfn.jpg",
+          releaseYear: 1929,
+          duration: "16m",
+          rating: 4.5,
+          description: "Luis Buñuel and Salvador Dalí present seventeen minutes of bizarre, surreal imagery.",
+          director: "Luis Buñuel",
+          cast: ["Pierre Batcheff", "Simone Mareuil", "Luis Buñuel"],
+          genre: ["Fantasy", "Horror", "Experimental"],
+          tmdb_id: 626
         },
-        // Add more movies...
-      },
-      "Experimental-Narratives": {
-        "Synecdoche-New-York": {
-          id: "Synecdoche-New-York",
-          title: "Synecdoche, New York",
+        "Eraserhead": {
+          id: "Eraserhead",
+          title: "Eraserhead",
           price: 49.99,
-          image: "/images/movies/synecdoche-new-york.jpg",
-          releaseYear: 2008,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
+          image: "https://image.tmdb.org/t/p/w500/4yiF85qCqbEzuPRYfOnJHQtOcHt.jpg",
+          releaseYear: 1977,
+          duration: "1h 29m",
+          rating: 4.6,
+          description: "Henry Spencer tries to survive his industrial environment, his angry girlfriend, and the unbearable screams of his newly born mutant child.",
+          director: "David Lynch",
+          cast: ["Jack Nance", "Charlotte Stewart", "Allen Joseph"],
+          genre: ["Horror", "Experimental"],
+          tmdb_id: 985
+        }
       },
-      "Visual-Experiments": {
+      "Avant-Garde": {
+        "The-Holy-Mountain": {
+          id: "The-Holy-Mountain",
+          title: "The Holy Mountain",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/nLYKzDQOYT5sENkoYZKWXsIHXdX.jpg",
+          releaseYear: 1973,
+          duration: "1h 54m",
+          rating: 4.7,
+          description: "In a corrupt, greed-fueled world, a powerful alchemist leads a Christ-like character and seven materialistic figures to the Holy Mountain, where they hope to achieve enlightenment.",
+          director: "Alejandro Jodorowsky",
+          cast: ["Alejandro Jodorowsky", "Horacio Salinas", "Zamira Saunders"],
+          genre: ["Fantasy", "Art House", "Adventure"],
+          tmdb_id: 8327
+        },
         "Koyaanisqatsi": {
           id: "Koyaanisqatsi",
           title: "Koyaanisqatsi",
           price: 49.99,
-          image: "/images/movies/koyaanisqatsi.jpg",
+          image: "https://image.tmdb.org/t/p/w500/bT3IbCSpPXs8yBoFHRNhqV5qGDt.jpg",
           releaseYear: 1982,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
+          duration: "1h 26m",
+          rating: 4.7,
+          description: "A collection of expertly photographed phenomena with no conventional plot. The footage focuses on nature, humanity, and the relationship between them.",
+          director: "Godfrey Reggio",
+          cast: ["Lou Dobbs", "Ted Koppel"],
+          genre: ["Documentary", "Music", "Experimental"],
+          tmdb_id: 13392
+        }
       },
-      "Art-House": {
-        "The-Seventh-Seal": {
-          id: "The-Seventh-Seal",
-          title: "The Seventh Seal",
+      "Modern-Experimental": {
+        "Enter-the-Void": {
+          id: "Enter-the-Void",
+          title: "Enter the Void",
           price: 49.99,
-          image: "/images/movies/the-seventh-seal.jpg",
-          releaseYear: 1957,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          image: "https://image.tmdb.org/t/p/w500/zDTkQxMZJRrw5nzJ3x8dlXWkJZD.jpg",
+          releaseYear: 2009,
+          duration: "2h 41m",
+          rating: 4.6,
+          description: "A French drug dealer living in Tokyo is betrayed by his best friend and killed in a drug deal. His soul, observing the repercussions of his death, seeks resurrection.",
+          director: "Gaspar Noé",
+          cast: ["Nathaniel Brown", "Paz de la Huerta", "Cyril Roy"],
+          genre: ["Drama", "Fantasy", "Experimental"],
+          tmdb_id: 34647
         },
-        // Add more movies...
+        "Upstream-Color": {
+          id: "Upstream-Color",
+          title: "Upstream Color",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/gP5a4mGWqkxYcqSZ8nKpBTZUxkL.jpg",
+          releaseYear: 2013,
+          duration: "1h 36m",
+          rating: 4.5,
+          description: "A man and woman are drawn together, entangled in the life cycle of an ageless organism. Identity becomes an illusion as they struggle to assemble the loose fragments of wrecked lives.",
+          director: "Shane Carruth",
+          cast: ["Amy Seimetz", "Shane Carruth", "Andrew Sensenig"],
+          genre: ["Drama", "Science Fiction", "Experimental"],
+          tmdb_id: 159313
+        }
       }
     }
   },
@@ -2273,64 +2033,90 @@ export const collections: { [key: string]: Collection } = {
           id: "Amadeus",
           title: "Amadeus",
           price: 49.99,
-          image: "/images/movies/amadeus.jpg",
+          image: "https://image.tmdb.org/t/p/w500/rQzm4c5v0zKlZaP6Qd4F1DtcKQh.jpg",
           releaseYear: 1984,
-          duration: "2h 23m",
+          duration: "2h 40m",
           rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          description: "The life, success and troubles of Wolfgang Amadeus Mozart, as told by Antonio Salieri, the contemporaneous composer who was insanely jealous of Mozart's talent and claimed to have murdered him.",
+          director: "Milos Forman",
+          cast: ["F. Murray Abraham", "Tom Hulce", "Elizabeth Berridge"],
+          genre: ["Biography", "Drama", "History", "Music"],
+          tmdb_id: 279
         },
-        // Add more movies...
+        "Bohemian-Rhapsody": {
+          id: "Bohemian-Rhapsody",
+          title: "Bohemian Rhapsody",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg",
+          releaseYear: 2018,
+          duration: "2h 14m",
+          rating: 4.7,
+          description: "The story of the legendary British rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid in 1985.",
+          director: "Bryan Singer",
+          cast: ["Rami Malek", "Lucy Boynton", "Gwilym Lee"],
+          genre: ["Biography", "Drama", "Music"],
+          tmdb_id: 424694
+        }
       },
       "Political-Figures": {
         "Lincoln": {
           id: "Lincoln",
           title: "Lincoln",
           price: 49.99,
-          image: "/images/movies/lincoln.jpg",
+          image: "https://image.tmdb.org/t/p/w500/zQXioqxlhqGXHR0ZR4K3EJZD3mj.jpg",
           releaseYear: 2012,
-          duration: "2h 23m",
+          duration: "2h 30m",
           rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          description: "As the American Civil War continues to rage, America's president struggles with continuing carnage on the battlefield as he fights with many inside his own cabinet on the decision to emancipate the slaves.",
+          director: "Steven Spielberg",
+          cast: ["Daniel Day-Lewis", "Sally Field", "David Strathairn"],
+          genre: ["Biography", "Drama", "History"],
+          tmdb_id: 72976
         },
-        // Add more movies...
+        "The-Kings-Speech": {
+          id: "The-Kings-Speech",
+          title: "The King's Speech",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/uQ538BwwHHBwkHo8rWEwxrgQNFh.jpg",
+          releaseYear: 2010,
+          duration: "1h 58m",
+          rating: 4.8,
+          description: "The story of King George VI, his impromptu ascension to the throne of the British Empire in 1936, and the speech therapist who helped the unsure monarch overcome his stammer.",
+          director: "Tom Hooper",
+          cast: ["Colin Firth", "Geoffrey Rush", "Helena Bonham Carter"],
+          genre: ["Biography", "Drama", "History"],
+          tmdb_id: 45269
+        }
       },
       "Scientists-&-Innovators": {
         "The-Theory-of-Everything": {
           id: "The-Theory-of-Everything",
           title: "The Theory of Everything",
           price: 49.99,
-          image: "/images/movies/theory-of-everything.jpg",
+          image: "https://image.tmdb.org/t/p/w500/4jspr8hLLuju59UKiBF2c8tUeJN.jpg",
           releaseYear: 2014,
-          duration: "2h 23m",
-          rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          duration: "2h 3m",
+          rating: 4.7,
+          description: "A look at the relationship between the famous physicist Stephen Hawking and his wife Jane Wilde Hawking, from their meeting at Cambridge University through his diagnosis with motor neuron disease.",
+          director: "James Marsh",
+          cast: ["Eddie Redmayne", "Felicity Jones", "Tom Prior"],
+          genre: ["Biography", "Drama", "Romance"],
+          tmdb_id: 266856
         },
-        // Add more movies...
-      },
-      "Sports-Legends": {
-        "Ali": {
-          id: "Ali",
-          title: "Ali",
+        "The-Imitation-Game": {
+          id: "The-Imitation-Game",
+          title: "The Imitation Game",
           price: 49.99,
-          image: "/images/movies/ali.jpg",
-          releaseYear: 2001,
-          duration: "2h 23m",
+          image: "https://image.tmdb.org/t/p/w500/zSqJ1qFq8NXFfi7JeIYMlzyR0dx.jpg",
+          releaseYear: 2014,
+          duration: "1h 54m",
           rating: 4.8,
-          description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-          director: "Joss Whedon",
-          cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
-        },
-        // Add more movies...
+          description: "During World War II, the English mathematical genius Alan Turing tries to crack the German Enigma code with help from fellow mathematicians.",
+          director: "Morten Tyldum",
+          cast: ["Benedict Cumberbatch", "Keira Knightley", "Matthew Goode"],
+          genre: ["Biography", "Drama", "Thriller", "War"],
+          tmdb_id: 205596
+        }
       }
     }
   },
@@ -2473,102 +2259,7 @@ export const collections: { [key: string]: Collection } = {
         // Add more movies...
       }
     }
-  },
-  'drama-romance': {
-    id: "drama-romance",
-    name: "Drama & Romance",
-    categories: {
-      "Modern-Drama": {
-        "La-La-Land": {
-          id: "La-La-Land",
-          title: "La La Land",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg",
-          releaseYear: 2016,
-          duration: "2h 8m",
-          rating: 4.8,
-          description: "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
-          director: "Damien Chazelle",
-          cast: ["Ryan Gosling", "Emma Stone", "John Legend"],
-          genre: ["Drama", "Romance", "Music"],
-          tmdb_id: 313369
-        },
-        "The-Theory-of-Everything": {
-          id: "The-Theory-of-Everything",
-          title: "The Theory of Everything",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/4jspr8hLLuju59bCnMiefzRW4p0.jpg",
-          releaseYear: 2014,
-          duration: "2h 3m",
-          rating: 4.7,
-          description: "A look at the relationship between the famous physicist Stephen Hawking and his wife.",
-          director: "James Marsh",
-          cast: ["Eddie Redmayne", "Felicity Jones", "Charlie Cox"],
-          genre: ["Drama", "Romance", "Biography"],
-          tmdb_id: 266856
-        }
-      },
-      "Classic-Romance": {
-        "Eternal-Sunshine": {
-          id: "Eternal-Sunshine",
-          title: "Eternal Sunshine of the Spotless Mind",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/5MwkWH9tYHv3mV9OdYTMR5qreIz.jpg",
-          releaseYear: 2004,
-          duration: "1h 48m",
-          rating: 4.8,
-          description: "When their relationship turns sour, a couple undergoes a medical procedure to have each other erased from their memories.",
-          director: "Michel Gondry",
-          cast: ["Jim Carrey", "Kate Winslet", "Kirsten Dunst"],
-          genre: ["Drama", "Romance", "Sci-Fi"],
-          tmdb_id: 38
-        },
-        "The-Notebook": {
-          id: "The-Notebook",
-          title: "The Notebook",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/rNzQyW4f8B8cQeg7Dgj3n6eT5k9.jpg",
-          releaseYear: 2004,
-          duration: "2h 3m",
-          rating: 4.7,
-          description: "A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom, but they are soon separated because of their social differences.",
-          director: "Nick Cassavetes",
-          cast: ["Ryan Gosling", "Rachel McAdams", "James Garner"],
-          genre: ["Drama", "Romance"],
-          tmdb_id: 11036
-        }
-      },
-      "Coming-of-Age": {
-        "Lady-Bird": {
-          id: "Lady-Bird",
-          title: "Lady Bird",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/iySFtKLrWvVzXzlFj7x1zalxi5G.jpg",
-          releaseYear: 2017,
-          duration: "1h 34m",
-          rating: 4.7,
-          description: "In 2002, an artistically inclined seventeen-year-old girl comes of age in Sacramento, California.",
-          director: "Greta Gerwig",
-          cast: ["Saoirse Ronan", "Laurie Metcalf", "Tracy Letts"],
-          genre: ["Drama", "Comedy"],
-          tmdb_id: 391713
-        },
-        "Perks-of-Being-a-Wallflower": {
-          id: "Perks-of-Being-a-Wallflower",
-          title: "The Perks of Being a Wallflower",
-          price: 49.99,
-          image: "https://image.tmdb.org/t/p/w500/dR57hxVmUKqoqFx8je4EQCW8hlH.jpg",
-          releaseYear: 2012,
-          duration: "1h 43m",
-          rating: 4.7,
-          description: "An introvert freshman is taken under the wings of two seniors who welcome him to the real world.",
-          director: "Stephen Chbosky",
-          cast: ["Logan Lerman", "Emma Watson", "Ezra Miller"],
-          genre: ["Drama", "Romance"],
-          tmdb_id: 84892
-        }
-      }
-    }
-  }
   }
 }
+
+export default collections;

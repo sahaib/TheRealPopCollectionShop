@@ -125,13 +125,15 @@ export default function MoviePage({ params }: { params: { id: string } }) {
             className={styles.poster}
             style={{ transformStyle: 'preserve-3d' }}
           >
-            <Image
-              src={movieData.image}
-              alt={movieData.name}
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
+            {movieData && (
+              <Image
+                src={movieData.image}
+                alt={movieData.name}
+                fill
+                className="object-cover rounded-lg"
+                priority
+              />
+            )}
           </motion.div>
 
           <motion.div
@@ -170,48 +172,52 @@ export default function MoviePage({ params }: { params: { id: string } }) {
         </div>
 
         <div className="space-y-6">
-          <h1 className="text-4xl font-bold">{movieData.name}</h1>
-          
-          <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-            <span className="flex items-center gap-1">
-              <Star className="w-4 h-4 text-yellow-500" />
-              {movieData.rating}/5
-            </span>
-            <span className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
-              {movieData.duration}
-            </span>
-            <span className="flex items-center gap-1">
-              <Film className="w-4 h-4" />
-              {movieData.releaseYear}
-            </span>
-          </div>
+          {movieData && (
+            <>
+              <h1 className="text-4xl font-bold">{movieData.name}</h1>
+              
+              <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                <span className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-500" />
+                  {movieData.rating}/5
+                </span>
+                <span className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  {movieData.duration}
+                </span>
+                <span className="flex items-center gap-1">
+                  <Film className="w-4 h-4" />
+                  {movieData.releaseYear}
+                </span>
+              </div>
 
-          <p className="text-2xl font-semibold">${movieData.price.toFixed(2)}</p>
-          
-          <p className="text-gray-600 dark:text-gray-400">{movieData.description}</p>
+              <p className="text-2xl font-semibold">${movieData.price.toFixed(2)}</p>
+              
+              <p className="text-gray-600 dark:text-gray-400">{movieData.description}</p>
 
-          <div className="flex flex-wrap gap-2">
-            {movieData.genre.map(g => (
-              <span key={g} className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">
-                {g}
-              </span>
-            ))}
-          </div>
+              <div className="flex flex-wrap gap-2">
+                {movieData.genre.map(g => (
+                  <span key={g} className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">
+                    {g}
+                  </span>
+                ))}
+              </div>
 
-          <div className="flex gap-4">
-            <Button 
-              size="lg" 
-              className="flex-1"
-              onClick={handleAddToCart}
-              disabled={isInCart}
-            >
-              {isInCart ? '✓ In Cart' : 'Add to Cart'}
-            </Button>
-            <Button size="lg" variant="outline">
-              <Share2 className="w-4 h-4" />
-            </Button>
-          </div>
+              <div className="flex gap-4">
+                <Button 
+                  size="lg" 
+                  className="flex-1"
+                  onClick={handleAddToCart}
+                  disabled={isInCart}
+                >
+                  {isInCart ? ' In Cart' : 'Add to Cart'}
+                </Button>
+                <Button size="lg" variant="outline">
+                  <Share2 className="w-4 h-4" />
+                </Button>
+              </div>
+            </>
+          )}
         </div>
       </motion.div>
     </div>

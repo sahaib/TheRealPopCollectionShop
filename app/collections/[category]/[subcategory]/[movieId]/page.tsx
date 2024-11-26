@@ -22,7 +22,7 @@ interface PageProps {
 export default function MoviePage({ params }: PageProps) {
   const [movieDetails, setMovieDetails] = useState<any>(null)
   const [loading, setLoading] = useState(true)
-  const { addToCart } = useCart()
+  const { addToCart, state } = useCart()
   const { data: session } = useSession()
   const [isFavorite, setIsFavorite] = useState(false)
 
@@ -30,6 +30,8 @@ export default function MoviePage({ params }: PageProps) {
   const collection = collections[params.category]
   const categoryMovies = collection?.categories[params.subcategory]
   const movie = categoryMovies?.[params.movieId]
+
+  const isInCart = state.items.some(item => item.id === movie?.id)
 
   useEffect(() => {
     async function fetchData() {
