@@ -25,7 +25,7 @@ export default function FeaturedCollections({ collections }: FeaturedCollections
                           shadow-lg group-hover:shadow-2xl group-hover:scale-105">
               {/* Gradient Background */}
               <div className={`absolute inset-0 ${
-                gradientClasses[collection.name.split(' ')[0]] || gradientClasses.default
+                gradientClasses[collection.name.split(' ')[0] as keyof typeof gradientClasses] || gradientClasses.default
               } opacity-90`} />
               
               {/* Decorative Elements */}
