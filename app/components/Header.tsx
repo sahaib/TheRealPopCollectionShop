@@ -31,7 +31,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 relative rounded-full overflow-hidden">
+            {/* <div className="w-8 h-8 relative rounded-full overflow-hidden">
               <div className="absolute inset-0 rounded-full bg-white dark:bg-gray-900" />
               <Image 
                 src="/images/dvd-logo.gif"
@@ -41,7 +41,7 @@ export default function Header() {
                 className="object-contain relative z-10 mix-blend-multiply dark:mix-blend-difference"
                 unoptimized
               />
-            </div>
+            </div> */}
             <span className="text-2xl font-bold">The Real Pop Collection Shop</span>
           </Link>
 
