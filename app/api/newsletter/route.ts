@@ -18,10 +18,10 @@ export async function POST(request: Request) {
     const msg = {
       to: email,
       from: {
-        email: 'support@trpc.shop',
-        name: 'TRPC Shop'
+        email: 'your_email@example.com',
+        name: 'Your Name'
       },
-      templateId: 'd-da39da8659a241278d1a6f98d839ada7',
+      templateId: 'your_sendgrid_template_id',
       dynamicTemplateData: {
         email: email,
         // Add any other variables your template uses

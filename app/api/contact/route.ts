@@ -24,10 +24,10 @@ export async function POST(request: Request) {
 
     // Send email using SendGrid with verified sender
     const msg = {
-      to: 'support@trpc.shop',
+      to: 'your_email@example.com',
       from: {
-        email: 'support@trpc.shop',
-        name: 'TRPC Shop'
+        email: 'your_email@example.com',
+        name: 'Your Name'
       },
       replyTo: email,
       subject: `New Contact Form Message from ${name}`,

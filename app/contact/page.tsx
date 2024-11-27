@@ -66,7 +66,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div className="bg-white/5 dark:bg-gray-800/50 p-4 rounded-lg backdrop-blur-sm">
                 <h3 className="font-semibold mb-1">Email</h3>
-                <p className="text-gray-600 dark:text-gray-300">support@trpc.shop</p>
+                <p className="text-gray-600 dark:text-gray-300">your_email@example.com</p>
               </div>
 
               <div className="bg-white/5 dark:bg-gray-800/50 p-4 rounded-lg backdrop-blur-sm">
