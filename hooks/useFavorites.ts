@@ -26,22 +26,30 @@ export const useFavorites = create<FavoriteStore>()(
           set((state) => ({
             items: [...state.items, item]
           }))
-          // Update server in background
-          fetch('/api/favorites', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title: item.movieTitle })
-          }).catch(console.error)
+          // Update server in background with error handling
+          if (typeof window !== 'undefined') {
+            fetch('/api/favorites', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ title: item.movieTitle })
+            }).catch((error) => {
+              console.error('Failed to sync favorite:', error)
+            })
+          }
         }
       },
       removeFavorite: (id) => {
         set((state) => ({
           items: state.items.filter((item) => item.id !== id)
         }))
-        // Update server in background
-        fetch(`/api/favorites/${id}`, {
-          method: 'DELETE'
-        }).catch(console.error)
+        // Update server in background with error handling
+        if (typeof window !== 'undefined') {
+          fetch(`/api/favorites/${id}`, {
+            method: 'DELETE'
+          }).catch((error) => {
+            console.error('Failed to remove favorite:', error)
+          })
+        }
       },
       isFavorite: (id) => {
         return get().items.some((item) => item.id === id)
