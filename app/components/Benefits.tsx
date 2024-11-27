@@ -19,8 +19,13 @@ export default function Benefits() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="flex items-start space-x-4">
-              <benefit.icon className="w-8 h-8 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+            <div key={index} className="flex items-start space-x-4 hover-lift p-4 rounded-lg">
+              <benefit.icon 
+                className="w-8 h-8 text-blue-600 dark:text-blue-400 flex-shrink-0"
+                style={{
+                  animation: `float ${3 + index * 0.5}s ease-in-out infinite alternate`
+                }}
+              />
               <div>
                 <h3 className="text-xl font-semibold mb-2 dark:text-white">{benefit.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{benefit.description}</p>
