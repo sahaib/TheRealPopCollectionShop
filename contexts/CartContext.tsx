@@ -4,10 +4,12 @@ import { createContext, useContext, useEffect, useReducer } from 'react'
 import { toast } from 'sonner'
 
 interface CartItem {
-  id: string | number
+  id: string
   title: string
   price: number
   quantity: number
+  category: string
+  subcategory: string
 }
 
 interface CartState {
@@ -25,7 +27,13 @@ type CartAction =
 // Make sure type matches useCart hook
 export const CartContext = createContext<{
   state: CartState
-  addToCart: (item: CartItem) => void
+  addToCart: (item: { 
+    id: string; 
+    title: string; 
+    price: number;
+    category: string;
+    subcategory: string;
+  }) => void
   removeFromCart: (id: string | number) => void
   updateQuantity: (id: string | number, quantity: number) => void
 } | undefined>(undefined)
@@ -111,8 +119,17 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [state.items])
 
-  const addToCart = (item: CartItem) => {
-    dispatch({ type: 'ADD_ITEM', payload: item })
+  const addToCart = (item: { 
+    id: string; 
+    title: string; 
+    price: number;
+    category: string;
+    subcategory: string;
+  }) => {
+    dispatch({ 
+      type: 'ADD_ITEM', 
+      payload: { ...item, quantity: 1 } 
+    })
   }
 
   const removeFromCart = (id: string | number) => {

@@ -1,11 +1,12 @@
 "use client"
 import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Heart, ShoppingCart } from 'lucide-react'
 import { toast } from 'sonner'
 import { useCart } from '@/hooks/useCart'
+import { useFavorites } from '@/hooks/useFavorites'
 
 interface Favorite {
   id: string
@@ -19,24 +20,21 @@ interface CartItem {
 }
 
 export default function ProfilePage() {
-  const { data: session } = useSession()
-  const [favorites, setFavorites] = useState<Favorite[]>([])
+  const router = useRouter()
+  const { data: session, status } = useSession()
+  const { items: favorites, removeFavorite } = useFavorites()
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [orders, setOrders] = useState<string[]>([])
   const { addToCart, state } = useCart()
 
   useEffect(() => {
-    if (session?.user?.email) {
-      // Fetch favorites
-      fetch('/api/favorites')
-        .then(res => res.json())
-        .then(data => {
-          if (data.favorites) {
-            setFavorites(data.favorites)
-          }
-        })
-        .catch(error => console.error('Error fetching favorites:', error))
+    if (status === "unauthenticated") {
+      router.push('/auth/signin')
+    }
+  }, [status, router])
 
+  useEffect(() => {
+    if (session?.user?.email) {
       // Fetch cart items
       fetch('/api/cart')
         .then(res => res.json())
@@ -61,13 +59,7 @@ export default function ProfilePage() {
 
   const handleRemoveFavorite = async (favoriteId: string, movieTitle: string) => {
     try {
-      const response = await fetch(`/api/favorites/${favoriteId}`, {
-        method: 'DELETE',
-      })
-
-      if (!response.ok) throw new Error('Failed to remove from favorites')
-
-      setFavorites(favorites.filter(fav => fav.id !== favoriteId))
+      await removeFavorite(favoriteId)
       toast.success(`Removed ${movieTitle} from favorites`)
     } catch (error) {
       toast.error('Failed to remove from favorites')
@@ -98,14 +90,18 @@ export default function ProfilePage() {
     return orders.includes(movieTitle)
   }
 
-  if (!session) {
-    redirect('/auth/signin')
+  if (status === "loading") {
+    return <div>Loading...</div>
+  }
+
+  if (status === "unauthenticated") {
+    return null
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8">Profile</h1>
-      <p className="mb-8">Welcome back, {session.user?.name}!</p>
+      <p className="mb-8">Welcome back, {session?.user?.name}!</p>
 
       <div className="mb-12">
         <h2 className="text-2xl font-bold mb-4">Order History</h2>

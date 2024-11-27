@@ -9,56 +9,26 @@ import { motion } from 'framer-motion'
 import { Star, Clock, Film, Share2 } from 'lucide-react'
 import { toast } from 'sonner'
 
-interface PageProps {
-  params: {
-    category: string
-    subcategory: string
-    movieId: string
+// Helper function to find movie in collections
+const findCollectionMovie = (id: string) => {
+  for (const collection of Object.values(collections)) {
+    for (const category of Object.values(collection.categories)) {
+      for (const movie of Object.values(category)) {
+        if (movie.id === id) {
+          return movie
+        }
+      }
+    }
   }
+  return null
 }
 
-export default function MoviePage({ params }: PageProps) {
+export default function CollectionMoviePage({ params }: { params: { id: string } }) {
+  const movieData = findCollectionMovie(params.id)
   const { addToCart, state } = useCart()
-  
-  // Decode and clean up the movieId
-  const cleanMovieId = decodeURIComponent(params.movieId)
-    .toLowerCase()
-    .replace(/[\s:]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
-  
-  const collection = collections[params.category]
-  console.log('Collection:', collection?.name)
-  
-  const categoryMovies = collection?.categories[params.subcategory] || {}
-  console.log('Category Movies:', Object.keys(categoryMovies))
-  
-  // Case-insensitive movie lookup with cleaned ID
-  const movie = Object.values(categoryMovies).find(m => {
-    const urlFriendlyTitle = m.title
-      .toLowerCase()
-      .replace(/[\s:]+/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/[^a-z0-9-]/g, '')
-    return urlFriendlyTitle === cleanMovieId
-  })
-  
-  console.log('Found Movie:', movie?.title)
-  
-  const isInCart = state.items.some(item => item.id === movie?.id)
+  const isInCart = state.items.some(item => item.id === params.id)
 
-  if (!collection || !movie) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold mb-4">Movie not found</h2>
-        <p className="text-gray-600">
-          The movie you're looking for could not be found. Please check the URL and try again.
-        </p>
-      </div>
-    )
-  }
-
-  // Rest of your component code remains the same
+  // Same styles as original MoviePage
   const styles = {
     dvdContainer: `relative w-full aspect-[2/3] group overflow-visible`,
     poster: `relative w-full h-full rounded-lg shadow-2xl transition-transform duration-500 
@@ -87,15 +57,27 @@ export default function MoviePage({ params }: PageProps) {
                 from-transparent via-white/20 to-transparent 
                 animate-shine pointer-events-none`
   }
-  
+
+  const handleAddToCart = () => {
+    if (!isInCart && movieData) {
+      addToCart({
+        id: movieData.id,
+        title: movieData.title,
+        price: movieData.price,
+        quantity: 1
+      })
+      toast.success(`Added ${movieData.title} to cart`)
+    }
+  }
+
   const handleShare = async () => {
-    if (!movie) return
-  
+    if (!movieData) return
+
     try {
       if (navigator.share) {
         await navigator.share({
-          title: movie.title,
-          text: movie.description,
+          title: movieData.title,
+          text: movieData.description,
           url: window.location.href
         })
         toast.success('Shared successfully!')
@@ -111,18 +93,7 @@ export default function MoviePage({ params }: PageProps) {
     }
   }
 
-  const handleAddToCart = () => {
-    if (!isInCart) {
-      addToCart({
-        id: movie.id,
-        title: movie.title,
-        price: movie.price,
-        quantity: 1
-      })
-      toast.success(`Added ${movie.title} to cart`)
-    }
-  }
-
+  if (!movieData) return null
 
   return (
     <div className="container mx-auto py-16 px-4">
@@ -136,13 +107,20 @@ export default function MoviePage({ params }: PageProps) {
             className={styles.poster}
             style={{ transformStyle: 'preserve-3d' }}
           >
-            <Image
-              src={movie.image}
-              alt={movie.title}
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
+            {movieData?.image ? (
+              <Image
+                src={movieData.image}
+                alt={movieData.title}
+                fill
+                className="object-cover rounded-lg"
+                priority
+              />
+            ) : (
+              <div className="w-full h-full bg-[#1F2937] flex flex-col items-center justify-center rounded-lg">
+                <span className="text-gray-400 text-lg">No Image Available</span>
+                <span className="text-gray-500 text-sm mt-2">{movieData?.title}</span>
+              </div>
+            )}
           </motion.div>
 
           <motion.div
@@ -181,38 +159,38 @@ export default function MoviePage({ params }: PageProps) {
         </div>
 
         <div className="space-y-6">
-          <h1 className="text-4xl font-bold">{movie.title}</h1>
+          <h1 className="text-4xl font-bold">{movieData.title}</h1>
           
           <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
             <span className="flex items-center gap-1">
               <Star className="w-4 h-4 text-yellow-500" />
-              {movie.rating}/5
+              {movieData.rating}/5
             </span>
             <span className="flex items-center gap-1">
               <Clock className="w-4 h-4" />
-              {movie.duration}
+              {movieData.duration}
             </span>
             <span className="flex items-center gap-1">
               <Film className="w-4 h-4" />
-              {movie.releaseYear}
+              {movieData.releaseYear}
             </span>
           </div>
 
-          <p className="text-2xl font-semibold">${movie.price.toFixed(2)}</p>
+          <p className="text-2xl font-semibold">${movieData.price.toFixed(2)}</p>
           
-          <p className="text-gray-600 dark:text-gray-400">{movie.description}</p>
+          <p className="text-gray-600 dark:text-gray-400">{movieData.description}</p>
 
           <div className="space-y-4">
             <p className="text-gray-600 dark:text-gray-400">
-              <span className="font-semibold">Director:</span> {movie.director}
+              <span className="font-semibold">Director:</span> {movieData.director}
             </p>
             <p className="text-gray-600 dark:text-gray-400">
-              <span className="font-semibold">Cast:</span> {movie.cast.join(', ')}
+              <span className="font-semibold">Cast:</span> {movieData.cast.join(', ')}
             </p>
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {movie.genre.map(g => (
+            {movieData.genre.map(g => (
               <span key={g} className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">
                 {g}
               </span>
@@ -222,22 +200,14 @@ export default function MoviePage({ params }: PageProps) {
           <div className="flex gap-4">
             <Button 
               size="lg" 
-              className="flex-1 bg-primary hover:bg-primary/80 hover:shadow-lg transition-all 
-                         text-primary-foreground dark:bg-blue-600 dark:hover:bg-blue-700"
+              className="flex-1"
               onClick={handleAddToCart}
               disabled={isInCart}
             >
               {isInCart ? '✓ In Cart' : 'Add to Cart'}
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              onClick={handleShare}
-              className="hover:bg-gray-100 hover:shadow-md transition-all
-                         dark:border-gray-600 dark:hover:bg-gray-800"
-            >
+            <Button size="lg" variant="outline" onClick={handleShare}>
               <Share2 className="w-4 h-4" />
-              <span className="ml-2">Share</span>
             </Button>
           </div>
         </div>

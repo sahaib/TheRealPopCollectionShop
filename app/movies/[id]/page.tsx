@@ -113,6 +113,29 @@ export default function MoviePage({ params }: { params: { id: string } }) {
     }
   }
 
+  const handleShare = async () => {
+    if (!movieData) return
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: movieData.name,
+          text: movieData.description,
+          url: window.location.href
+        })
+        toast.success('Shared successfully!')
+      } else {
+        await navigator.clipboard.writeText(window.location.href)
+        toast.success('Link copied to clipboard!', {
+          description: 'Share URL has been copied to your clipboard'
+        })
+      }
+    } catch (error) {
+      console.error('Error sharing:', error)
+      toast.error('Failed to share')
+    }
+  }
+
   return (
     <div className="container mx-auto py-16 px-4">
       <motion.div 
@@ -203,17 +226,24 @@ export default function MoviePage({ params }: { params: { id: string } }) {
                 ))}
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 mt-6">
                 <Button 
                   size="lg" 
                   className="flex-1"
                   onClick={handleAddToCart}
                   disabled={isInCart}
                 >
-                  {isInCart ? ' In Cart' : 'Add to Cart'}
+                  {isInCart ? '✓ In Cart' : 'Add to Cart'}
                 </Button>
-                <Button size="lg" variant="outline">
+                
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  onClick={handleShare}
+                  className="flex items-center gap-2"
+                >
                   <Share2 className="w-4 h-4" />
+                  <span>Share</span>
                 </Button>
               </div>
             </>

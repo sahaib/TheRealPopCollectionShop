@@ -40,7 +40,9 @@ export default function ShoppingCartPanel({ isOpen, onClose }: { isOpen: boolean
                 {cart.state.items.map((item) => (
                   <li key={item.id} className="flex items-center justify-between p-3 bg-white dark:bg-gray-700 rounded-lg shadow-sm">
                     <div>
-                      <h3 className="font-medium dark:text-white">{item.title}</h3>
+                      <h3 className="font-medium dark:text-white">
+                        {item.title}
+                      </h3>
                       <p className="text-sm text-gray-500 dark:text-gray-400">
                         ${item.price} × {item.quantity}
                       </p>
@@ -64,8 +66,10 @@ export default function ShoppingCartPanel({ isOpen, onClose }: { isOpen: boolean
               </p>
             </div>
             <Button 
-              className="w-full"
+              className="w-full bg-primary hover:bg-primary/80 hover:shadow-lg transition-all 
+                         text-primary-foreground dark:bg-blue-600 dark:hover:bg-blue-700"
               disabled={cart.state.items.length === 0}
+              onClick={() => {/* checkout logic */}}
             >
               Checkout
             </Button>

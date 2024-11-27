@@ -13,9 +13,12 @@ interface MoviePageProps {
   movie: MovieDetails
 }
 
-export default function MoviePage({ movie }: MoviePageProps) {
+export function MoviePage({ movie }: MoviePageProps) {
   const { addToCart, state } = useCart()
   const isInCart = state.items.some(item => item.id === movie.id)
+
+  // Use the image directly from movie data
+  const imageSrc = movie.image || null
 
   // Define styles for DVD effect
   const styles = {
@@ -68,13 +71,20 @@ export default function MoviePage({ movie }: MoviePageProps) {
       >
         <div className={styles.dvdContainer}>
           <motion.div className={styles.poster}>
-            <Image
-              src={movie.image}
-              alt={movie.title}
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
+            {imageSrc ? (
+              <Image
+                src={imageSrc}
+                alt={movie.title}
+                fill
+                className="object-cover rounded-lg"
+                priority
+              />
+            ) : (
+              <div className="w-full h-full bg-[#1F2937] flex flex-col items-center justify-center rounded-lg">
+                <span className="text-gray-400 text-lg">No Image Available</span>
+                <span className="text-gray-500 text-sm mt-2">{movie.title}</span>
+              </div>
+            )}
           </motion.div>
 
           <motion.div

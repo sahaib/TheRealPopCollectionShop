@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 max-w-7xl">
       <Hero />
-      <AdSense slot="4691207057" />
+      {/* <AdSense slot="4691207057" /> */}
       <Benefits />
       <FeaturedCollections collections={featuredCollections} />
       <ProductListing />

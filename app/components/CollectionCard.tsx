@@ -11,25 +11,28 @@ interface CollectionCardProps {
 const gradientClasses = {
   'Bollywood': 'from-orange-500 via-pink-500 to-purple-500',
   'Hollywood': 'from-blue-500 via-indigo-500 to-purple-600',
-  'Science Fiction': 'from-cyan-500 via-blue-500 to-purple-500',
+  'Science': 'from-cyan-500 via-blue-500 to-purple-500',
   'International': 'from-green-500 via-teal-500 to-blue-500',
   'Animation': 'from-yellow-500 via-orange-500 to-red-500',
   'Classic': 'from-purple-500 via-violet-500 to-indigo-500',
   'Modern': 'from-blue-500 via-cyan-500 to-teal-500',
   'Documentary': 'from-amber-500 via-orange-500 to-red-500',
-  'Cult': 'from-red-500 via-pink-500 to-purple-500',
   'Horror': 'from-gray-900 via-purple-900 to-violet-800',
-  'Romance': 'from-pink-500 via-rose-500 to-red-500',
-  'Director': 'from-indigo-500 via-blue-500 to-cyan-500',
-  'Award': 'from-yellow-500 via-amber-500 to-orange-500',
-  'Family': 'from-green-400 via-emerald-500 to-teal-500',
-  'Sports': 'from-blue-400 via-sky-500 to-indigo-500',
-  'default': 'from-gray-500 via-slate-500 to-zinc-500'
+  'Musical': 'from-pink-500 via-rose-500 to-red-500',
+  'Experimental': 'from-violet-600 via-purple-600 to-indigo-700',
+  'Asian': 'from-red-500 via-rose-500 to-pink-600',
+  'Crime': 'from-slate-800 via-gray-900 to-zinc-900',
+  'Historical': 'from-amber-700 via-orange-700 to-red-800',
+  'Biographical': 'from-emerald-600 via-green-600 to-teal-700',
+  'Teen': 'from-fuchsia-500 via-pink-500 to-rose-500',
+  'Political': 'from-red-700 via-rose-700 to-orange-800',
+  'Sports': 'from-green-500 via-emerald-500 to-teal-600',
+  'default': 'from-slate-600 via-slate-700 to-slate-800'
 }
 
 export default function CollectionCard({ title, href, gradient }: CollectionCardProps) {
-  const collectionType = title.split(' ')[0]
-  const gradientClass = gradientClasses[collectionType as keyof typeof gradientClasses] || gradientClasses.default
+  const collectionType = title?.split(/[\s&]+/)[0];
+  const gradientClass = gradientClasses[collectionType as keyof typeof gradientClasses] || gradientClasses.default;
 
   return (
     <Link href={href} className="group">
@@ -48,7 +51,7 @@ export default function CollectionCard({ title, href, gradient }: CollectionCard
             <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
             <div className="w-16 h-1 bg-white/50 rounded-full mb-4" />
             <p className="text-white/80">
-              Explore our curated selection of {title.toLowerCase()} films
+              Explore our curated selection of {title?.toLowerCase?.() || ''} films
             </p>
           </div>
           

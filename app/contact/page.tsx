@@ -66,17 +66,17 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div className="bg-white/5 dark:bg-gray-800/50 p-4 rounded-lg backdrop-blur-sm">
                 <h3 className="font-semibold mb-1">Email</h3>
-                <p className="text-gray-600 dark:text-gray-300">support@realpopshop.com</p>
+                <p className="text-gray-600 dark:text-gray-300">support@trpc.shop</p>
               </div>
 
               <div className="bg-white/5 dark:bg-gray-800/50 p-4 rounded-lg backdrop-blur-sm">
                 <h3 className="font-semibold mb-1">Phone</h3>
-                <p className="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
+                <p className="text-gray-600 dark:text-gray-300">+91 7021XXXXXX</p>
               </div>
 
               <div className="bg-white/5 dark:bg-gray-800/50 p-4 rounded-lg backdrop-blur-sm">
                 <h3 className="font-semibold mb-1">Business Hours</h3>
-                <p className="text-gray-600 dark:text-gray-300">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                <p className="text-gray-600 dark:text-gray-300">Monday - Friday: 9:00 AM - 6:00 PM IST</p>
               </div>
             </div>
           </div>

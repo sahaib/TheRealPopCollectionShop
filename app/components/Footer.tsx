@@ -41,18 +41,17 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">The Real Pop Collection Shop</h3>
             <p className="mb-4">Reviving the old era with physical media that creates tangible memories.</p>
             <div className="flex space-x-4">
-              <Link href="#" aria-label="Facebook"><Facebook className="w-6 h-6" /></Link>
+              {/* <Link href="#" aria-label="Facebook"><Facebook className="w-6 h-6" /></Link>
               <Link href="#" aria-label="Twitter"><Twitter className="w-6 h-6" /></Link>
-              <Link href="#" aria-label="Instagram"><Instagram className="w-6 h-6" /></Link>
+              <Link href="#" aria-label="Instagram"><Instagram className="w-6 h-6" /></Link> */}
             </div>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li><Link href="/about">About Us</Link></li>
-              <li><Link href="/faq">FAQ</Link></li>
-              <li><Link href="/shipping">Shipping Information</Link></li>
-              <li><Link href="/returns">Returns Policy</Link></li>
+              <li><Link href="/collections">Collections</Link></li>
+              <li><Link href="/contact">Contact Us</Link></li>
             </ul>
           </div>
           <div>

@@ -59,7 +59,10 @@ export async function POST(request: Request) {
 
     // Get user by email
     const user = await prisma.user.findUnique({
-      where: { email: session.user.email }
+      where: { email: session.user.email },
+      include: {
+        favorites: true
+      }
     })
 
     if (!user) {
@@ -69,30 +72,24 @@ export async function POST(request: Request) {
       )
     }
 
-    // Check if movie is already in favorites
-    const existingFavorite = await prisma.favorite.findFirst({
-      where: {
+    // Check for duplicate before adding
+    const isDuplicate = user.favorites.some(fav => fav.movieTitle === title)
+    if (isDuplicate) {
+      return NextResponse.json(
+        { error: 'Movie already in favorites' }, 
+        { status: 400 }
+      )
+    }
+
+    // Add to favorites
+    const result = await prisma.favorite.create({
+      data: {
         userId: user.id,
         movieTitle: title,
       },
     })
 
-    if (existingFavorite) {
-      // Remove from favorites
-      await prisma.favorite.delete({
-        where: { id: existingFavorite.id },
-      })
-    } else {
-      // Add to favorites
-      await prisma.favorite.create({
-        data: {
-          userId: user.id,
-          movieTitle: title,
-        },
-      })
-    }
-
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true, result })
   } catch (error) {
     console.error('Error updating favorites:', error)
     return NextResponse.json(

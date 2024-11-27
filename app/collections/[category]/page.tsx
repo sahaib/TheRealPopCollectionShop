@@ -22,7 +22,29 @@ export default function CollectionPage({ params }: PageProps) {
     'classic-cinema': 'classic-cinema',
     'modern-classics': 'modern-classics',
     'documentary': 'documentary',
-    'cult-underground': 'cult-underground'
+    'cult-underground': 'cult-underground',
+    'filmnoir': 'filmnoir',
+    'genre-horror': 'genre-horror',
+    'genre-romance': 'genre-romance',
+    'director-showcase': 'director-showcase',
+    'award-winners': 'award-winners',
+    'family-children': 'family-children',
+    'sports-adventure': 'sports-adventure',
+    'war-films': 'war-films',
+    'comedy-classics': 'comedy-classics',
+    'thriller': 'thriller',
+    'musicals': 'musicals',
+    'experimental': 'experimental',
+    'asian-action': 'asian-action',
+    'crime-gangster': 'crime-gangster',
+    'fantasy': 'fantasy',
+    'historical-epics': 'historical-epics',
+    'biographical': 'biographical',
+    'teen-coming-age': 'teen-coming-age',
+    'political-thriller': 'political-thriller',
+    'bollywood-comedy': 'bollywood-comedy',
+    'bollywood-horror': 'bollywood-horror',
+    'bollywood-romance': 'bollywood-romance'
   }
 
   const collectionId = collectionMap[params.category]
@@ -67,6 +89,7 @@ export default function CollectionPage({ params }: PageProps) {
                 duration={movie.duration}
                 rating={movie.rating}
                 collectionId={collectionId}
+                categoryName={categoryName}
               />
             ))}
           </div>
