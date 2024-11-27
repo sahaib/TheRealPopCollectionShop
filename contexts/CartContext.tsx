@@ -10,6 +10,7 @@ interface CartItem {
   quantity: number
   category: string
   subcategory: string
+  mainCategory?: string
 }
 
 interface CartState {
@@ -33,6 +34,7 @@ export const CartContext = createContext<{
     price: number;
     category: string;
     subcategory: string;
+    mainCategory?: string
   }) => void
   removeFromCart: (id: string | number) => void
   updateQuantity: (id: string | number, quantity: number) => void
@@ -125,6 +127,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     price: number;
     category: string;
     subcategory: string;
+    mainCategory?: string
   }) => {
     dispatch({ 
       type: 'ADD_ITEM', 

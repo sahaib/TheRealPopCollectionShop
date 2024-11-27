@@ -2,10 +2,45 @@ import { useContext } from 'react'
 import { X, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { CartContext } from '@/contexts/CartContext'
+import { title } from 'process';
 
 export default function ShoppingCartPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const cart = useContext(CartContext)
   if (!cart) throw new Error('useCart must be used within CartProvider')
+
+  const collectionMap: { [key: string]: string } = {
+    'bollywood-action': 'bollywood-action',
+    'hollywood-action': 'hollywood-action',
+    'scifi-fantasy': 'scifi-fantasy',
+    'international-cinema': 'international-cinema',
+    'animation': 'animation',
+    'classic-cinema': 'classic-cinema',
+    'modern-classics': 'modern-classics',
+    'documentary': 'documentary',
+    'cult-underground': 'cult-underground',
+    'filmnoir': 'filmnoir',
+    'genre-horror': 'genre-horror',
+    'genre-romance': 'genre-romance',
+    'director-showcase': 'director-showcase',
+    'award-winners': 'award-winners',
+    'family-children': 'family-children',
+    'sports-adventure': 'sports-adventure',
+    'war-films': 'war-films',
+    'comedy-classics': 'comedy-classics',
+    'thriller': 'thriller',
+    'musicals': 'musicals',
+    'experimental': 'experimental',
+    'asian-action': 'asian-action',
+    'crime-gangster': 'crime-gangster',
+    'fantasy': 'fantasy',
+    'historical-epics': 'historical-epics',
+    'biographical': 'biographical',
+    'teen-coming-age': 'teen-coming-age',
+    'political-thriller': 'political-thriller',
+    'bollywood-comedy': 'bollywood-comedy',
+    'bollywood-horror': 'bollywood-horror',
+    'bollywood-romance': 'bollywood-romance'
+  }
 
   return (
     <>
@@ -41,7 +76,16 @@ export default function ShoppingCartPanel({ isOpen, onClose }: { isOpen: boolean
                   <li key={item.id} className="flex items-center justify-between p-3 bg-white dark:bg-gray-700 rounded-lg shadow-sm">
                     <div>
                       <h3 className="font-medium dark:text-white">
-                        {item.title}
+                        {item.category && item.subcategory ? (
+                          <a 
+                            // href={`/collections/${item.mainCategory}/${item.category}/${item.subcategory}`} 
+                            className="hover:underline"
+                          >
+                            {item.title}
+                          </a>
+                        ) : (
+                          <span>{item.title}</span>
+                        )}
                       </h3>
                       <p className="text-sm text-gray-500 dark:text-gray-400">
                         ${item.price} × {item.quantity}

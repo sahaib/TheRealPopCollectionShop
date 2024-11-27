@@ -3,13 +3,15 @@ export interface MovieDetails {
   title: string;
   price: number;
   image: string;
-  releaseYear: number;
-  duration: string;
   rating: number;
+  duration: string;
+  releaseYear: number;
   description: string;
   director: string;
   cast: string[];
   genre: string[];
+  category: string;
+  subcategory: string;
   tmdb_id?: number;
 }
 
@@ -43,7 +45,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Siddharth Anand",
           cast: ["Shah Rukh Khan", "Deepika Padukone", "John Abraham"],
           genre: ["Action", "Thriller"],
-          tmdb_id: 864692
+          tmdb_id: 864692,
+          category: "Action-Blockbusters",
+          subcategory: "Pathaan"
         },
         "War": {
           id: "War",
@@ -57,7 +61,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Siddharth Anand",
           cast: ["Hrithik Roshan", "Tiger Shroff", "Vaani Kapoor"],
           genre: ["Action", "Thriller"],
-          tmdb_id: 593961
+          tmdb_id: 593961,
+          category: "Action-Blockbusters",
+          subcategory: "War"
         },
         "Tiger-Zinda-Hai": {
           id: "Tiger-Zinda-Hai",
@@ -71,7 +77,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ali Abbas Zafar",
           cast: ["Salman Khan", "Katrina Kaif", "Paresh Rawal"],
           genre: ["Action", "Thriller"],
-          tmdb_id: 450465
+          tmdb_id: 450465,
+          category: "Action-Blockbusters",
+          subcategory: "Tiger-Zinda-Hai"
         },
         "Dhoom-3": {
           id: "Dhoom-3",
@@ -85,7 +93,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Vijay Krishna Acharya",
           cast: ["Aamir Khan", "Abhishek Bachchan", "Katrina Kaif"],
           genre: ["Action", "Thriller"],
-          tmdb_id: 207932
+          tmdb_id: 207932,
+          category: "Action-Blockbusters",
+          subcategory: "Dhoom-3"
         },
         "Bang-Bang": {
           id: "Bang-Bang",
@@ -99,7 +109,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Siddharth Anand",
           cast: ["Hrithik Roshan", "Katrina Kaif", "Danny Denzongpa"],
           genre: ["Action", "Comedy", "Romance"],
-          tmdb_id: 297090
+          tmdb_id: 297090,
+          category: "Action-Blockbusters",
+          subcategory: "Bang-Bang"
         },
         "Ek-Tha-Tiger": {
           id: "Ek-Tha-Tiger",
@@ -113,7 +125,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Kabir Khan",
           cast: ["Salman Khan", "Katrina Kaif", "Ranvir Shorey"],
           genre: ["Action", "Romance", "Thriller"],
-          tmdb_id: 125947
+          tmdb_id: 125947,
+          category: "Action-Blockbusters",
+          subcategory: "Ek-Tha-Tiger"
         },
         "Krrish": {
           id: "Krrish",
@@ -127,7 +141,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Rakesh Roshan",
           cast: ["Hrithik Roshan", "Priyanka Chopra", "Naseeruddin Shah"],
           genre: ["Action", "Sci-Fi"],
-          tmdb_id: 14286
+          tmdb_id: 14286,
+          category: "Action-Blockbusters",
+          subcategory: "Krrish"
         },
         "Sholay": {
           id: "Sholay",
@@ -141,7 +157,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ramesh Sippy",
           cast: ["Dharmendra", "Amitabh Bachchan", "Sanjeev Kumar", "Hema Malini", "Amjad Khan"],
           genre: ["Action", "Adventure", "Drama"],
-          tmdb_id: 20453
+          tmdb_id: 20453,
+          category: "Action-Blockbusters",
+          subcategory: "Sholay"
         },
         "Deewaar": {
           id: "Deewaar",
@@ -155,7 +173,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Yash Chopra",
           cast: ["Amitabh Bachchan", "Shashi Kapoor", "Nirupa Roy"],
           genre: ["Action", "Crime", "Drama"],
-          tmdb_id: 47904
+          tmdb_id: 47904,
+          category: "Action-Blockbusters",
+          subcategory: "Deewaar"
         },
         "Don": {
           id: "Don",
@@ -169,7 +189,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Chandra Barot",
           cast: ["Amitabh Bachchan", "Zeenat Aman", "Pran"],
           genre: ["Action", "Crime", "Thriller"],
-          tmdb_id: 40090
+          tmdb_id: 40090,
+          category: "Action-Blockbusters",
+          subcategory: "Don"
         },
         "Zanjeer": {
           id: "Zanjeer",
@@ -183,7 +205,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Prakash Mehra",
           cast: ["Amitabh Bachchan", "Jaya Bhaduri", "Pran"],
           genre: ["Action", "Crime", "Drama"],
-          tmdb_id: 50312
+          tmdb_id: 50312,
+          category: "Action-Blockbusters",
+          subcategory: "Zanjeer"
         },
         "Amar-Akbar-Anthony": {
           id: "Amar-Akbar-Anthony",
@@ -197,7 +221,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Manmohan Desai",
           cast: ["Amitabh Bachchan", "Vinod Khanna", "Rishi Kapoor"],
           genre: ["Action", "Comedy", "Drama"],
-          tmdb_id: 51686
+          tmdb_id: 51686,
+          category: "Action-Blockbusters",
+          subcategory: "Amar-Akbar-Anthony"
         },
         "Muqaddar-Ka-Sikandar": {
           id: "Muqaddar-Ka-Sikandar",
@@ -211,7 +237,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Prakash Mehra",
           cast: ["Amitabh Bachchan", "Raakhee", "Vinod Khanna"],
           genre: ["Action", "Drama", "Romance"],
-          tmdb_id: 51693
+          tmdb_id: 51693,
+          category: "Action-Blockbusters",
+          subcategory: "Muqaddar-Ka-Sikandar"
         },
         "Mr-India": {
           id: "Mr-India",
@@ -225,7 +253,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Shekhar Kapur",
           cast: ["Anil Kapoor", "Sridevi", "Amrish Puri"],
           genre: ["Action", "Adventure", "Sci-Fi"],
-          tmdb_id: 45041
+          tmdb_id: 45041,
+          category: "Action-Blockbusters",
+          subcategory: "Mr-India"
         },
         "Trishul": {
           id: "Trishul",
@@ -239,7 +269,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Yash Chopra",
           cast: ["Amitabh Bachchan", "Sanjeev Kumar", "Shashi Kapoor", "Raakhee"],
           genre: ["Action", "Drama", "Family"],
-          tmdb_id: 51697
+          tmdb_id: 51697,
+          category: "Action-Blockbusters",
+          subcategory: "Trishul"
         },
         "Shakti": {
           id: "Shakti",
@@ -253,7 +285,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ramesh Sippy",
           cast: ["Dilip Kumar", "Amitabh Bachchan", "Raakhee", "Smita Patil"],
           genre: ["Action", "Crime", "Drama"],
-          tmdb_id: 51694
+          tmdb_id: 51694,
+          category: "Action-Blockbusters",
+          subcategory: "Shakti"
         },
         "Coolie": {
           id: "Coolie",
@@ -267,7 +301,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Manmohan Desai",
           cast: ["Amitabh Bachchan", "Rishi Kapoor", "Rati Agnihotri"],
           genre: ["Action", "Drama", "Romance"],
-          tmdb_id: 51688
+          tmdb_id: 51688,
+          category: "Action-Blockbusters",
+          subcategory: "Coolie"
         },
         "Mard": {
           id: "Mard",
@@ -281,7 +317,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Manmohan Desai",
           cast: ["Amitabh Bachchan", "Amrita Singh", "Nirupa Roy"],
           genre: ["Action", "Drama", "History"],
-          tmdb_id: 51691
+          tmdb_id: 51691,
+          category: "Action-Blockbusters",
+          subcategory: "Mard"
         },
         "Shahenshah": {
           id: "Shahenshah",
@@ -295,7 +333,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Tinnu Anand",
           cast: ["Amitabh Bachchan", "Meenakshi Sheshadri", "Amrish Puri"],
           genre: ["Action", "Crime", "Drama"],
-          tmdb_id: 51696
+          tmdb_id: 51696,
+          category: "Action-Blockbusters",
+          subcategory: "Shahenshah"
         },
         "Naseeb": {
           id: "Naseeb",
@@ -309,7 +349,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Manmohan Desai",
           cast: ["Amitabh Bachchan", "Hema Malini", "Rishi Kapoor"],
           genre: ["Action", "Drama", "Musical"],
-          tmdb_id: 51692
+          tmdb_id: 51692,
+          category: "Action-Blockbusters",
+          subcategory: "Naseeb"
         },
         "Kaalia": {
           id: "Kaalia",
@@ -323,7 +365,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Tinnu Anand",
           cast: ["Amitabh Bachchan", "Parveen Babi", "Amjad Khan"],
           genre: ["Action", "Crime", "Drama"],
-          tmdb_id: 51689
+          tmdb_id: 51689,
+          category: "Action-Blockbusters",
+          subcategory: "Kaalia"
         },
         "Karma": {
           id: "Karma",
@@ -337,7 +381,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Subhash Ghai",
           cast: ["Dilip Kumar", "Nutan", "Jackie Shroff", "Anil Kapoor"],
           genre: ["Action", "Drama", "Thriller"],
-          tmdb_id: 51695
+          tmdb_id: 51695,
+          category: "Action-Blockbusters",
+          subcategory: "Karma"
         }
       },
       "Crime-Action": {
@@ -353,7 +399,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ram Gopal Varma",
           cast: ["J.D. Chakravarthy", "Manoj Bajpayee", "Urmila Matondkar"],
           genre: ["Crime", "Drama", "Action"],
-          tmdb_id: 51699
+          tmdb_id: 51699,
+          category: "Crime-Action",
+          subcategory: "Satya"
         },
         "Company": {
           id: "Company",
@@ -367,7 +415,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ram Gopal Varma",
           cast: ["Ajay Devgn", "Vivek Oberoi", "Manisha Koirala"],
           genre: ["Crime", "Drama", "Thriller"],
-          tmdb_id: 51701
+          tmdb_id: 51701,
+          category: "Crime-Action",
+          subcategory: "Company"
         },
         "Vaastav": {
           id: "Vaastav",
@@ -381,7 +431,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Mahesh Manjrekar",
           cast: ["Sanjay Dutt", "Namrata Shirodkar", "Mohnish Bahl"],
           genre: ["Crime", "Drama", "Action"],
-          tmdb_id: 51702
+          tmdb_id: 51702,
+          category: "Crime-Action",
+          subcategory: "Vaastav"
         },
         "Parinda": {
           id: "Parinda",
@@ -395,7 +447,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Vidhu Vinod Chopra",
           cast: ["Jackie Shroff", "Anil Kapoor", "Nana Patekar", "Madhuri Dixit"],
           genre: ["Crime", "Drama", "Action"],
-          tmdb_id: 51703
+          tmdb_id: 51703,
+          category: "Crime-Action",
+          subcategory: "Parinda"
         },
         "Ardh-Satya": {
           id: "Ardh-Satya",
@@ -409,7 +463,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Govind Nihalani",
           cast: ["Om Puri", "Smita Patil", "Sadashiv Amrapurkar"],
           genre: ["Crime", "Drama", "Action"],
-          tmdb_id: 51704
+          tmdb_id: 51704,
+          category: "Crime-Action",
+          subcategory: "Ardh-Satya"
         },
         "Once-Upon-a-Time-in-Mumbai": {
           id: "Once-Upon-a-Time-in-Mumbai",
@@ -423,7 +479,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Milan Luthria",
           cast: ["Ajay Devgn", "Emraan Hashmi", "Kangana Ranaut"],
           genre: ["Crime", "Drama", "Action"],
-          tmdb_id: 51705
+          tmdb_id: 51705,
+          category: "Crime-Action",
+          subcategory: "Once-Upon-a-Time-in-Mumbai"
         },
         "Ab-Tak-Chhappan": {
           id: "Ab-Tak-Chhappan",
@@ -437,7 +495,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Shimit Amin",
           cast: ["Nana Patekar", "Revathi", "Mohan Agashe"],
           genre: ["Crime", "Action", "Thriller"],
-          tmdb_id: 51706
+          tmdb_id: 51706,
+          category: "Crime-Action",
+          subcategory: "Ab-Tak-Chhappan"
         },
         "Gangaajal": {
           id: "Gangaajal",
@@ -451,7 +511,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Prakash Jha",
           cast: ["Ajay Devgn", "Gracy Singh", "Mohan Joshi"],
           genre: ["Crime", "Drama", "Action"],
-          tmdb_id: 51707
+          tmdb_id: 51707,
+          category: "Crime-Action",
+          subcategory: "Gangaajal"
         },
         "D-Day": {
           id: "D-Day",
@@ -465,7 +527,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Nikhil Advani",
           cast: ["Rishi Kapoor", "Irrfan Khan", "Arjun Rampal"],
           genre: ["Crime", "Action", "Thriller"],
-          tmdb_id: 51708
+          tmdb_id: 51708,
+          category: "Crime-Action",
+          subcategory: "D-Day"
         },
         "Black-Friday": {
           id: "Black-Friday",
@@ -479,7 +543,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Anurag Kashyap",
           cast: ["Kay Kay Menon", "Pavan Malhotra", "Aditya Srivastava"],
           genre: ["Crime", "Drama", "Thriller"],
-          tmdb_id: 51709
+          tmdb_id: 51709,
+          category: "Crime-Action",
+          subcategory: "Black-Friday"
         },
         "Shootout-at-Lokhandwala": {
           id: "Shootout-at-Lokhandwala",
@@ -493,7 +559,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Apoorva Lakhia",
           cast: ["Amitabh Bachchan", "Sanjay Dutt", "Vivek Oberoi"],
           genre: ["Action", "Crime", "Drama"],
-          tmdb_id: 51710
+          tmdb_id: 51710,
+          category: "Crime-Action",
+          subcategory: "Shootout-at-Lokhandwala"
         },
         "Maqbool": {
           id: "Maqbool",
@@ -507,7 +575,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Vishal Bhardwaj",
           cast: ["Irrfan Khan", "Tabu", "Pankaj Kapur"],
           genre: ["Crime", "Drama", "Thriller"],
-          tmdb_id: 51711
+          tmdb_id: 51711,
+          category: "Crime-Action",
+          subcategory: "Maqbool"
         }
       },
       "Thriller-Mystery": {
@@ -523,7 +593,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Sriram Raghavan",
           cast: ["Ayushmann Khurrana", "Tabu", "Radhika Apte"],
           genre: ["Thriller", "Mystery", "Crime"],
-          tmdb_id: 534780
+          tmdb_id: 534780,
+          category: "Thriller-Mystery",
+          subcategory: "Andhadhun"
         },
         "Drishyam": {
           id: "Drishyam",
@@ -537,7 +609,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Nishikant Kamat",
           cast: ["Ajay Devgn", "Shriya Saran", "Tabu"],
           genre: ["Thriller", "Drama", "Mystery"],
-          tmdb_id: 334356
+          tmdb_id: 334356,
+          category: "Thriller-Mystery",
+          subcategory: "Drishyam"
         },
         "Kahaani": {
           id: "Kahaani",
@@ -551,7 +625,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Sujoy Ghosh",
           cast: ["Vidya Balan", "Parambrata Chatterjee", "Nawazuddin Siddiqui"],
           genre: ["Mystery", "Thriller"],
-          tmdb_id: 51712
+          tmdb_id: 51712,
+          category: "Thriller-Mystery",
+          subcategory: "Kahaani"
         },
         "Talaash": {
           id: "Talaash",
@@ -565,7 +641,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Reema Kagti",
           cast: ["Aamir Khan", "Kareena Kapoor", "Rani Mukerji"],
           genre: ["Crime", "Drama", "Mystery"],
-          tmdb_id: 51713
+          tmdb_id: 51713,
+          category: "Thriller-Mystery",
+          subcategory: "Talaash"
         },
         "Drishyam-2": {
           id: "Drishyam-2",
@@ -579,7 +657,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Nishikant Kamat",
           cast: ["Ajay Devgn", "Tabu", "Shriya Saran"],
           genre: ["Crime", "Drama", "Mystery"],
-          tmdb_id: 51714
+          tmdb_id: 51714,
+          category: "Thriller-Mystery",
+          subcategory: "Drishyam-2"
         },
         "Talvar": {
           id: "Talvar",
@@ -593,7 +673,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Meghna Gulzar",
           cast: ["Irrfan Khan", "Konkona Sen Sharma", "Neeraj Kabi"],
           genre: ["Crime", "Drama", "Mystery"],
-          tmdb_id: 359940
+          tmdb_id: 359940,
+          category: "Thriller-Mystery",
+          subcategory: "Talvar"
         },
         "Raat-Akeli-Hai": {
           id: "Raat-Akeli-Hai",
@@ -607,7 +689,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Honey Trehan",
           cast: ["Nawazuddin Siddiqui", "Radhika Apte", "Aditya Srivastava"],
           genre: ["Crime", "Mystery", "Thriller"],
-          tmdb_id: 721452
+          tmdb_id: 721452,
+          category: "Thriller-Mystery",
+          subcategory: "Raat-Akeli-Hai"
         },
         "Table-No-21": {
           id: "Table-No-21",
@@ -621,7 +705,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Aditya Datt",
           cast: ["Rajeev Khandelwal", "Tena Desae", "Paresh Rawal"],
           genre: ["Thriller", "Mystery", "Drama"],
-          tmdb_id: 51718
+          tmdb_id: 51718,
+          category: "Thriller-Mystery",
+          subcategory: "Table-No-21"
         },
         "404-Error-Not-Found": {
           id: "404-Error-Not-Found",
@@ -635,7 +721,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Prawaal Raman",
           cast: ["Rajvvir Aroraa", "Nishikant Kamat", "Satish Kaushik"],
           genre: ["Horror", "Mystery", "Thriller"],
-          tmdb_id: 51719
+          tmdb_id: 51719,
+          category: "Thriller-Mystery",
+          subcategory: "404-Error-Not-Found"
         },
         "Samay": {
           id: "Samay",
@@ -649,7 +737,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Robby Grewal",
           cast: ["Sushmita Sen", "Sushant Singh", "Namrata Shirodkar"],
           genre: ["Crime", "Mystery", "Thriller"],
-          tmdb_id: 51720
+          tmdb_id: 51720,
+          category: "Thriller-Mystery",
+          subcategory: "Samay"
         },
         "Ittefaq": {
           id: "Ittefaq",
@@ -663,7 +753,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Abhay Chopra",
           cast: ["Sidharth Malhotra", "Sonakshi Sinha", "Akshaye Khanna"],
           genre: ["Mystery", "Thriller", "Crime"],
-          tmdb_id: 445651
+          tmdb_id: 445651,
+          category: "Thriller-Mystery",
+          subcategory: "Ittefaq"
         }
       }
     }
@@ -685,7 +777,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Christopher Nolan",
           cast: ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
           genre: ["Action", "Crime", "Drama", "Thriller"],
-          tmdb_id: 155
+          tmdb_id: 155,
+          category: "Superhero-Universe",
+          subcategory: "The-Dark-Knight"
         },
         "Black-Panther": {
           id: "Black-Panther",
@@ -699,7 +793,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ryan Coogler",
           cast: ["Chadwick Boseman", "Michael B. Jordan", "Lupita Nyong'o"],
           genre: ["Action", "Adventure", "Science Fiction"],
-          tmdb_id: 284054
+          tmdb_id: 284054,
+          category: "Superhero-Universe",
+          subcategory: "Black-Panther"
         }
       },
       "Action-Franchises": {
@@ -715,7 +811,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Chad Stahelski",
           cast: ["Keanu Reeves", "Michael Nyqvist", "Alfie Allen"],
           genre: ["Action", "Thriller"],
-          tmdb_id: 245891
+          tmdb_id: 245891,
+          category: "Action-Franchises",
+          subcategory: "John-Wick"
         },
         "Mission-Impossible": {
           id: "Mission-Impossible",
@@ -729,7 +827,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Christopher McQuarrie",
           cast: ["Tom Cruise", "Henry Cavill", "Ving Rhames"],
           genre: ["Action", "Adventure", "Thriller"],
-          tmdb_id: 353081
+          tmdb_id: 353081,
+          category: "Action-Franchises",
+          subcategory: "Mission-Impossible"
         }
       },
       "Modern-Action": {
@@ -745,7 +845,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Edgar Wright",
           cast: ["Ansel Elgort", "Kevin Spacey", "Lily James"],
           genre: ["Action", "Crime", "Music"],
-          tmdb_id: 339403
+          tmdb_id: 339403,
+          category: "Modern-Action",
+          subcategory: "Baby-Driver"
         },
         "Mad-Max-Fury-Road": {
           id: "Mad-Max-Fury-Road",
@@ -759,7 +861,9 @@ export const collections: { [key: string]: Collection } = {
           director: "George Miller",
           cast: ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
           genre: ["Action", "Adventure", "Science Fiction"],
-          tmdb_id: 76341
+          tmdb_id: 76341,
+          category: "Modern-Action",
+          subcategory: "Mad-Max-Fury-Road"
         },
         "Die-Hard": {
           id: "Die-Hard",
@@ -773,7 +877,9 @@ export const collections: { [key: string]: Collection } = {
           director: "John McTiernan",
           cast: ["Bruce Willis", "Alan Rickman", "Bonnie Bedelia"],
           genre: ["Action", "Thriller"],
-          tmdb_id: 562
+          tmdb_id: 562,
+          category: "Modern-Action",
+          subcategory: "Die-Hard"
         }
       }
     }
@@ -795,7 +901,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Peter Jackson",
           cast: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
           genre: ["Fantasy", "Adventure", "Action"],
-          tmdb_id: 120
+          tmdb_id: 120,
+          category: "Epic-Fantasy",
+          subcategory: "Lord-of-the-Rings"
         },
         "Harry-Potter": {
           id: "Harry-Potter",
@@ -809,7 +917,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Chris Columbus",
           cast: ["Daniel Radcliffe", "Rupert Grint", "Emma Watson"],
           genre: ["Fantasy", "Adventure", "Family"],
-          tmdb_id: 671
+          tmdb_id: 671,
+          category: "Epic-Fantasy",
+          subcategory: "Harry-Potter"
         }
       },
       "Sci-Fi-Franchises": {
@@ -825,7 +935,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Christopher Nolan",
           cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"],
           genre: ["Science Fiction", "Action", "Adventure"],
-          tmdb_id: 27205
+          tmdb_id: 27205,
+          category: "Sci-Fi-Franchises",
+          subcategory: "Inception"
         },
         "The-Matrix": {
           id: "The-Matrix",
@@ -839,7 +951,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Lana Wachowski, Lilly Wachowski",
           cast: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
           genre: ["Science Fiction", "Action"],
-          tmdb_id: 603
+          tmdb_id: 603,
+          category: "Sci-Fi-Franchises",
+          subcategory: "The-Matrix"
         },
         "Blade-Runner-2049": {
           id: "Blade-Runner-2049",
@@ -853,7 +967,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Denis Villeneuve",
           cast: ["Ryan Gosling", "Harrison Ford", "Ana de Armas"],
           genre: ["Science Fiction", "Drama"],
-          tmdb_id: 335984
+          tmdb_id: 335984,
+          category: "Sci-Fi-Franchises",
+          subcategory: "Blade-Runner-2049"
         }
       },
       "Modern-Sci-Fi": {
@@ -869,7 +985,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Denis Villeneuve",
           cast: ["Timothée Chalamet", "Rebecca Ferguson", "Oscar Isaac"],
           genre: ["Science Fiction", "Adventure"],
-          tmdb_id: 438631
+          tmdb_id: 438631,
+          category: "Modern-Sci-Fi",
+          subcategory: "Dune"
         },
         "Interstellar": {
           id: "Interstellar",
@@ -883,7 +1001,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Christopher Nolan",
           cast: ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
           genre: ["Science Fiction", "Adventure", "Drama"],
-          tmdb_id: 157336
+          tmdb_id: 157336,
+          category: "Modern-Sci-Fi",
+          subcategory: "Interstellar"
         }
       }
     }
@@ -905,7 +1025,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Bong Joon-ho",
           cast: ["Song Kang-ho", "Lee Sun-kyun", "Cho Yeo-jeong"],
           genre: ["Drama", "Thriller", "Comedy"],
-          tmdb_id: 496243
+          tmdb_id: 496243,
+          category: "Korean Cinema",
+          subcategory: "Parasite"
         },
         // Add more movies...
       },
@@ -922,7 +1044,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Jean-Pierre Jeunet",
           cast: ["Audrey Tautou", "Mathieu Kassovitz", "Rufus"],
           genre: ["Comedy", "Romance"],
-          tmdb_id: 194
+          tmdb_id: 194,
+          category: "European-Masters",
+          subcategory: "Amélie"
         },
         // Add more movies...
       },
@@ -939,7 +1063,9 @@ export const collections: { [key: string]: Collection } = {
           director: "S.S. Rajamouli",
           cast: ["Prabhas", "Rana Daggubati", "Anushka Shetty"],
           genre: ["Action", "Drama", "Fantasy"],
-          tmdb_id: 256040
+          tmdb_id: 256040,
+          category: "Indian-Regional",
+          subcategory: "Baahubali-Series"
         },
         // Add more movies...
       }
@@ -962,7 +1088,9 @@ export const collections: { [key: string]: Collection } = {
           director: "David Hand",
           cast: ["Adriana Caselotti", "Harry Stockwell", "Lucille La Verne"],
           genre: ["Animation", "Fantasy", "Family"],
-          tmdb_id: 408
+          tmdb_id: 408,
+          category: "Disney-Classics",
+          subcategory: "Snow-White"
         },
         "Moana": {
           id: "Moana",
@@ -976,7 +1104,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ron Clements, John Musker",
           cast: ["Auli'i Cravalho", "Dwayne Johnson", "Rachel House"],
           genre: ["Animation", "Adventure", "Family"],
-          tmdb_id: 277834
+          tmdb_id: 277834,
+          category: "Disney-Classics",
+          subcategory: "Moana"
         },
         "Zootopia": {
           id: "Zootopia",
@@ -990,7 +1120,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Byron Howard, Rich Moore",
           cast: ["Ginnifer Goodwin", "Jason Bateman", "Idris Elba"],
           genre: ["Animation", "Adventure", "Comedy", "Family"],
-          tmdb_id: 269149
+          tmdb_id: 269149,
+          category: "Disney-Classics",
+          subcategory: "Zootopia"
         },
         "The-Lion-King": {
           id: "The-Lion-King",
@@ -1004,7 +1136,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Roger Allers, Rob Minkoff",
           cast: ["Matthew Broderick", "James Earl Jones", "Jeremy Irons"],
           genre: ["Animation", "Family", "Drama"],
-          tmdb_id: 8587
+          tmdb_id: 8587,
+          category: "Disney-Classics",
+          subcategory: "The-Lion-King"
         },
         "Frozen": {
           id: "Frozen",
@@ -1018,7 +1152,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Chris Buck, Jennifer Lee",
           cast: ["Kristen Bell", "Idina Menzel", "Jonathan Groff"],
           genre: ["Animation", "Adventure", "Family"],
-          tmdb_id: 109445
+          tmdb_id: 109445,
+          category: "Disney-Classics",
+          subcategory: "Frozen"
         },
         "Encanto": {
           id: "Encanto",
@@ -1032,7 +1168,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Jared Bush, Byron Howard",
           cast: ["Stephanie Beatriz", "María Cecilia Botero", "John Leguizamo"],
           genre: ["Animation", "Comedy", "Family", "Fantasy"],
-          tmdb_id: 568124
+          tmdb_id: 568124,
+          category: "Disney-Classics",
+          subcategory: "Encanto"
         }
       },
       "Pixar-Universe": {
@@ -1048,7 +1186,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Lee Unkrich",
           cast: ["Anthony Gonzalez", "Gael García Bernal", "Benjamin Bratt"],
           genre: ["Animation", "Family", "Fantasy", "Music"],
-          tmdb_id: 354912
+          tmdb_id: 354912,
+          category: "Pixar-Universe",
+          subcategory: "Coco"
         },
         "Inside-Out": {
           id: "Inside-Out",
@@ -1062,7 +1202,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Pete Docter",
           cast: ["Amy Poehler", "Phyllis Smith", "Richard Kind"],
           genre: ["Animation", "Family", "Adventure", "Comedy"],
-          tmdb_id: 150540
+          tmdb_id: 150540,
+          category: "Pixar-Universe",
+          subcategory: "Inside-Out"
         },
         "Up": {
           id: "Up",
@@ -1076,7 +1218,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Pete Docter",
           cast: ["Ed Asner", "Christopher Plummer", "Jordan Nagai"],
           genre: ["Animation", "Comedy", "Family", "Adventure"],
-          tmdb_id: 14160
+          tmdb_id: 14160,
+          category: "Pixar-Universe",
+          subcategory: "Up"
         },
         "Wall-E": {
           id: "Wall-E",
@@ -1090,7 +1234,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Andrew Stanton",
           cast: ["Ben Burtt", "Elissa Knight", "Jeff Garlin"],
           genre: ["Animation", "Family", "Science Fiction"],
-          tmdb_id: 10681
+          tmdb_id: 10681,
+          category: "Pixar-Universe",
+          subcategory: "Wall-E"
         },
         "Ratatouille": {
           id: "Ratatouille",
@@ -1104,7 +1250,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Brad Bird",
           cast: ["Patton Oswalt", "Lou Romano", "Peter O'Toole"],
           genre: ["Animation", "Comedy", "Family", "Fantasy"],
-          tmdb_id: 2062
+          tmdb_id: 2062,
+          category: "Pixar-Universe",
+          subcategory: "Ratatouille"
         }
       },
       "DreamWorks-Animation": {
@@ -1120,7 +1268,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Chris Sanders, Dean DeBlois",
           cast: ["Jay Baruchel", "Gerard Butler", "Craig Ferguson"],
           genre: ["Animation", "Adventure", "Family", "Fantasy"],
-          tmdb_id: 10191
+          tmdb_id: 10191,
+          category: "DreamWorks-Animation",
+          subcategory: "How-to-Train-Your-Dragon"
         },
         "Shrek": {
           id: "Shrek",
@@ -1134,7 +1284,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Andrew Adamson, Vicky Jenson",
           cast: ["Mike Myers", "Eddie Murphy", "Cameron Diaz"],
           genre: ["Animation", "Comedy", "Family", "Fantasy"],
-          tmdb_id: 808
+          tmdb_id: 808,
+          category: "DreamWorks-Animation",
+          subcategory: "Shrek"
         },
         "Kung-Fu-Panda": {
           id: "Kung-Fu-Panda",
@@ -1148,7 +1300,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Mark Osborne, John Stevenson",
           cast: ["Jack Black", "Dustin Hoffman", "Angelina Jolie"],
           genre: ["Animation", "Action", "Adventure", "Comedy"],
-          tmdb_id: 9502
+          tmdb_id: 9502,
+          category: "DreamWorks-Animation",
+          subcategory: "Kung-Fu-Panda"
         }
       },
       "Stop-Motion-&-Artistic": {
@@ -1164,7 +1318,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Bob Persichetti, Peter Ramsey, Rodney Rothman",
           cast: ["Shameik Moore", "Jake Johnson", "Hailee Steinfeld"],
           genre: ["Animation", "Action", "Adventure", "Science Fiction"],
-          tmdb_id: 324857
+          tmdb_id: 324857,
+          category: "Stop-Motion-&-Artistic",
+          subcategory: "Spider-Man-Into-the-Spider-Verse"
         },
         "Coraline": {
           id: "Coraline",
@@ -1178,7 +1334,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Henry Selick",
           cast: ["Dakota Fanning", "Teri Hatcher", "Jennifer Saunders"],
           genre: ["Animation", "Fantasy", "Family"],
-          tmdb_id: 14836
+          tmdb_id: 14836,
+          category: "Stop-Motion-&-Artistic",
+          subcategory: "Coraline"
         },
         "Kubo-and-the-Two-Strings": {
           id: "Kubo-and-the-Two-Strings",
@@ -1192,7 +1350,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Travis Knight",
           cast: ["Charlize Theron", "Art Parkinson", "Matthew McConaughey"],
           genre: ["Animation", "Action", "Adventure"],
-          tmdb_id: 313297
+          tmdb_id: 313297,
+          category: "Stop-Motion-&-Artistic",
+          subcategory: "Kubo-and-the-Two-Strings"
         }
       }
     }
@@ -1214,7 +1374,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Michael Curtiz",
           cast: ["Humphrey Bogart", "Ingrid Bergman", "Paul Henreid"],
           genre: ["Drama", "Romance", "War"],
-          tmdb_id: 289
+          tmdb_id: 289,
+          category: "Golden-Age-Hollywood",
+          subcategory: "Casablanca"
         },
         // Add more movies...
       },
@@ -1231,7 +1393,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Francis Ford Coppola",
           cast: ["Marlon Brando", "Al Pacino", "James Caan"],
           genre: ["Crime", "Drama"],
-          tmdb_id: 238
+          tmdb_id: 238,
+          category: "New-Hollywood-Era",
+          subcategory: "The-Godfather"
         },
         // Add more movies...
       },
@@ -1248,7 +1412,9 @@ export const collections: { [key: string]: Collection } = {
           director: "John Huston",
           cast: ["Humphrey Bogart", "Mary Astor", "Peter Lorre"],
           genre: ["Crime", "Film-Noir", "Mystery"],
-          tmdb_id: 963
+          tmdb_id: 963,
+          category: "Film-Noir-Classics",
+          subcategory: "The-Maltese-Falcon"
         },
         // Add more movies...
       },
@@ -1265,7 +1431,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Akira Kurosawa",
           cast: ["Toshiro Mifune", "Takashi Shimura", "Keiko Tsushima"],
           genre: ["Action", "Drama", "Adventure"],
-          tmdb_id: 346
+          tmdb_id: 346,
+          category: "International-Classics",
+          subcategory: "Seven-Samurai"
         },
         // Add more movies...
       }
@@ -1288,7 +1456,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Quentin Tarantino",
           cast: ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
           genre: ["Crime", "Drama"],
-          tmdb_id: 680
+          tmdb_id: 680,
+          category: "90s-Masterpieces",
+          subcategory: "Pulp-Fiction"
         },
         // Add more movies...
       },
@@ -1305,7 +1475,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Christopher Nolan",
           cast: ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
           genre: ["Action", "Crime", "Drama", "Thriller"],
-          tmdb_id: 155
+          tmdb_id: 155,
+          category: "2000s-Landmarks",
+          subcategory: "The-Dark-Knight"
         },
         // Add more movies...
       },
@@ -1322,7 +1494,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Christopher Nolan",
           cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"],
           genre: ["Action", "Adventure", "Sci-Fi"],
-          tmdb_id: 27205
+          tmdb_id: 27205,
+          category: "2010s-Masterworks",
+          subcategory: "Inception"
         },
         // Add more movies...
       },
@@ -1339,7 +1513,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Daniel Kwan, Daniel Scheinert",
           cast: ["Michelle Yeoh", "Ke Huy Quan", "Stephanie Hsu"],
           genre: ["Action", "Adventure", "Comedy", "Sci-Fi"],
-          tmdb_id: 545611
+          tmdb_id: 545611,
+          category: "Recent-Acclaimed",
+          subcategory: "Everything-Everywhere-All-at-Once"
         },
         // Add more movies...
       },
@@ -1356,7 +1532,9 @@ export const collections: { [key: string]: Collection } = {
           director: "David Fincher",
           cast: ["Brad Pitt", "Edward Norton", "Helena Bonham Carter"],
           genre: ["Drama", "Thriller"],
-          tmdb_id: 550
+          tmdb_id: 550,
+          category: "Modern-Classics",
+          subcategory: "Fight-Club"
         }
       }
     }
@@ -1378,7 +1556,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Alastair Fothergill",
           cast: ["David Attenborough"],
           genre: ["Documentary", "Nature"],
-          tmdb_id: 1137
+          tmdb_id: 1137,
+          category: "Nature-&-Science",
+          subcategory: "Planet-Earth-Series"
         },
         // Add more movies...
       },
@@ -1395,7 +1575,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Morgan Neville",
           cast: ["Fred Rogers", "Joanne Rogers", "François Scarborough Clemmons"],
           genre: ["Documentary", "Biography"],
-          tmdb_id: 495764
+          tmdb_id: 495764,
+          category: "Social-&-Cultural",
+          subcategory: "Won't-You-Be-My-Neighbor"
         },
         // Add more movies...
       },
@@ -1412,7 +1594,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Errol Morris",
           cast: ["Randall Adams", "David Harris", "Gus Rose"],
           genre: ["Documentary", "Crime"],
-          tmdb_id: 24807
+          tmdb_id: 24807,
+          category: "True-Crime",
+          subcategory: "The-Thin-Blue-Line"
         },
         // Add more movies...
       },
@@ -1429,7 +1613,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Liz Garbus",
           cast: ["Nina Simone", "Lisa Simone Kelly", "Roger Nupie"],
           genre: ["Documentary", "Music", "Biography"],
-          tmdb_id: 317557
+          tmdb_id: 317557,
+          category: "Music-&-Arts",
+          subcategory: "What-Happened-Miss-Simone"
         },
         // Add more movies...
       },
@@ -1446,7 +1632,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Luc Jacquet",
           cast: ["Morgan Freeman", "Charles Berling", "Romane Bohringer"],
           genre: ["Documentary", "Family"],
-          tmdb_id: 1255
+          tmdb_id: 1255,
+          category: "Nature-Documentary",
+          subcategory: "March-of-the-Penguins"
         }
       },
       "Political-Documentary": {
@@ -1462,7 +1650,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Errol Morris",
           cast: ["Robert McNamara"],
           genre: ["Documentary", "History", "War"],
-          tmdb_id: 12698
+          tmdb_id: 12698,
+          category: "Political-Documentary",
+          subcategory: "The-Fog-of-War"
         }
       },
       "French-New-Wave": {
@@ -1478,7 +1668,9 @@ export const collections: { [key: string]: Collection } = {
           director: "François Truffaut",
           cast: ["Jean-Pierre Léaud", "Albert Rémy", "Claire Maurier"],
           genre: ["Crime", "Drama"],
-          tmdb_id: 147
+          tmdb_id: 147,
+          category: "French-New-Wave",
+          subcategory: "The-400-Blows"
         }
       },
       "Italian-Neorealism": {
@@ -1494,7 +1686,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Vittorio De Sica",
           cast: ["Lamberto Maggiorani", "Enzo Staiola", "Lianella Carell"],
           genre: ["Drama"],
-          tmdb_id: 5156
+          tmdb_id: 5156,
+          category: "Italian-Neorealism",
+          subcategory: "Bicycle-Thieves"
         }
       },
       "German-Expressionism": {
@@ -1510,7 +1704,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Fritz Lang",
           cast: ["Brigitte Helm", "Alfred Abel", "Gustav Fröhlich"],
           genre: ["Drama", "Sci-Fi"],
-          tmdb_id: 19
+          tmdb_id: 19,
+          category: "German-Expressionism",
+          subcategory: "Metropolis"
         }
       },
       "Silent-Comedy": {
@@ -1526,7 +1722,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Charles Chaplin",
           cast: ["Charles Chaplin", "Paulette Goddard", "Henry Bergman"],
           genre: ["Comedy", "Drama", "Romance"],
-          tmdb_id: 3082
+          tmdb_id: 3082,
+          category: "Silent-Comedy",
+          subcategory: "Modern-Times"
         }
       }
     }
@@ -1548,7 +1746,9 @@ export const collections: { [key: string]: Collection } = {
           director: "William Friedkin",
           cast: ["Ellen Burstyn", "Max von Sydow", "Linda Blair"],
           genre: ["Horror", "Drama"],
-          tmdb_id: 9552
+          tmdb_id: 9552,
+          category: "Classic-Horror",
+          subcategory: "The-Exorcist"
         },
         // Add more movies...
       },
@@ -1565,7 +1765,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Jordan Peele",
           cast: ["Daniel Kaluuya", "Allison Williams", "Bradley Whitford"],
           genre: ["Horror", "Mystery", "Thriller"],
-          tmdb_id: 419430
+          tmdb_id: 419430,
+          category: "Modern-Horror",
+          subcategory: "Get-Out"
         },
         // Add more movies...
       },
@@ -1582,7 +1784,9 @@ export const collections: { [key: string]: Collection } = {
           director: "James Wan",
           cast: ["Vera Farmiga", "Patrick Wilson", "Lili Taylor"],
           genre: ["Horror", "Mystery", "Thriller"],
-          tmdb_id: 138843
+          tmdb_id: 138843,
+          category: "Supernatural",
+          subcategory: "The-Conjuring"
         },
         // Add more movies...
       },
@@ -1599,7 +1803,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Darren Aronofsky",
           cast: ["Natalie Portman", "Mila Kunis", "Vincent Cassel"],
           genre: ["Drama", "Thriller"],
-          tmdb_id: 44214
+          tmdb_id: 44214,
+          category: "Psychological",
+          subcategory: "Black-Swan"
         },
         // Add more movies...
       },
@@ -1616,7 +1822,9 @@ export const collections: { [key: string]: Collection } = {
           director: "M. Night Shyamalan",
           cast: ["Bruce Willis", "Haley Joel Osment", "Toni Collette"],
           genre: ["Drama", "Mystery", "Thriller"],
-          tmdb_id: 745
+          tmdb_id: 745,
+          category: "Supernatural-Horror",
+          subcategory: "The-Sixth-Sense"
         }
       }
     }
@@ -1638,7 +1846,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Stanley Donen, Gene Kelly",
           cast: ["Gene Kelly", "Donald O'Connor", "Debbie Reynolds"],
           genre: ["Comedy", "Musical", "Romance"],
-          tmdb_id: 872
+          tmdb_id: 872,
+          category: "Classic-Musicals",
+          subcategory: "Singin-in-the-Rain"
         },
         "West-Side-Story": {
           id: "West-Side-Story",
@@ -1652,7 +1862,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Jerome Robbins, Robert Wise",
           cast: ["Natalie Wood", "Richard Beymer", "Rita Moreno"],
           genre: ["Crime", "Drama", "Musical"],
-          tmdb_id: 1725
+          tmdb_id: 1725,
+          category: "Classic-Musicals",
+          subcategory: "West-Side-Story"
         },
         "The-Sound-of-Music": {
           id: "The-Sound-of-Music",
@@ -1666,7 +1878,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Robert Wise",
           cast: ["Julie Andrews", "Christopher Plummer", "Eleanor Parker"],
           genre: ["Drama", "Family", "Musical"],
-          tmdb_id: 15121
+          tmdb_id: 15121,
+          category: "Classic-Musicals",
+          subcategory: "The-Sound-of-Music"
         }
       },
       "Modern-Musicals": {
@@ -1682,7 +1896,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Damien Chazelle",
           cast: ["Ryan Gosling", "Emma Stone", "John Legend"],
           genre: ["Comedy", "Drama", "Music", "Romance"],
-          tmdb_id: 313369
+          tmdb_id: 313369,
+          category: "Modern-Musicals",
+          subcategory: "La-La-Land"
         },
         "Hamilton": {
           id: "Hamilton",
@@ -1696,7 +1912,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Thomas Kail",
           cast: ["Lin-Manuel Miranda", "Leslie Odom Jr.", "Renée Elise Goldsberry"],
           genre: ["Drama", "History", "Musical"],
-          tmdb_id: 556574
+          tmdb_id: 556574,
+          category: "Modern-Musicals",
+          subcategory: "Hamilton"
         },
         "Les-Miserables": {
           id: "Les-Miserables",
@@ -1710,7 +1928,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Tom Hooper",
           cast: ["Hugh Jackman", "Russell Crowe", "Anne Hathaway"],
           genre: ["Drama", "History", "Musical"],
-          tmdb_id: 82695
+          tmdb_id: 82695,
+          category: "Modern-Musicals",
+          subcategory: "Les-Miserables"
         }
       },
       "Contemporary-Musical-Drama": {
@@ -1726,7 +1946,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Bradley Cooper",
           cast: ["Bradley Cooper", "Lady Gaga", "Sam Elliott"],
           genre: ["Drama", "Music", "Romance"],
-          tmdb_id: 332562
+          tmdb_id: 332562,
+          category: "Contemporary-Musical-Drama",
+          subcategory: "A-Star-Is-Born"
         },
         "The-Greatest-Showman": {
           id: "The-Greatest-Showman",
@@ -1740,7 +1962,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Michael Gracey",
           cast: ["Hugh Jackman", "Michelle Williams", "Zac Efron"],
           genre: ["Biography", "Drama", "Musical"],
-          tmdb_id: 316029
+          tmdb_id: 316029,
+          category: "Contemporary-Musical-Drama",
+          subcategory: "The-Greatest-Showman"
         },
         "Whiplash": {
           id: "Whiplash",
@@ -1754,7 +1978,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Damien Chazelle",
           cast: ["Miles Teller", "J.K. Simmons", "Melissa Benoist"],
           genre: ["Drama", "Music"],
-          tmdb_id: 244786
+          tmdb_id: 244786,
+          category: "Contemporary-Musical-Drama",
+          subcategory: "Whiplash"
         }
       },
       "Film-Movements": {
@@ -1770,7 +1996,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Jean-Luc Godard",
           cast: ["Jean-Paul Belmondo", "Jean Seberg", "Daniel Boulanger"],
           genre: ["Crime", "Drama", "Romance"],
-          tmdb_id: 269
+          tmdb_id: 269,
+          category: "Film-Movements",
+          subcategory: "Breathless"
         }
       },
       "Modern-Epic": {
@@ -1786,7 +2014,9 @@ export const collections: { [key: string]: Collection } = {
           director: "David Lean",
           cast: ["Peter O'Toole", "Alec Guinness", "Anthony Quinn"],
           genre: ["Adventure", "Biography", "Drama"],
-          tmdb_id: 947
+          tmdb_id: 947,
+          category: "Modern-Epic",
+          subcategory: "Lawrence-of-Arabia"
         }
       },
       "Cyberpunk": {
@@ -1802,7 +2032,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ridley Scott",
           cast: ["Harrison Ford", "Rutger Hauer", "Sean Young"],
           genre: ["Action", "Sci-Fi", "Thriller"],
-          tmdb_id: 78
+          tmdb_id: 78,
+          category: "Cyberpunk",
+          subcategory: "Blade-Runner"
         }
       }
     }
@@ -1824,7 +2056,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Luis Buñuel",
           cast: ["Pierre Batcheff", "Simone Mareuil", "Luis Buñuel"],
           genre: ["Fantasy", "Horror", "Short"],
-          tmdb_id: 626
+          tmdb_id: 626,
+          category: "Surrealist-Cinema",
+          subcategory: "Un-Chien-Andalou"
         },
         "Eraserhead": {
           id: "Eraserhead",
@@ -1838,7 +2072,9 @@ export const collections: { [key: string]: Collection } = {
           director: "David Lynch",
           cast: ["Jack Nance", "Charlotte Stewart", "Allen Joseph"],
           genre: ["Horror", "Experimental"],
-          tmdb_id: 985
+          tmdb_id: 985,
+          category: "Experimental",
+          subcategory: "Eraserhead"
         }
       },
       "Avant-Garde": {
@@ -1854,7 +2090,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Alejandro Jodorowsky",
           cast: ["Alejandro Jodorowsky", "Horacio Salinas", "Zamira Saunders"],
           genre: ["Fantasy", "Art House", "Adventure"],
-          tmdb_id: 8327
+          tmdb_id: 8327,
+          category: "Avant-Garde",
+          subcategory: "The-Holy-Mountain"
         },
         "Koyaanisqatsi": {
           id: "Koyaanisqatsi",
@@ -1868,7 +2106,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Godfrey Reggio",
           cast: ["Lou Dobbs", "Ted Koppel"],
           genre: ["Documentary", "Music", "Experimental"],
-          tmdb_id: 13392
+          tmdb_id: 13392,
+          category: "Avant-Garde",
+          subcategory: "Koyaanisqatsi"
         }
       },
       "Modern-Experimental": {
@@ -1884,7 +2124,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Gaspar Noé",
           cast: ["Nathaniel Brown", "Paz de la Huerta", "Cyril Roy"],
           genre: ["Drama", "Fantasy", "Experimental"],
-          tmdb_id: 34647
+          tmdb_id: 34647,
+          category: "Modern-Experimental",
+          subcategory: "Enter-the-Void"
         },
         "Upstream-Color": {
           id: "Upstream-Color",
@@ -1898,7 +2140,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Shane Carruth",
           cast: ["Amy Seimetz", "Shane Carruth", "Andrew Sensenig"],
           genre: ["Drama", "Science Fiction", "Experimental"],
-          tmdb_id: 159313
+          tmdb_id: 159313,
+          category: "Modern-Experimental",
+          subcategory: "Upstream-Color"
         }
       }
     }
@@ -1920,7 +2164,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Robert Clouse",
           cast: ["Bruce Lee", "John Saxon", "Jim Kelly"],
           genre: ["Action", "Crime", "Drama"],
-          tmdb_id: 9461
+          tmdb_id: 9461,
+          category: "Martial-Arts-Classics",
+          subcategory: "Enter-the-Dragon"
         },
         // Add more movies...
       },
@@ -1937,7 +2183,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ang Lee",
           cast: ["Chow Yun-Fat", "Michelle Yeoh", "Zhang Ziyi"],
           genre: ["Action", "Adventure", "Fantasy"],
-          tmdb_id: 146
+          tmdb_id: 146,
+          category: "Modern-Martial-Arts",
+          subcategory: "Crouching-Tiger-Hidden-Dragon"
         },
         // Add more movies...
       },
@@ -1954,7 +2202,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Park Chan-wook",
           cast: ["Choi Min-sik", "Yoo Ji-tae", "Kang Hye-jung"],
           genre: ["Action", "Drama", "Mystery"],
-          tmdb_id: 670
+          tmdb_id: 670,
+          category: "Korean-Action",
+          subcategory: "Oldboy"
         },
         // Add more movies...
       },
@@ -1971,7 +2221,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Joss Whedon",
           cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
           genre: ["Action", "Adventure", "Sci-Fi"],
-          tmdb_id: 745
+          tmdb_id: 745,
+          category: "Japanese-Action",
+          subcategory: "13-Assassins"
         },
         // Add more movies...
       }
@@ -1994,7 +2246,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Joss Whedon",
           cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
           genre: ["Action", "Adventure", "Sci-Fi"],
-          tmdb_id: 238
+          tmdb_id: 238,
+          category: "Classic-Gangster",
+          subcategory: "The-Godfather-Trilogy"
         },
         // Add more movies...
       },
@@ -2011,7 +2265,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Joss Whedon",
           cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
           genre: ["Action", "Adventure", "Sci-Fi"],
-          tmdb_id: 949
+          tmdb_id: 949,
+          category: "Modern-Crime",
+          subcategory: "The-Departed"
         },
         // Add more movies...
       },
@@ -2028,7 +2284,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Joss Whedon",
           cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
           genre: ["Action", "Adventure", "Sci-Fi"],
-          tmdb_id: 769
+          tmdb_id: 769,
+          category: "Heist-Films",
+          subcategory: "Ocean's-Series"
         },
         // Add more movies...
       },
@@ -2045,7 +2303,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Joss Whedon",
           cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
           genre: ["Action", "Adventure", "Sci-Fi"],
-          tmdb_id: 115
+          tmdb_id: 115,
+          category: "True-Crime",
+          subcategory: "The-Wolf-of-Wall-Street"
         },
         // Add more movies...
       }
@@ -2068,7 +2328,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ridley Scott",
           cast: ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
           genre: ["Action", "Drama", "History"],
-          tmdb_id: 98
+          tmdb_id: 98,
+          category: "Ancient-World",
+          subcategory: "Gladiator"
         },
         // Add more movies...
       },
@@ -2085,7 +2347,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Mel Gibson",
           cast: ["Mel Gibson", "Sophie Marceau", "Patrick McGoohan"],
           genre: ["Biography", "Drama", "History", "War"],
-          tmdb_id: 817
+          tmdb_id: 817,
+          category: "Medieval",
+          subcategory: "Braveheart"
         },
         // Add more movies...
       },
@@ -2102,7 +2366,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Michael Mann",
           cast: ["Daniel Day-Lewis", "Madeleine Stowe", "Russell Means"],
           genre: ["Action", "Adventure", "Drama", "History", "War"],
-          tmdb_id: 1077
+          tmdb_id: 1077,
+          category: "Renaissance-&-Colonial",
+          subcategory: "The-Last-of-the-Mohicans"
         },
         // Add more movies...
       },
@@ -2119,7 +2385,9 @@ export const collections: { [key: string]: Collection } = {
           director: "David Lean",
           cast: ["Peter O'Toole", "Alec Guinness", "Anthony Quinn"],
           genre: ["Biography", "Drama", "History", "War"],
-          tmdb_id: 122
+          tmdb_id: 122,
+          category: "Modern-History",
+          subcategory: "Lawrence-of-Arabia"
         },
         // Add more movies...
       }
@@ -2142,7 +2410,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Milos Forman",
           cast: ["F. Murray Abraham", "Tom Hulce", "Elizabeth Berridge"],
           genre: ["Biography", "Drama", "History", "Music"],
-          tmdb_id: 279
+          tmdb_id: 279,
+          category: "Artists-&-Musicians",
+          subcategory: "Amadeus"
         },
         "Bohemian-Rhapsody": {
           id: "Bohemian-Rhapsody",
@@ -2156,7 +2426,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Bryan Singer",
           cast: ["Rami Malek", "Lucy Boynton", "Gwilym Lee"],
           genre: ["Biography", "Drama", "Music"],
-          tmdb_id: 424694
+          tmdb_id: 424694,
+          category: "Artists-&-Musicians",
+          subcategory: "Bohemian-Rhapsody"
         },
         "Walk-the-Line": {
           id: "Walk-the-Line",
@@ -2170,7 +2442,9 @@ export const collections: { [key: string]: Collection } = {
           director: "James Mangold",
           cast: ["Joaquin Phoenix", "Reese Witherspoon", "Ginnifer Goodwin"],
           genre: ["Biography", "Drama", "Music", "Romance"],
-          tmdb_id: 69
+          tmdb_id: 69,
+          category: "Biographical",
+          subcategory: "Walk-the-Line"
         },
         "Ray": {
           id: "Ray",
@@ -2184,7 +2458,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Taylor Hackford",
           cast: ["Jamie Foxx", "Kerry Washington", "Regina King"],
           genre: ["Biography", "Drama", "Music"],
-          tmdb_id: 1542
+          tmdb_id: 1542,
+          category: "Biographical",
+          subcategory: "Ray"
         },
         "La-Vie-en-Rose": {
           id: "La-Vie-en-Rose",
@@ -2198,7 +2474,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Olivier Dahan",
           cast: ["Marion Cotillard", "Sylvie Testud", "Pascal Greggory"],
           genre: ["Biography", "Drama", "Music"],
-          tmdb_id: 1407
+          tmdb_id: 1407,
+          category: "Biographical",
+          subcategory: "La-Vie-en-Rose"
         },
         "Im-Not-There": {
           id: "Im-Not-There",
@@ -2212,7 +2490,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Todd Haynes",
           cast: ["Cate Blanchett", "Christian Bale", "Heath Ledger"],
           genre: ["Biography", "Drama", "Music"],
-          tmdb_id: 15312
+          tmdb_id: 15312,
+          category: "Biographical",
+          subcategory: "Im-Not-There"
         },
         "The-Doors": {
           id: "The-Doors",
@@ -2226,7 +2506,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Oliver Stone",
           cast: ["Val Kilmer", "Meg Ryan", "Kyle MacLachlan"],
           genre: ["Biography", "Drama", "Music"],
-          tmdb_id: 11640
+          tmdb_id: 11640,
+          category: "Biographical",
+          subcategory: "The-Doors"
         },
         "Whats-Love-Got-to-Do-with-It": {
           id: "Whats-Love-Got-to-Do-with-It",
@@ -2240,7 +2522,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Brian Gibson",
           cast: ["Angela Bassett", "Laurence Fishburne", "RaéVen Kelly"],
           genre: ["Biography", "Drama", "Music"],
-          tmdb_id: 11907
+          tmdb_id: 11907,
+          category: "Biographical",
+          subcategory: "Whats-Love-Got-to-Do-with-It"
         },
         "Immortal-Beloved": {
           id: "Immortal-Beloved",
@@ -2254,7 +2538,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Bernard Rose",
           cast: ["Gary Oldman", "Jeroen Krabbé", "Isabella Rossellini"],
           genre: ["Biography", "Drama", "Music"],
-          tmdb_id: 13763
+          tmdb_id: 13763,
+          category: "Biographical",
+          subcategory: "Immortal-Beloved"
         },
         "Rocketman": {
           id: "Rocketman",
@@ -2268,7 +2554,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Dexter Fletcher",
           cast: ["Taron Egerton", "Jamie Bell", "Richard Madden"],
           genre: ["Biography", "Drama", "Music"],
-          tmdb_id: 504608
+          tmdb_id: 504608,
+          category: "Biographical",
+          subcategory: "Rocketman"
         },
         "Straight-Outta-Compton": {
           id: "Straight-Outta-Compton",
@@ -2282,7 +2570,9 @@ export const collections: { [key: string]: Collection } = {
           director: "F. Gary Gray",
           cast: ["O'Shea Jackson Jr.", "Corey Hawkins", "Jason Mitchell"],
           genre: ["Biography", "Drama", "Music"],
-          tmdb_id: 277216
+          tmdb_id: 277216,
+          category: "Biographical",
+          subcategory: "Straight-Outta-Compton"
         }
       },
       "Political-Figures": {
@@ -2298,7 +2588,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Steven Spielberg",
           cast: ["Daniel Day-Lewis", "Sally Field", "David Strathairn"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 72976
+          tmdb_id: 72976,
+          category: "Political-Figures",
+          subcategory: "Lincoln"
         },
         "The-Kings-Speech": {
           id: "The-Kings-Speech",
@@ -2312,7 +2604,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Tom Hooper",
           cast: ["Colin Firth", "Geoffrey Rush", "Helena Bonham Carter"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 45269
+          tmdb_id: 45269,
+          category: "Political-Figures",
+          subcategory: "The-Kings-Speech"
         },
         "Gandhi": {
           id: "Gandhi",
@@ -2326,7 +2620,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Richard Attenborough",
           cast: ["Ben Kingsley", "John Gielgud", "Rohini Hattangadi"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 34615
+          tmdb_id: 34615,
+          category: "Political-Figures",
+          subcategory: "Gandhi"
         },
         "Darkest-Hour": {
           id: "Darkest-Hour",
@@ -2340,7 +2636,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Joe Wright",
           cast: ["Gary Oldman", "Lily James", "Kristin Scott Thomas"],
           genre: ["Biography", "Drama", "History", "War"],
-          tmdb_id: 399404
+          tmdb_id: 399404,
+          category: "Political-Figures",
+          subcategory: "Darkest-Hour"
         },
         "JFK": {
           id: "JFK",
@@ -2354,7 +2652,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Oliver Stone",
           cast: ["Kevin Costner", "Gary Oldman", "Jack Lemmon"],
           genre: ["Drama", "History", "Thriller"],
-          tmdb_id: 820
+          tmdb_id: 820,
+          category: "Political-Figures",
+          subcategory: "JFK"
         },
         "Nixon": {
           id: "Nixon",
@@ -2368,7 +2668,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Oliver Stone",
           cast: ["Anthony Hopkins", "Joan Allen", "Powers Boothe"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 10351
+          tmdb_id: 10351,
+          category: "Political-Figures",
+          subcategory: "Nixon"
         },
         "The-Iron-Lady": {
           id: "The-Iron-Lady",
@@ -2382,7 +2684,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Phyllida Lloyd",
           cast: ["Meryl Streep", "Jim Broadbent", "Richard E. Grant"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 51012
+          tmdb_id: 51012,
+          category: "Political-Figures",
+          subcategory: "The-Iron-Lady"
         },
         "Mandela-Long-Walk-to-Freedom": {
           id: "Mandela-Long-Walk-to-Freedom",
@@ -2396,7 +2700,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Justin Chadwick",
           cast: ["Idris Elba", "Naomie Harris", "Tony Kgoroge"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 84175
+          tmdb_id: 84175,
+          category: "Political-Figures",
+          subcategory: "Mandela-Long-Walk-to-Freedom"
         },
         "The-Last-Emperor": {
           id: "The-Last-Emperor",
@@ -2410,7 +2716,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Bernardo Bertolucci",
           cast: ["John Lone", "Joan Chen", "Peter O'Toole"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 746
+          tmdb_id: 746,
+          category: "Biographical",
+          subcategory: "The-Last-Emperor"
         },
         "Malcolm-X": {
           id: "Malcolm-X",
@@ -2424,7 +2732,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Spike Lee",
           cast: ["Denzel Washington", "Angela Bassett", "Delroy Lindo"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 1883
+          tmdb_id: 1883,
+          category: "Biographical",
+          subcategory: "Malcolm-X"
         },
         "Thirteen-Days": {
           id: "Thirteen-Days",
@@ -2438,7 +2748,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Roger Donaldson",
           cast: ["Kevin Costner", "Bruce Greenwood", "Steven Culp"],
           genre: ["Drama", "History", "Thriller"],
-          tmdb_id: 3557
+          tmdb_id: 3557,
+          category: "Political-Figures",
+          subcategory: "Thirteen-Days"
         },
         "The-Queen": {
           id: "The-Queen",
@@ -2452,7 +2764,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Stephen Frears",
           cast: ["Helen Mirren", "Michael Sheen", "James Cromwell"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 1165
+          tmdb_id: 1165,
+          category: "Political-Figures",
+          subcategory: "The-Queen"
         },
         "Vice": {
           id: "Vice",
@@ -2466,7 +2780,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Adam McKay",
           cast: ["Christian Bale", "Amy Adams", "Steve Carell"],
           genre: ["Biography", "Comedy", "Drama"],
-          tmdb_id: 429197
+          tmdb_id: 429197,
+          category: "Political-Figures",
+          subcategory: "Vice"
         },
         "Frost-Nixon": {
           id: "Frost-Nixon",
@@ -2480,7 +2796,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ron Howard",
           cast: ["Frank Langella", "Michael Sheen", "Kevin Bacon"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 11499
+          tmdb_id: 11499,
+          category: "Political-Figures",
+          subcategory: "Frost-Nixon"
         },
         "All-the-Way": {
           id: "All-the-Way",
@@ -2494,7 +2812,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Jay Roach",
           cast: ["Bryan Cranston", "Anthony Mackie", "Melissa Leo"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 384680
+          tmdb_id: 384680,
+          category: "Political-Figures",
+          subcategory: "All-the-Way"
         }
       },
       "Scientists-&-Innovators": {
@@ -2510,7 +2830,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ron Howard",
           cast: ["Russell Crowe", "Ed Harris", "Jennifer Connelly"],
           genre: ["Biography", "Drama"],
-          tmdb_id: 453
+          tmdb_id: 453,
+          category: "Scientists-&-Innovators",
+          subcategory: "A-Beautiful-Mind"
         },
         "The-Theory-of-Everything": {
           id: "The-Theory-of-Everything",
@@ -2524,7 +2846,9 @@ export const collections: { [key: string]: Collection } = {
           director: "James Marsh",
           cast: ["Eddie Redmayne", "Felicity Jones", "Tom Prior"],
           genre: ["Biography", "Drama", "Romance"],
-          tmdb_id: 266856
+          tmdb_id: 266856,
+          category: "Scientists-&-Innovators",
+          subcategory: "The-Theory-of-Everything"
         },
         "The-Imitation-Game": {
           id: "The-Imitation-Game",
@@ -2538,7 +2862,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Morten Tyldum",
           cast: ["Benedict Cumberbatch", "Keira Knightley", "Matthew Goode"],
           genre: ["Biography", "Drama", "Thriller", "War"],
-          tmdb_id: 205596
+          tmdb_id: 205596,
+          category: "Scientists-&-Innovators",
+          subcategory: "The-Imitation-Game"
         },
         "Hidden-Figures": {
           id: "Hidden-Figures",
@@ -2552,7 +2878,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Theodore Melfi",
           cast: ["Taraji P. Henson", "Octavia Spencer", "Janelle Monáe"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 381284
+          tmdb_id: 381284,
+          category: "Scientists-&-Innovators",
+          subcategory: "Hidden-Figures"
         },
         "Creation": {
           id: "Creation",
@@ -2566,7 +2894,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Jon Amiel",
           cast: ["Paul Bettany", "Jennifer Connelly", "Jeremy Northam"],
           genre: ["Biography", "Drama", "Romance"],
-          tmdb_id: 25519
+          tmdb_id: 25519,
+          category: "Scientists-&-Innovators",
+          subcategory: "Creation"
         },
         "Radioactive": {
           id: "Radioactive",
@@ -2580,7 +2910,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Marjane Satrapi",
           cast: ["Rosamund Pike", "Sam Riley", "Anya Taylor-Joy"],
           genre: ["Biography", "Drama", "Romance"],
-          tmdb_id: 458305
+          tmdb_id: 458305,
+          category: "Scientists-&-Innovators",
+          subcategory: "Radioactive"
         },
         "Tesla": {
           id: "Tesla",
@@ -2594,7 +2926,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Michael Almereyda",
           cast: ["Ethan Hawke", "Eve Hewson", "Kyle MacLachlan"],
           genre: ["Biography", "Drama"],
-          tmdb_id: 517412
+          tmdb_id: 517412,
+          category: "Scientists-&-Innovators",
+          subcategory: "Tesla"
         },
         "The-Current-War": {
           id: "The-Current-War",
@@ -2608,7 +2942,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Alfonso Gomez-Rejon",
           cast: ["Benedict Cumberbatch", "Michael Shannon", "Nicholas Hoult"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 432301
+          tmdb_id: 432301,
+          category: "Scientists-&-Innovators",
+          subcategory: "The-Current-War"
         },
         "Agora": {
           id: "Agora",
@@ -2622,7 +2958,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Alejandro Amenábar",
           cast: ["Rachel Weisz", "Max Minghella", "Oscar Isaac"],
           genre: ["Adventure", "Biography", "Drama", "History"],
-          tmdb_id: 20057
+          tmdb_id: 20057,
+          category: "Scientists-&-Innovators",
+          subcategory: "Agora"
         },
         "Infinity": {
           id: "Infinity",
@@ -2636,7 +2974,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Matthew Broderick",
           cast: ["Matthew Broderick", "Patricia Arquette", "Peter Riegert"],
           genre: ["Biography", "Drama"],
-          tmdb_id: 168672
+          tmdb_id: 168672,
+          category: "Scientists-&-Innovators",
+          subcategory: "Infinity"
         },
         "Einstein-and-Eddington": {
           id: "Einstein-and-Eddington",
@@ -2650,7 +2990,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Philip Martin",
           cast: ["David Tennant", "Andy Serkis", "Jim Broadbent"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 14694
+          tmdb_id: 14694,
+          category: "Scientists-&-Innovators",
+          subcategory: "Einstein-and-Eddington"
         },
         "Hawking": {
           id: "Hawking",
@@ -2664,7 +3006,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Philip Martin",
           cast: ["Benedict Cumberbatch", "Michael Brandon", "Tom Hodgkins"],
           genre: ["Biography", "Drama"],
-          tmdb_id: 24844
+          tmdb_id: 24844,
+          category: "Scientists-&-Innovators",
+          subcategory: "Hawking"
         },
         "Experimenter": {
           id: "Experimenter",
@@ -2678,7 +3022,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Michael Almereyda",
           cast: ["Peter Sarsgaard", "Winona Ryder", "Jim Gaffigan"],
           genre: ["Biography", "Drama", "History"],
-          tmdb_id: 308751
+          tmdb_id: 308751,
+          category: "Scientists-&-Innovators",
+          subcategory: "Experimenter"
         }
       },
       "Sports-Figures": {
@@ -2694,7 +3040,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Martin Scorsese",
           cast: ["Robert De Niro", "Cathy Moriarty", "Joe Pesci"],
           genre: ["Biography", "Drama", "Sport"],
-          tmdb_id: 1578
+          tmdb_id: 1578,
+          category: "Sports-Figures",
+          subcategory: "Raging-Bull"
         },
         "Ali": {
           id: "Ali",
@@ -2708,7 +3056,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Michael Mann",
           cast: ["Will Smith", "Jamie Foxx", "Jon Voight"],
           genre: ["Biography", "Drama", "Sport"],
-          tmdb_id: 2017
+          tmdb_id: 2017,
+          category: "Sports-Figures",
+          subcategory: "Ali"
         },
         "Rush": {
           id: "Rush",
@@ -2722,7 +3072,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ron Howard",
           cast: ["Chris Hemsworth", "Daniel Brühl", "Olivia Wilde"],
           genre: ["Action", "Biography", "Drama", "Sport"],
-          tmdb_id: 96721
+          tmdb_id: 96721,
+          category: "Sports-Figures",
+          subcategory: "Rush"
         },
         "Moneyball": {
           id: "Moneyball",
@@ -2736,7 +3088,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Bennett Miller",
           cast: ["Brad Pitt", "Jonah Hill", "Philip Seymour Hoffman"],
           genre: ["Biography", "Drama", "Sport"],
-          tmdb_id: 60308
+          tmdb_id: 60308,
+          category: "Sports-Figures",
+          subcategory: "Moneyball"
         },
         "The-Fighter": {
           id: "The-Fighter",
@@ -2750,7 +3104,9 @@ export const collections: { [key: string]: Collection } = {
           director: "David O. Russell",
           cast: ["Mark Wahlberg", "Christian Bale", "Amy Adams"],
           genre: ["Biography", "Drama", "Sport"],
-          tmdb_id: 44833
+          tmdb_id: 44833,
+          category: "Sports-Figures",
+          subcategory: "The-Fighter"
         },
         "Cinderella-Man": {
           id: "Cinderella-Man",
@@ -2764,7 +3120,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ron Howard",
           cast: ["Russell Crowe", "Renée Zellweger", "Paul Giamatti"],
           genre: ["Biography", "Drama", "Sport"],
-          tmdb_id: 921
+          tmdb_id: 921,
+          category: "Sports-Figures",
+          subcategory: "Cinderella-Man"
         },
         "42": {
           id: "42",
@@ -2778,7 +3136,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Brian Helgeland",
           cast: ["Chadwick Boseman", "Harrison Ford", "Nicole Beharie"],
           genre: ["Biography", "Drama", "Sport"],
-          tmdb_id: 109410
+          tmdb_id: 109410,
+          category: "Sports-Figures",
+          subcategory: "42"
         }
       },
       "Literary-Figures": {
@@ -2794,7 +3154,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Bennett Miller",
           cast: ["Philip Seymour Hoffman", "Catherine Keener", "Clifton Collins Jr."],
           genre: ["Biography", "Crime", "Drama"],
-          tmdb_id: 14437
+          tmdb_id: 14437,
+          category: "Literary-Figures",
+          subcategory: "Capote"
         },
         "Finding-Neverland": {
           id: "Finding-Neverland",
@@ -2808,7 +3170,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Marc Forster",
           cast: ["Johnny Depp", "Kate Winslet", "Julie Christie"],
           genre: ["Biography", "Drama", "Family"],
-          tmdb_id: 866
+          tmdb_id: 866,
+          category: "Literary-Figures",
+          subcategory: "Finding-Neverland"
         },
         "Sylvia": {
           id: "Sylvia",
@@ -2822,7 +3186,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Christine Jeffs",
           cast: ["Gwyneth Paltrow", "Daniel Craig", "Jared Harris"],
           genre: ["Biography", "Drama", "Romance"],
-          tmdb_id: 14918
+          tmdb_id: 14918,
+          category: "Literary-Figures",
+          subcategory: "Sylvia"
         },
         "Bright-Star": {
           id: "Bright-Star",
@@ -2836,7 +3202,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Jane Campion",
           cast: ["Abbie Cornish", "Ben Whishaw", "Paul Schneider"],
           genre: ["Biography", "Drama", "Romance"],
-          tmdb_id: 23835
+          tmdb_id: 23835,
+          category: "Literary-Figures",
+          subcategory: "Bright-Star"
         },
         "The-Hours": {
           id: "The-Hours",
@@ -2850,7 +3218,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Stephen Daldry",
           cast: ["Meryl Streep", "Nicole Kidman", "Julianne Moore"],
           genre: ["Drama", "Romance"],
-          tmdb_id: 165
+          tmdb_id: 165,
+          category: "Literary-Figures",
+          subcategory: "The-Hours"
         },
         "Wilde": {
           id: "Wilde",
@@ -2864,7 +3234,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Brian Gilbert",
           cast: ["Stephen Fry", "Jude Law", "Vanessa Redgrave"],
           genre: ["Biography", "Drama", "Romance"],
-          tmdb_id: 17977
+          tmdb_id: 17977,
+          category: "Literary-Figures",
+          subcategory: "Wilde"
         },
         "Miss-Potter": {
           id: "Miss-Potter",
@@ -2878,7 +3250,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Chris Noonan",
           cast: ["Renée Zellweger", "Ewan McGregor", "Emily Watson"],
           genre: ["Biography", "Drama"],
-          tmdb_id: 1039
+          tmdb_id: 1039,
+          category: "Literary-Figures",
+          subcategory: "Miss-Potter"
         },
         "Midnight-in-Paris": {
           id: "Midnight-in-Paris",
@@ -2892,7 +3266,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Woody Allen",
           cast: ["Owen Wilson", "Rachel McAdams", "Kathy Bates"],
           genre: ["Comedy", "Fantasy", "Romance"],
-          tmdb_id: 59436
+          tmdb_id: 59436,
+          category: "Literary-Figures",
+          subcategory: "Midnight-in-Paris"
         },
         "Total-Eclipse": {
           id: "Total-Eclipse",
@@ -2906,7 +3282,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Agnieszka Holland",
           cast: ["Leonardo DiCaprio", "David Thewlis", "Romane Bohringer"],
           genre: ["Biography", "Drama", "Romance"],
-          tmdb_id: 36685
+          tmdb_id: 36685,
+          category: "Literary-Figures",
+          subcategory: "Total-Eclipse"
         },
         "The-Last-Station": {
           id: "The-Last-Station",
@@ -2920,7 +3298,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Michael Hoffman",
           cast: ["Helen Mirren", "Christopher Plummer", "James McAvoy"],
           genre: ["Biography", "Drama", "Romance"],
-          tmdb_id: 28902
+          tmdb_id: 28902,
+          category: "Literary-Figures",
+          subcategory: "The-Last-Station"
         },
         "Iris": {
           id: "Iris",
@@ -2934,7 +3314,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Richard Eyre",
           cast: ["Judi Dench", "Jim Broadbent", "Kate Winslet"],
           genre: ["Biography", "Drama", "Romance"],
-          tmdb_id: 10308
+          tmdb_id: 10308,
+          category: "Literary-Figures",
+          subcategory: "Iris"
         },
         "An-Angel-at-My-Table": {
           id: "An-Angel-at-My-Table",
@@ -2948,7 +3330,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Jane Campion",
           cast: ["Kerry Fox", "Alexia Keogh", "Karen Fergusson"],
           genre: ["Biography", "Drama"],
-          tmdb_id: 34953
+          tmdb_id: 34953,
+          category: "Literary-Figures",
+          subcategory: "An-Angel-at-My-Table"
         }
       }
     }
@@ -2970,7 +3354,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Rob Reiner",
           cast: ["Wil Wheaton", "River Phoenix", "Corey Feldman"],
           genre: ["Adventure", "Drama"],
-          tmdb_id: 1074
+          tmdb_id: 1074,
+          category: "Classic-Coming-of-Age",
+          subcategory: "Stand-By-Me"
         },
         "Dead-Poets-Society": {
           id: "Dead-Poets-Society",
@@ -2984,7 +3370,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Peter Weir",
           cast: ["Robin Williams", "Robert Sean Leonard", "Ethan Hawke"],
           genre: ["Comedy", "Drama"],
-          tmdb_id: 207
+          tmdb_id: 207,
+          category: "Classic-Coming-of-Age",
+          subcategory: "Dead-Poets-Society"
         }
       },
       "Modern-Teen": {
@@ -3000,7 +3388,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Greta Gerwig",
           cast: ["Saoirse Ronan", "Laura Dern", "Tracy Letts"],
           genre: ["Comedy", "Drama"],
-          tmdb_id: 427744
+          tmdb_id: 427744,
+          category: "Modern-Teen",
+          subcategory: "Lady-Bird"
         },
         // Add more movies...
       },
@@ -3017,7 +3407,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Mark Waters",
           cast: ["Lindsay Lohan", "Rachel McAdams", "Tina Fey"],
           genre: ["Comedy"],
-          tmdb_id: 276
+          tmdb_id: 276,
+          category: "High-School-Stories",
+          subcategory: "Mean-Girls"
         },
         // Add more movies...
       },
@@ -3033,7 +3425,10 @@ export const collections: { [key: string]: Collection } = {
           description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
           director: "Joss Whedon",
           cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          genre: ["Action", "Adventure", "Sci-Fi"],
+          tmdb_id: 125947,
+          category: "International-Coming-of-Age",
+          subcategory: "Y-Tu-Mamá-También"
         },
         // Add more movies...
       }
@@ -3055,7 +3450,10 @@ export const collections: { [key: string]: Collection } = {
           description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
           director: "Joss Whedon",
           cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          genre: ["Action", "Adventure", "Sci-Fi"],
+          tmdb_id: 125947,
+          category: "Conspiracy",
+          subcategory: "All-the-President's-Men"
         },
         // Add more movies...
       },
@@ -3071,7 +3469,10 @@ export const collections: { [key: string]: Collection } = {
           description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
           director: "Joss Whedon",
           cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          genre: ["Action", "Adventure", "Sci-Fi"],
+          tmdb_id: 125947,
+          category: "Espionage",
+          subcategory: "Bridge-of-Spies"
         },
         // Add more movies...
       },
@@ -3087,7 +3488,10 @@ export const collections: { [key: string]: Collection } = {
           description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
           director: "Joss Whedon",
           cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          genre: ["Action", "Adventure", "Sci-Fi"],
+          tmdb_id: 125947,
+          category: "Political-Drama",
+          subcategory: "The-Post"
         },
         // Add more movies...
       },
@@ -3103,7 +3507,10 @@ export const collections: { [key: string]: Collection } = {
           description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
           director: "Joss Whedon",
           cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
-          genre: ["Action", "Adventure", "Sci-Fi"]
+          genre: ["Action", "Adventure", "Sci-Fi"],
+          tmdb_id: 125947,
+          category: "International-Politics",
+          subcategory: "Eye-in-the-Sky"
         },
         // Add more movies...
       }
@@ -3126,7 +3533,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Clint Eastwood",
           cast: ["Morgan Freeman", "Matt Damon", "Tony Kgoroge"],
           genre: ["Biography", "Drama", "History", "Sport"],
-          tmdb_id: 23977
+          tmdb_id: 23977,
+          category: "Rugby-World-Cup",
+          subcategory: "Invictus"
         },
         // Add more movies...
       },
@@ -3143,7 +3552,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Martin Scorsese",
           cast: ["Robert De Niro", "Cathy Moriarty", "Joe Pesci"],
           genre: ["Biography", "Drama", "Sport"],
-          tmdb_id: 1578
+          tmdb_id: 1578,
+          category: "Sports-Legends",
+          subcategory: "Raging-Bull"
         },
         // Add more movies...
       },
@@ -3160,7 +3571,9 @@ export const collections: { [key: string]: Collection } = {
           director: "John Lee Hancock",
           cast: ["Sandra Bullock", "Tim McGraw", "Quinton Aaron"],
           genre: ["Biography", "Drama", "Sport"],
-          tmdb_id: 22881
+          tmdb_id: 22881,
+          category: "Sports-Legends",
+          subcategory: "The-Blind-Side"
         },
         // Add more movies...
       },
@@ -3177,7 +3590,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Boaz Yakin",
           cast: ["Denzel Washington", "Will Patton", "Wood Harris"],
           genre: ["Biography", "Drama", "Sport"],
-          tmdb_id: 10637
+          tmdb_id: 10637,
+          category: "Sports-Legends",
+          subcategory: "Remember-the-Titans"
         },
         // Add more movies...
       },
@@ -3194,7 +3609,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Gavin O'Connor",
           cast: ["Tom Hardy", "Joel Edgerton", "Nick Nolte"],
           genre: ["Drama", "Sport"],
-          tmdb_id: 59440
+          tmdb_id: 59440,
+          category: "Sports-Legends",
+          subcategory: "Warrior"
         },
         // Add more movies...
       },
@@ -3211,7 +3628,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Clint Eastwood",
           cast: ["Hilary Swank", "Clint Eastwood", "Morgan Freeman"],
           genre: ["Drama", "Sport"],
-          tmdb_id: 70
+          tmdb_id: 70,
+          category: "Sports-Legends",
+          subcategory: "Million-Dollar-Baby"
         },
         // Add more movies...
       },
@@ -3228,204 +3647,230 @@ export const collections: { [key: string]: Collection } = {
           director: "Bennett Miller",
           cast: ["Steve Carell", "Channing Tatum", "Mark Ruffalo"],
           genre: ["Biography", "Drama", "Sport"],
-          tmdb_id: 181283
+          tmdb_id: 181283,
+          category: "Sports-Legends",
+          subcategory: "Foxcatcher"
         },
         // Add more movies...
       }
     }
   },
-  // ... previous categories remain ...
-
-"bollywood-comedy": {
-  id: "bollywood-comedy",
-  name: "Bollywood Comedy",
-  categories: {
-    "Classic-Comedy": {
-      "Andaz-Apna-Apna": {
-        id: "Andaz-Apna-Apna",
-        title: "Andaz Apna Apna",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/8NPqUoGh3R1jefxXqwKwYwHxKe2.jpg",
-        releaseYear: 1994,
-        duration: "2h 40m",
-        rating: 4.9,
-        description: "Two slackers competing for the affections of an heiress inadvertently become her protectors from an evil criminal. A cult classic known for its quotable dialogues.",
-        director: "Rajkumar Santoshi",
-        cast: ["Aamir Khan", "Salman Khan", "Raveena Tandon", "Karisma Kapoor"],
-        genre: ["Comedy", "Romance"],
-        tmdb_id: 51721
+  "bollywood-comedy": {
+    id: "bollywood-comedy",
+    name: "Bollywood Comedy",
+    categories: {
+      "Classic-Comedy": {
+        "Andaz-Apna-Apna": {
+          id: "Andaz-Apna-Apna",
+          title: "Andaz Apna Apna",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/8NPqUoGh3R1jefxXqwKwYwHxKe2.jpg",
+          releaseYear: 1994,
+          duration: "2h 40m",
+          rating: 4.9,
+          description: "Two slackers competing for the affections of an heiress inadvertently become her protectors from an evil criminal. A cult classic known for its quotable dialogues.",
+          director: "Rajkumar Santoshi",
+          cast: ["Aamir Khan", "Salman Khan", "Raveena Tandon", "Karisma Kapoor"],
+          genre: ["Comedy", "Romance"],
+          tmdb_id: 51721,
+          category: "Classic-Comedy",
+          subcategory: "Andaz-Apna-Apna"
+        },
+        "Chupke-Chupke": {
+          id: "Chupke-Chupke",
+          title: "Chupke Chupke",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/9KQDhqJ9pHXgHV4KlxPxD5T4yJ9.jpg",
+          releaseYear: 1975,
+          duration: "2h 27m",
+          rating: 4.8,
+          description: "A newly married professor plays a prank on his wife's family with hilarious consequences. Features legendary performances from the golden age of comedy.",
+          director: "Hrishikesh Mukherjee",
+          cast: ["Dharmendra", "Amitabh Bachchan", "Sharmila Tagore"],
+          genre: ["Comedy", "Romance"],
+          tmdb_id: 51722,
+          category: "Classic-Comedy",
+          subcategory: "Chupke-Chupke"
+        },
+        "Golmaal": {
+          id: "Golmaal",
+          title: "Gol Maal",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/yJ9aPx4Q5tTaeBmRqZf8hRdwKjB.jpg",
+          releaseYear: 1979,
+          duration: "2h 24m",
+          rating: 4.8,
+          description: "A young man creates an elaborate double life to keep his job, leading to a series of comedic misunderstandings. A masterpiece of situational comedy.",
+          director: "Hrishikesh Mukherjee",
+          cast: ["Amol Palekar", "Utpal Dutt", "Bindiya Goswami"],
+          genre: ["Comedy", "Drama"],
+          tmdb_id: 51723,
+          category: "Classic-Comedy",
+          subcategory: "Golmaal"
+        },
+        "Jaane-Bhi-Do-Yaaro": {
+          id: "Jaane-Bhi-Do-Yaaro",
+          title: "Jaane Bhi Do Yaaro",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/8mxG1SPw3aswhqHDH6RzHJKJ9Jx.jpg",
+          releaseYear: 1983,
+          duration: "2h 12m",
+          rating: 4.8,
+          description: "Two photographers unwittingly become entangled in a web of corruption. A dark comedy that's considered a cult classic.",
+          director: "Kundan Shah",
+          cast: ["Naseeruddin Shah", "Ravi Baswani", "Om Puri"],
+          genre: ["Comedy", "Satire"],
+          tmdb_id: 51725,
+          category: "Classic-Comedy",
+          subcategory: "Jaane-Bhi-Do-Yaaro"
+        },
+        "Padosan": {
+          id: "Padosan",
+          title: "Padosan",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/yJ9aPx4Q5tTaeBmRqZf8hRdwKjB.jpg",
+          releaseYear: 1968,
+          duration: "2h 37m",
+          rating: 4.7,
+          description: "A simple man falls in love with his neighbor and seeks the help of his musical friends to win her heart. Known for its legendary comedic performances.",
+          director: "Jyoti Swaroop",
+          cast: ["Sunil Dutt", "Saira Banu", "Mehmood"],
+          genre: ["Comedy", "Romance", "Musical"],
+          tmdb_id: 51726,
+          category: "Classic-Comedy",
+          subcategory: "Padosan"
+        },
+        "Angoor": {
+          id: "Angoor",
+          title: "Angoor",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/tYz4gMTM3tqUGGYS0mGHQK7Qh4x.jpg",
+          releaseYear: 1982,
+          duration: "2h 11m",
+          rating: 4.8,
+          description: "Based on Shakespeare's Comedy of Errors, this film follows two pairs of identical twins who were separated at birth, leading to hilarious confusion.",
+          director: "Gulzar",
+          cast: ["Sanjeev Kumar", "Deven Verma", "Moushumi Chatterjee"],
+          genre: ["Comedy", "Drama"],
+          tmdb_id: 51727,
+          category: "Classic-Comedy",
+          subcategory: "Angoor"
+        },
+        "Amar-Akbar-Anthony": {
+          id: "Amar-Akbar-Anthony",
+          title: "Amar Akbar Anthony",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/tRRqV1YhGkMqRgHyuNxZANnRj0h.jpg",
+          releaseYear: 1977,
+          duration: "2h 55m",
+          rating: 4.8,
+          description: "Three brothers separated in childhood grow up in different faiths. A perfect blend of comedy, drama and action.",
+          director: "Manmohan Desai",
+          cast: ["Amitabh Bachchan", "Vinod Khanna", "Rishi Kapoor"],
+          genre: ["Comedy", "Drama", "Action"],
+          tmdb_id: 51731,
+          category: "Classic-Comedy",
+          subcategory: "Amar-Akbar-Anthony"
+        }
       },
-      "Chupke-Chupke": {
-        id: "Chupke-Chupke",
-        title: "Chupke Chupke",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/9KQDhqJ9pHXgHV4KlxPxD5T4yJ9.jpg",
-        releaseYear: 1975,
-        duration: "2h 27m",
-        rating: 4.8,
-        description: "A newly married professor plays a prank on his wife's family with hilarious consequences. Features legendary performances from the golden age of comedy.",
-        director: "Hrishikesh Mukherjee",
-        cast: ["Dharmendra", "Amitabh Bachchan", "Sharmila Tagore"],
-        genre: ["Comedy", "Romance"],
-        tmdb_id: 51722
-      },
-      "Golmaal": {
-        id: "Golmaal",
-        title: "Gol Maal",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/yJ9aPx4Q5tTaeBmRqZf8hRdwKjB.jpg",
-        releaseYear: 1979,
-        duration: "2h 24m",
-        rating: 4.8,
-        description: "A young man creates an elaborate double life to keep his job, leading to a series of comedic misunderstandings. A masterpiece of situational comedy.",
-        director: "Hrishikesh Mukherjee",
-        cast: ["Amol Palekar", "Utpal Dutt", "Bindiya Goswami"],
-        genre: ["Comedy", "Drama"],
-        tmdb_id: 51723
-      },
-      "Jaane-Bhi-Do-Yaaro": {
-        id: "Jaane-Bhi-Do-Yaaro",
-        title: "Jaane Bhi Do Yaaro",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/8mxG1SPw3aswhqHDH6RzHJKJ9Jx.jpg",
-        releaseYear: 1983,
-        duration: "2h 12m",
-        rating: 4.8,
-        description: "Two photographers unwittingly become entangled in a web of corruption. A dark comedy that's considered a cult classic.",
-        director: "Kundan Shah",
-        cast: ["Naseeruddin Shah", "Ravi Baswani", "Om Puri"],
-        genre: ["Comedy", "Satire"],
-        tmdb_id: 51725
-      },
-      "Padosan": {
-        id: "Padosan",
-        title: "Padosan",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/yJ9aPx4Q5tTaeBmRqZf8hRdwKjB.jpg",
-        releaseYear: 1968,
-        duration: "2h 37m",
-        rating: 4.7,
-        description: "A simple man falls in love with his neighbor and seeks the help of his musical friends to win her heart. Known for its legendary comedic performances.",
-        director: "Jyoti Swaroop",
-        cast: ["Sunil Dutt", "Saira Banu", "Mehmood"],
-        genre: ["Comedy", "Romance", "Musical"],
-        tmdb_id: 51726
-      },
-      "Angoor": {
-        id: "Angoor",
-        title: "Angoor",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/tYz4gMTM3tqUGGYS0mGHQK7Qh4x.jpg",
-        releaseYear: 1982,
-        duration: "2h 11m",
-        rating: 4.8,
-        description: "Based on Shakespeare's Comedy of Errors, this film follows two pairs of identical twins who were separated at birth, leading to hilarious confusion.",
-        director: "Gulzar",
-        cast: ["Sanjeev Kumar", "Deven Verma", "Moushumi Chatterjee"],
-        genre: ["Comedy", "Drama"],
-        tmdb_id: 51727
-      },
-      "Amar-Akbar-Anthony": {
-        id: "Amar-Akbar-Anthony",
-        title: "Amar Akbar Anthony",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/tRRqV1YhGkMqRgHyuNxZANnRj0h.jpg",
-        releaseYear: 1977,
-        duration: "2h 55m",
-        rating: 4.8,
-        description: "Three brothers separated in childhood grow up in different faiths. A perfect blend of comedy, drama and action.",
-        director: "Manmohan Desai",
-        cast: ["Amitabh Bachchan", "Vinod Khanna", "Rishi Kapoor"],
-        genre: ["Comedy", "Drama", "Action"],
-        tmdb_id: 51731
+      "Modern-Comedy": {
+        "3-Idiots": {
+          id: "3-Idiots",
+          title: "3 Idiots",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/66A9MqXOyVFCssoloscw79z8Tew.jpg",
+          releaseYear: 2009,
+          duration: "2h 50m",
+          rating: 4.9,
+          description: "Two friends search for their long lost companion who inspired them to think differently. A perfect blend of comedy and social commentary.",
+          director: "Rajkumar Hirani",
+          cast: ["Aamir Khan", "R. Madhavan", "Sharman Joshi"],
+          genre: ["Comedy", "Drama"],
+          tmdb_id: 20453,
+          category: "Modern-Comedy",
+          subcategory: "3-Idiots"
+        },
+        "Munna-Bhai-MBBS": {
+          id: "Munna-Bhai-MBBS",
+          title: "Munna Bhai M.B.B.S.",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/3KR6RDd7ZxV5LVTqFQtGYP5HF1X.jpg",
+          releaseYear: 2003,
+          duration: "2h 36m",
+          rating: 4.8,
+          description: "A gangster sets out to fulfill his father's dream of becoming a doctor. Revolutionized comedy in modern Bollywood.",
+          director: "Rajkumar Hirani",
+          cast: ["Sanjay Dutt", "Arshad Warsi", "Boman Irani"],
+          genre: ["Comedy", "Drama"],
+          tmdb_id: 51724,
+          category: "Modern-Comedy",
+          subcategory: "Munna-Bhai-MBBS"
+        },
+        "Hera-Pheri": {
+          id: "Hera-Pheri",
+          title: "Hera Pheri",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/qKkjXoWjYJJJJJJJJJJJJJJJJJJ.jpg",
+          releaseYear: 2000,
+          duration: "2h 36m",
+          rating: 4.8,
+          description: "Three unemployed men find the answer to all their money problems when they receive a call from a kidnapper. But nothing is as simple as it seems.",
+          director: "Priyadarshan",
+          cast: ["Akshay Kumar", "Sunil Shetty", "Paresh Rawal"],
+          genre: ["Comedy", "Drama"],
+          tmdb_id: 51728,
+          category: "Modern-Comedy",
+          subcategory: "Hera-Pheri"
+        },
+        "Lage-Raho-Munna-Bhai": {
+          id: "Lage-Raho-Munna-Bhai",
+          title: "Lage Raho Munna Bhai",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/5UQPSvZg1HxJMUYvxYwOPbTBVOX.jpg",
+          releaseYear: 2006,
+          duration: "2h 24m",
+          rating: 4.8,
+          description: "The sequel to Munna Bhai M.B.B.S., where a gangster begins to see Gandhi's spirit and adopts his principles of non-violence and truth.",
+          director: "Rajkumar Hirani",
+          cast: ["Sanjay Dutt", "Arshad Warsi", "Vidya Balan"],
+          genre: ["Comedy", "Drama"],
+          tmdb_id: 51729,
+          category: "Modern-Comedy",
+          subcategory: "Lage-Raho-Munna-Bhai"
+        },
+        "Chachi-420": {
+          id: "Chachi-420",
+          title: "Chachi 420",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/9EpQGQQ4YjH1ZqU5vMPPxJ8nKGh.jpg",
+          releaseYear: 1997,
+          duration: "2h 35m",
+          rating: 4.7,
+          description: "A father disguises himself as an elderly female housekeeper to be close to his daughter after a bitter divorce. An Indian adaptation of Mrs. Doubtfire.",
+          director: "Kamal Haasan",
+          cast: ["Kamal Haasan", "Amrish Puri", "Om Puri"],
+          genre: ["Comedy", "Drama", "Family"],
+          tmdb_id: 51730,
+          category: "Modern-Comedy",
+          subcategory: "Chachi-420"
+        },
+        "Phir-Hera-Pheri": {
+          id: "Phir-Hera-Pheri",
+          title: "Phir Hera Pheri",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/9KQDhqJ9pHXgHV4KlxPxD5T4yJ9.jpg",
+          releaseYear: 2006,
+          duration: "2h 33m",
+          rating: 4.7,
+          description: "The trio from Hera Pheri return in this sequel involving a get-rich-quick scheme that goes hilariously wrong.",
+          director: "Neeraj Vora",
+          cast: ["Akshay Kumar", "Suniel Shetty", "Paresh Rawal"],
+          genre: ["Comedy", "Drama"],
+          tmdb_id: 51732,
+          category: "Modern-Comedy",
+          subcategory: "Phir-Hera-Pheri"
+        }
       }
-    },
-    "Modern-Comedy": {
-      "3-Idiots": {
-        id: "3-Idiots",
-        title: "3 Idiots",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/66A9MqXOyVFCssoloscw79z8Tew.jpg",
-        releaseYear: 2009,
-        duration: "2h 50m",
-        rating: 4.9,
-        description: "Two friends search for their long lost companion who inspired them to think differently. A perfect blend of comedy and social commentary.",
-        director: "Rajkumar Hirani",
-        cast: ["Aamir Khan", "R. Madhavan", "Sharman Joshi"],
-        genre: ["Comedy", "Drama"],
-        tmdb_id: 20453
-      },
-      "Munna-Bhai-MBBS": {
-        id: "Munna-Bhai-MBBS",
-        title: "Munna Bhai M.B.B.S.",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/3KR6RDd7ZxV5LVTqFQtGYP5HF1X.jpg",
-        releaseYear: 2003,
-        duration: "2h 36m",
-        rating: 4.8,
-        description: "A gangster sets out to fulfill his father's dream of becoming a doctor. Revolutionized comedy in modern Bollywood.",
-        director: "Rajkumar Hirani",
-        cast: ["Sanjay Dutt", "Arshad Warsi", "Boman Irani"],
-        genre: ["Comedy", "Drama"],
-        tmdb_id: 51724
-      },
-      "Hera-Pheri": {
-        id: "Hera-Pheri",
-        title: "Hera Pheri",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/qKkjXoWjYJJJJJJJJJJJJJJJJJJ.jpg",
-        releaseYear: 2000,
-        duration: "2h 36m",
-        rating: 4.8,
-        description: "Three unemployed men find the answer to all their money problems when they receive a call from a kidnapper. But nothing is as simple as it seems.",
-        director: "Priyadarshan",
-        cast: ["Akshay Kumar", "Sunil Shetty", "Paresh Rawal"],
-        genre: ["Comedy", "Drama"],
-        tmdb_id: 51728
-      },
-      "Lage-Raho-Munna-Bhai": {
-        id: "Lage-Raho-Munna-Bhai",
-        title: "Lage Raho Munna Bhai",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/5UQPSvZg1HxJMUYvxYwOPbTBVOX.jpg",
-        releaseYear: 2006,
-        duration: "2h 24m",
-        rating: 4.8,
-        description: "The sequel to Munna Bhai M.B.B.S., where a gangster begins to see Gandhi's spirit and adopts his principles of non-violence and truth.",
-        director: "Rajkumar Hirani",
-        cast: ["Sanjay Dutt", "Arshad Warsi", "Vidya Balan"],
-        genre: ["Comedy", "Drama"],
-        tmdb_id: 51729
-      },
-      "Chachi-420": {
-        id: "Chachi-420",
-        title: "Chachi 420",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/9EpQGQQ4YjH1ZqU5vMPPxJ8nKGh.jpg",
-        releaseYear: 1997,
-        duration: "2h 35m",
-        rating: 4.7,
-        description: "A father disguises himself as an elderly female housekeeper to be close to his daughter after a bitter divorce. An Indian adaptation of Mrs. Doubtfire.",
-        director: "Kamal Haasan",
-        cast: ["Kamal Haasan", "Amrish Puri", "Om Puri"],
-        genre: ["Comedy", "Drama", "Family"],
-        tmdb_id: 51730
-      },
-      "Phir-Hera-Pheri": {
-        id: "Phir-Hera-Pheri",
-        title: "Phir Hera Pheri",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/9KQDhqJ9pHXgHV4KlxPxD5T4yJ9.jpg",
-        releaseYear: 2006,
-        duration: "2h 33m",
-        rating: 4.7,
-        description: "The trio from Hera Pheri return in this sequel involving a get-rich-quick scheme that goes hilariously wrong.",
-        director: "Neeraj Vora",
-        cast: ["Akshay Kumar", "Suniel Shetty", "Paresh Rawal"],
-        genre: ["Comedy", "Drama"],
-        tmdb_id: 51732
-      }
-    }
     }
   },
   "bollywood-horror": {
@@ -3445,7 +3890,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ram Gopal Varma",
           cast: ["Revathi", "Om Puri", "Rohini Hattangadi"],
           genre: ["Horror", "Supernatural"],
-          tmdb_id: 51745
+          tmdb_id: 51745,
+          category: "Supernatural-Horror",
+          subcategory: "Raat"
         },
         "Junoon": {
           id: "Junoon",
@@ -3459,7 +3906,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Mahesh Bhatt",
           cast: ["Rahul Roy", "Pooja Bhatt", "Avinash Wadhawan"],
           genre: ["Horror", "Thriller", "Romance"],
-          tmdb_id: 51746
+          tmdb_id: 51746,
+          category: "Supernatural-Horror",
+          subcategory: "Junoon"
         },
         "Purana-Mandir": {
           id: "Purana-Mandir",
@@ -3473,7 +3922,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Shyam Ramsay",
           cast: ["Mohnish Bahl", "Puneet Issar", "Arti Gupta"],
           genre: ["Horror", "Supernatural"],
-          tmdb_id: 51747
+          tmdb_id: 51747,
+          category: "Supernatural-Horror",
+          subcategory: "Purana-Mandir"
         },
         "Bandh-Darwaza": {
           id: "Bandh-Darwaza",
@@ -3487,7 +3938,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Shyam Ramsay",
           cast: ["Hashmat Khan", "Manjeet Kullar", "Aruna Irani"],
           genre: ["Horror", "Supernatural"],
-          tmdb_id: 51748
+          tmdb_id: 51748,
+          category: "Supernatural-Horror",
+          subcategory: "Bandh-Darwaza"
         },
         "Veerana": {
           id: "Veerana",
@@ -3501,7 +3954,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Shyam Ramsay",
           cast: ["Jasmin", "Hemant Birje", "Sahila Chadha"],
           genre: ["Horror", "Supernatural"],
-          tmdb_id: 51749
+          tmdb_id: 51749,
+          category: "Supernatural-Horror",
+          subcategory: "Veerana"
         },
         "Dak-Bangla": {
           id: "Dak-Bangla",
@@ -3515,7 +3970,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Keshu Ramsay",
           cast: ["Vinod Mehra", "Prema Narayan", "Girish Karnad"],
           genre: ["Horror", "Mystery"],
-          tmdb_id: 51750
+          tmdb_id: 51750,
+          category: "Supernatural-Horror",
+          subcategory: "Dak-Bangla"
         }
       },
       "Psychological-Horror": {
@@ -3531,7 +3988,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ram Gopal Varma",
           cast: ["Ajay Devgn", "Urmila Matondkar", "Nana Patekar"],
           genre: ["Horror", "Psychological"],
-          tmdb_id: 51735
+          tmdb_id: 51735,
+          category: "Psychological-Horror",
+          subcategory: "Bhoot"
         },
         "13B": {
           id: "13B",
@@ -3545,7 +4004,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Vikram Kumar",
           cast: ["R. Madhavan", "Neetu Chandra", "Poonam Dhillon"],
           genre: ["Horror", "Psychological", "Mystery"],
-          tmdb_id: 51738
+          tmdb_id: 51738,
+          category: "Psychological-Horror",
+          subcategory: "13B"
         },
         "Ek-Thi-Daayan": {
           id: "Ek-Thi-Daayan",
@@ -3559,7 +4020,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Kannan Iyer",
           cast: ["Emraan Hashmi", "Konkona Sen Sharma", "Kalki Koechlin"],
           genre: ["Horror", "Psychological", "Thriller"],
-          tmdb_id: 51743
+          tmdb_id: 51743,
+          category: "Psychological-Horror",
+          subcategory: "Ek-Thi-Daayan"
         },
         "Phobia": {
           id: "Phobia",
@@ -3573,7 +4036,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Pavan Kirpalani",
           cast: ["Radhika Apte", "Satyadeep Mishra", "Yashaswini Dayama"],
           genre: ["Horror", "Psychological", "Thriller"],
-          tmdb_id: 51744
+          tmdb_id: 51744,
+          category: "Psychological-Horror",
+          subcategory: "Phobia"
         }
       },
       "Folk-Horror": {
@@ -3589,7 +4054,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Rahi Anil Barve",
           cast: ["Sohum Shah", "Jyoti Malshe", "Anita Date"],
           genre: ["Horror", "Folk", "Mythology"],
-          tmdb_id: 51736
+          tmdb_id: 51736,
+          category: "Folk-Horror",
+          subcategory: "Tumbbad"
         },
         "Pari": {
           id: "Pari",
@@ -3603,7 +4070,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Prosit Roy",
           cast: ["Anushka Sharma", "Parambrata Chatterjee", "Rajat Kapoor"],
           genre: ["Horror", "Folk", "Supernatural"],
-          tmdb_id: 51739
+          tmdb_id: 51739,
+          category: "Folk-Horror",
+          subcategory: "Pari"
         }
       },
       "Modern-Horror-Thrillers": {
@@ -3619,7 +4088,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Priyadarshan",
           cast: ["Akshay Kumar", "Vidya Balan", "Shiney Ahuja"],
           genre: ["Horror", "Comedy", "Thriller"],
-          tmdb_id: 51751
+          tmdb_id: 51751,
+          category: "Modern-Horror-Thrillers",
+          subcategory: "Bhool-Bhulaiyaa"
         },
         "Kaun": {
           id: "Kaun",
@@ -3633,7 +4104,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ram Gopal Varma",
           cast: ["Urmila Matondkar", "Manoj Bajpayee", "Sushant Singh"],
           genre: ["Horror", "Thriller", "Mystery"],
-          tmdb_id: 51752
+          tmdb_id: 51752,
+          category: "Modern-Horror-Thrillers",
+          subcategory: "Kaun"
         },
         "Pizza": {
           id: "Pizza",
@@ -3647,7 +4120,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Akshay Akkineni",
           cast: ["Akshay Oberoi", "Parvathy Omanakuttan", "Dipannita Sharma"],
           genre: ["Horror", "Thriller"],
-          tmdb_id: 51753
+          tmdb_id: 51753,
+          category: "Modern-Horror-Thrillers",
+          subcategory: "Pizza"
         }
       },
       "Horror-Anthology": {
@@ -3663,7 +4138,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Prawaal Raman",
           cast: ["Saif Ali Khan", "Shilpa Shetty", "Sameera Reddy"],
           genre: ["Horror", "Anthology"],
-          tmdb_id: 51754
+          tmdb_id: 51754,
+          category: "Horror-Anthology",
+          subcategory: "Darna-Mana-Hai"
         },
         "Darna-Zaroori-Hai": {
           id: "Darna-Zaroori-Hai",
@@ -3677,7 +4154,9 @@ export const collections: { [key: string]: Collection } = {
           director: "Ram Gopal Varma",
           cast: ["Amitabh Bachchan", "Anil Kapoor", "Ritesh Deshmukh"],
           genre: ["Horror", "Anthology"],
-          tmdb_id: 51755
+          tmdb_id: 51755,
+          category: "Horror-Anthology",
+          subcategory: "Darna-Zaroori-Hai"
         },
         "Ghost-Stories": {
           id: "Ghost-Stories",
@@ -3691,163 +4170,185 @@ export const collections: { [key: string]: Collection } = {
           director: "Various",
           cast: ["Janhvi Kapoor", "Sobhita Dhulipala", "Mrunal Thakur"],
           genre: ["Horror", "Anthology"],
-          tmdb_id: 51756
+          tmdb_id: 51756,
+          category: "Horror-Anthology",
+          subcategory: "Ghost-Stories"
         }
       }
     }
   },
   "bollywood-romance": {
-  id: "bollywood-romance",
-  name: "Bollywood Romance",
-  categories: {
-    "Classic-Romance": {
-      "Dilwale-Dulhania-Le-Jayenge": {
-        id: "Dilwale-Dulhania-Le-Jayenge",
-        title: "Dilwale Dulhania Le Jayenge",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/2CAL2433ZeIihfX1Hb2139CX0pW.jpg",
-        releaseYear: 1995,
-        duration: "3h 10m",
-        rating: 4.9,
-        description: "A young non-resident Indian couple fall in love during a vacation through Europe, but her traditional father has already arranged her marriage to someone else.",
-        director: "Aditya Chopra",
-        cast: ["Shah Rukh Khan", "Kajol", "Amrish Puri"],
-        genre: ["Romance", "Drama", "Musical"],
-        tmdb_id: 19404
+    id: "bollywood-romance",
+    name: "Bollywood Romance",
+    categories: {
+      "Classic-Romance": {
+        "Dilwale-Dulhania-Le-Jayenge": {
+          id: "Dilwale-Dulhania-Le-Jayenge",
+          title: "Dilwale Dulhania Le Jayenge",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/2CAL2433ZeIihfX1Hb2139CX0pW.jpg",
+          releaseYear: 1995,
+          duration: "3h 10m",
+          rating: 4.9,
+          description: "A young non-resident Indian couple fall in love during a vacation through Europe, but her traditional father has already arranged her marriage to someone else.",
+          director: "Aditya Chopra",
+          cast: ["Shah Rukh Khan", "Kajol", "Amrish Puri"],
+          genre: ["Romance", "Drama", "Musical"],
+          tmdb_id: 19404,
+          category: "Classic-Romance",
+          subcategory: "Dilwale-Dulhania-Le-Jayenge"
+        },
+        "Kuch-Kuch-Hota-Hai": {
+          id: "Kuch-Kuch-Hota-Hai",
+          title: "Kuch Kuch Hota Hai",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/5nEeI5UXwEsFE9PMwZPjnfXhxEQ.jpg",
+          releaseYear: 1998,
+          duration: "3h 5m",
+          rating: 4.8,
+          description: "A dying mother leaves letters asking her daughter to play matchmaker for her father and his college best friend.",
+          director: "Karan Johar",
+          cast: ["Shah Rukh Khan", "Kajol", "Rani Mukerji"],
+          genre: ["Romance", "Drama", "Musical"],
+          tmdb_id: 51757,
+          category: "Classic-Romance",
+          subcategory: "Kuch-Kuch-Hota-Hai"
+        },
+        "Qayamat-Se-Qayamat-Tak": {
+          id: "Qayamat-Se-Qayamat-Tak",
+          title: "Qayamat Se Qayamat Tak",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/8mxG1SPw3aswhqHDH6RzHJKJ9Jx.jpg",
+          releaseYear: 1988,
+          duration: "2h 42m",
+          rating: 4.7,
+          description: "Two young lovers from feuding families elope, facing dire consequences. A modern adaptation of Romeo and Juliet.",
+          director: "Mansoor Khan",
+          cast: ["Aamir Khan", "Juhi Chawla", "Goga Kapoor"],
+          genre: ["Romance", "Drama", "Musical"],
+          tmdb_id: 51758,
+          category: "Classic-Romance",
+          subcategory: "Qayamat-Se-Qayamat-Tak"
+        }
       },
-      "Kuch-Kuch-Hota-Hai": {
-        id: "Kuch-Kuch-Hota-Hai",
-        title: "Kuch Kuch Hota Hai",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/5nEeI5UXwEsFE9PMwZPjnfXhxEQ.jpg",
-        releaseYear: 1998,
-        duration: "3h 5m",
-        rating: 4.8,
-        description: "A dying mother leaves letters asking her daughter to play matchmaker for her father and his college best friend.",
-        director: "Karan Johar",
-        cast: ["Shah Rukh Khan", "Kajol", "Rani Mukerji"],
-        genre: ["Romance", "Drama", "Musical"],
-        tmdb_id: 51757
+      "Modern-Romance": {
+        "Jab-We-Met": {
+          id: "Jab-We-Met",
+          title: "Jab We Met",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/tYz4gMTM3tqUGGYS0mGHQK7Qh4x.jpg",
+          releaseYear: 2007,
+          duration: "2h 18m",
+          rating: 4.8,
+          description: "A depressed businessman finds his life changing after he meets a vivacious girl on a train.",
+          director: "Imtiaz Ali",
+          cast: ["Shahid Kapoor", "Kareena Kapoor", "Tarun Arora"],
+          genre: ["Romance", "Comedy", "Drama"],
+          tmdb_id: 51759,
+          category: "Modern-Romance",
+          subcategory: "Jab-We-Met"
+        },
+        "Yeh-Jawaani-Hai-Deewani": {
+          id: "Yeh-Jawaani-Hai-Deewani",
+          title: "Yeh Jawaani Hai Deewani",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/9KQDhqJ9pHXgHV4KlxPxD5T4yJ9.jpg",
+          releaseYear: 2013,
+          duration: "2h 40m",
+          rating: 4.7,
+          description: "A free-spirited traveler and an ambitious medical student reconnect years after their first meeting, exploring love and personal dreams.",
+          director: "Ayan Mukerji",
+          cast: ["Ranbir Kapoor", "Deepika Padukone", "Kalki Koechlin"],
+          genre: ["Romance", "Drama", "Musical"],
+          tmdb_id: 51760,
+          category: "Modern-Romance",
+          subcategory: "Yeh-Jawaani-Hai-Deewani"
+        }
       },
-      "Qayamat-Se-Qayamat-Tak": {
-        id: "Qayamat-Se-Qayamat-Tak",
-        title: "Qayamat Se Qayamat Tak",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/8mxG1SPw3aswhqHDH6RzHJKJ9Jx.jpg",
-        releaseYear: 1988,
-        duration: "2h 42m",
-        rating: 4.7,
-        description: "Two young lovers from feuding families elope, facing dire consequences. A modern adaptation of Romeo and Juliet.",
-        director: "Mansoor Khan",
-        cast: ["Aamir Khan", "Juhi Chawla", "Goga Kapoor"],
-        genre: ["Romance", "Drama", "Musical"],
-        tmdb_id: 51758
+      "Tragic-Romance": {
+        "Devdas": {
+          id: "Devdas",
+          title: "Devdas",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/6zqXIMwBJjRTnqc9Y0ZOtFwHhEF.jpg",
+          releaseYear: 2002,
+          duration: "3h 5m",
+          rating: 4.8,
+          description: "A wealthy law graduate returns home to find his childhood sweetheart married to another man, leading him down a path of self-destruction.",
+          director: "Sanjay Leela Bhansali",
+          cast: ["Shah Rukh Khan", "Aishwarya Rai", "Madhuri Dixit"],
+          genre: ["Romance", "Drama", "Tragedy"],
+          tmdb_id: 51761,
+          category: "Tragic-Romance",
+          subcategory: "Devdas"
+        },
+        "Aashiqui-2": {
+          id: "Aashiqui-2",
+          title: "Aashiqui 2",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/3KR6RDd7ZxV5LVTqFQtGYP5HF1X.jpg",
+          releaseYear: 2013,
+          duration: "2h 12m",
+          rating: 4.7,
+          description: "A successful musician helps a young singer find fame, even as age and alcoholism send his own career into a downward spiral.",
+          director: "Mohit Suri",
+          cast: ["Aditya Roy Kapur", "Shraddha Kapoor", "Shaad Randhawa"],
+          genre: ["Romance", "Drama", "Musical"],
+          tmdb_id: 51762,
+          category: "Tragic-Romance",
+          subcategory: "Aashiqui-2"
+        },
+        "Veer-Zaara": {
+          id: "Veer-Zaara",
+          title: "Veer-Zaara",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/2gVf2uZxsGBwqUzUv6eX9Qqf3tE.jpg",
+          releaseYear: 2004,
+          duration: "3h 12m",
+          rating: 4.8,
+          description: "A tale of love between an Indian Air Force pilot and a Pakistani woman, separated by war and united by destiny.",
+          director: "Yash Chopra",
+          cast: ["Shah Rukh Khan", "Preity Zinta", "Rani Mukerji"],
+          genre: ["Romance", "Drama"],
+          tmdb_id: 51763,
+          category: "Tragic-Romance",
+          subcategory: "Veer-Zaara"
+        }
+      },
+      "Musical-Romance": {
+        "Aashiqui": {
+          id: "Aashiqui",
+          title: "Aashiqui",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/yJ9aPx4Q5tTaeBmRqZf8hRdwKjB.jpg",
+          releaseYear: 1990,
+          duration: "2h 35m",
+          rating: 4.6,
+          description: "A young aspiring singer falls in love with an orphaned girl, leading to a musical journey of love and success.",
+          director: "Mahesh Bhatt",
+          cast: ["Rahul Roy", "Anu Aggarwal", "Deepak Tijori"],
+          genre: ["Romance", "Musical", "Drama"],
+          tmdb_id: 51764,
+          category: "Musical-Romance",
+          subcategory: "Aashiqui"
+        },
+        "Rockstar": {
+          id: "Rockstar",
+          title: "Rockstar",
+          price: 49.99,
+          image: "https://image.tmdb.org/t/p/w500/9EpQGQQ4YjH1ZqU5vMPPxJ8nKGh.jpg",
+          releaseYear: 2011,
+          duration: "2h 39m",
+          rating: 4.7,
+          description: "A middle-class boy's journey from a Delhi college student to a famous musician, inspired by heartbreak and loss.",
+          director: "Imtiaz Ali",
+          cast: ["Ranbir Kapoor", "Nargis Fakhri", "Shammi Kapoor"],
+          genre: ["Romance", "Musical", "Drama"],
+          tmdb_id: 51765,
+          category: "Musical-Romance",
+          subcategory: "Rockstar"
+        }
       }
-    },
-    "Modern-Romance": {
-      "Jab-We-Met": {
-        id: "Jab-We-Met",
-        title: "Jab We Met",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/tYz4gMTM3tqUGGYS0mGHQK7Qh4x.jpg",
-        releaseYear: 2007,
-        duration: "2h 18m",
-        rating: 4.8,
-        description: "A depressed businessman finds his life changing after he meets a vivacious girl on a train.",
-        director: "Imtiaz Ali",
-        cast: ["Shahid Kapoor", "Kareena Kapoor", "Tarun Arora"],
-        genre: ["Romance", "Comedy", "Drama"],
-        tmdb_id: 51759
-      },
-      "Yeh-Jawaani-Hai-Deewani": {
-        id: "Yeh-Jawaani-Hai-Deewani",
-        title: "Yeh Jawaani Hai Deewani",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/9KQDhqJ9pHXgHV4KlxPxD5T4yJ9.jpg",
-        releaseYear: 2013,
-        duration: "2h 40m",
-        rating: 4.7,
-        description: "A free-spirited traveler and an ambitious medical student reconnect years after their first meeting, exploring love and personal dreams.",
-        director: "Ayan Mukerji",
-        cast: ["Ranbir Kapoor", "Deepika Padukone", "Kalki Koechlin"],
-        genre: ["Romance", "Drama", "Musical"],
-        tmdb_id: 51760
-      }
-    },
-    "Tragic-Romance": {
-      "Devdas": {
-        id: "Devdas",
-        title: "Devdas",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/6zqXIMwBJjRTnqc9Y0ZOtFwHhEF.jpg",
-        releaseYear: 2002,
-        duration: "3h 5m",
-        rating: 4.8,
-        description: "A wealthy law graduate returns home to find his childhood sweetheart married to another man, leading him down a path of self-destruction.",
-        director: "Sanjay Leela Bhansali",
-        cast: ["Shah Rukh Khan", "Aishwarya Rai", "Madhuri Dixit"],
-        genre: ["Romance", "Drama", "Tragedy"],
-        tmdb_id: 51761
-      },
-      "Aashiqui-2": {
-        id: "Aashiqui-2",
-        title: "Aashiqui 2",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/3KR6RDd7ZxV5LVTqFQtGYP5HF1X.jpg",
-        releaseYear: 2013,
-        duration: "2h 12m",
-        rating: 4.7,
-        description: "A successful musician helps a young singer find fame, even as age and alcoholism send his own career into a downward spiral.",
-        director: "Mohit Suri",
-        cast: ["Aditya Roy Kapur", "Shraddha Kapoor", "Shaad Randhawa"],
-        genre: ["Romance", "Drama", "Musical"],
-        tmdb_id: 51762
-      },
-      "Veer-Zaara": {
-        id: "Veer-Zaara",
-        title: "Veer-Zaara",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/2gVf2uZxsGBwqUzUv6eX9Qqf3tE.jpg",
-        releaseYear: 2004,
-        duration: "3h 12m",
-        rating: 4.8,
-        description: "A tale of love between an Indian Air Force pilot and a Pakistani woman, separated by war and united by destiny.",
-        director: "Yash Chopra",
-        cast: ["Shah Rukh Khan", "Preity Zinta", "Rani Mukerji"],
-        genre: ["Romance", "Drama"],
-        tmdb_id: 51763
-      }
-    },
-    "Musical-Romance": {
-      "Aashiqui": {
-        id: "Aashiqui",
-        title: "Aashiqui",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/yJ9aPx4Q5tTaeBmRqZf8hRdwKjB.jpg",
-        releaseYear: 1990,
-        duration: "2h 35m",
-        rating: 4.6,
-        description: "A young aspiring singer falls in love with an orphaned girl, leading to a musical journey of love and success.",
-        director: "Mahesh Bhatt",
-        cast: ["Rahul Roy", "Anu Aggarwal", "Deepak Tijori"],
-        genre: ["Romance", "Musical", "Drama"],
-        tmdb_id: 51764
-      },
-      "Rockstar": {
-        id: "Rockstar",
-        title: "Rockstar",
-        price: 49.99,
-        image: "https://image.tmdb.org/t/p/w500/9EpQGQQ4YjH1ZqU5vMPPxJ8nKGh.jpg",
-        releaseYear: 2011,
-        duration: "2h 39m",
-        rating: 4.7,
-        description: "A middle-class boy's journey from a Delhi college student to a famous musician, inspired by heartbreak and loss.",
-        director: "Imtiaz Ali",
-        cast: ["Ranbir Kapoor", "Nargis Fakhri", "Shammi Kapoor"],
-        genre: ["Romance", "Musical", "Drama"],
-        tmdb_id: 51765
-      }
-    }
     }
   }
 }

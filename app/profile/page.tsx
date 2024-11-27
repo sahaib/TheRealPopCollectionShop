@@ -73,7 +73,9 @@ export default function ProfilePage() {
         id: movieTitle,
         title: movieTitle,
         price: 29.99,
-        quantity: 1
+        category: 'sci-fi',
+        subcategory: 'action',
+        mainCategory: 'sci-fi'
       })
       toast.success(`Added ${movieTitle} to cart`)
     } catch (error) {

@@ -44,7 +44,9 @@ export default function MovieCard({ movie, category }: MovieCardProps) {
         id: movie.id,
         title: movie.title,
         price: movie.price,
-        quantity: 1
+        category: movie.category,
+        subcategory: movie.subcategory,
+        mainCategory: category
       })
       toast.success(`Added ${movie.title} to cart`)
     }

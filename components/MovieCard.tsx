@@ -20,6 +20,8 @@ interface MovieCardProps {
   rating: number
   collectionId: string
   categoryName: string
+  category: string
+  subcategory: string
   tmdb_id?: string
 }
 
@@ -78,7 +80,9 @@ export function MovieCard(props: MovieCardProps) {
         id: props.id,
         title: props.title,
         price: props.price,
-        quantity: 1
+        category: props.category,
+        subcategory: props.subcategory,
+        mainCategory: props.categoryName
       })
       toast.success(`Added ${props.title} to cart`)
     }

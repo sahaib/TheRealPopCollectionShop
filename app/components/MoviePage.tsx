@@ -51,12 +51,14 @@ export function MoviePage({ movie }: MoviePageProps) {
   }
 
   const handleAddToCart = () => {
-    if (!isInCart) {
+    if (!isInCart && movie) {
       addToCart({
         id: movie.id,
         title: movie.title,
         price: movie.price,
-        quantity: 1
+        category: movie.category,
+        subcategory: movie.subcategory,
+        mainCategory: movie.category
       })
       toast.success(`Added ${movie.title} to cart`)
     }

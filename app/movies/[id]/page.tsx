@@ -22,7 +22,9 @@ const movies = [
     description: 'Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the eccentric scientist Doc Brown.',
     director: 'Robert Zemeckis',
     cast: ['Michael J. Fox', 'Christopher Lloyd', 'Lea Thompson'],
-    genre: ['Adventure', 'Comedy', 'Sci-Fi']
+    genre: ['Adventure', 'Comedy', 'Sci-Fi'],
+    category: 'sci-fi',
+    subcategory: 'time-travel'
   },
   {
     id: 2,
@@ -35,7 +37,9 @@ const movies = [
     description: 'During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.',
     director: 'Steven Spielberg',
     cast: ['Sam Neill', 'Laura Dern', 'Jeff Goldblum'],
-    genre: ['Action', 'Adventure', 'Sci-Fi']
+    genre: ['Action', 'Adventure', 'Sci-Fi'],
+    category: 'sci-fi',
+    subcategory: 'action'
   },
   {
     id: 3,
@@ -48,7 +52,9 @@ const movies = [
     description: 'A computer programmer discovers that reality as he knows it is a simulation created by machines, and joins a rebellion to break free.',
     director: 'The Wachowskis',
     cast: ['Keanu Reeves', 'Laurence Fishburne', 'Carrie-Anne Moss'],
-    genre: ['Action', 'Sci-Fi']
+    genre: ['Action', 'Sci-Fi'],
+    category: 'sci-fi',
+    subcategory: 'action'
   },
   {
     id: 4,
@@ -61,7 +67,9 @@ const movies = [
     description: 'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire\'s world-destroying battle station.',
     director: 'George Lucas',
     cast: ['Mark Hamill', 'Harrison Ford', 'Carrie Fisher'],
-    genre: ['Action', 'Adventure', 'Fantasy']
+    genre: ['Action', 'Adventure', 'Fantasy'],
+    category: 'sci-fi',
+    subcategory: 'action'
   }
 ]
 
@@ -104,10 +112,12 @@ export default function MoviePage({ params }: { params: { id: string } }) {
   const handleAddToCart = () => {
     if (!isInCart && movieData) {
       addToCart({
-        id: movieData.id,
+        id: movieData.id.toString(),
         title: movieData.name,
         price: movieData.price,
-        quantity: 1
+        category: movieData.category,
+        subcategory: movieData.subcategory,
+        mainCategory: movieData.category
       })
       toast.success(`Added ${movieData.name} to cart`)
     }

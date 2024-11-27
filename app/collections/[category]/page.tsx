@@ -90,6 +90,8 @@ export default function CollectionPage({ params }: PageProps) {
                 rating={movie.rating}
                 collectionId={collectionId}
                 categoryName={categoryName}
+                category={movie.category}
+                subcategory={movie.subcategory}
               />
             ))}
           </div>

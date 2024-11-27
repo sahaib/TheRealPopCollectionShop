@@ -23,7 +23,15 @@ const findCollectionMovie = (id: string) => {
   return null
 }
 
-export default function CollectionMoviePage({ params }: { params: { id: string } }) {
+export default function CollectionMoviePage({ 
+  params 
+}: { 
+  params: { 
+    id: string;
+    category: string;
+    subcategory: string;
+  }
+}) {
   const movieData = findCollectionMovie(params.id)
   const { addToCart, state } = useCart()
   const isInCart = state.items.some(item => item.id === params.id)
@@ -64,7 +72,9 @@ export default function CollectionMoviePage({ params }: { params: { id: string }
         id: movieData.id,
         title: movieData.title,
         price: movieData.price,
-        quantity: 1
+        mainCategory: params.category,
+        category: params.subcategory,
+        subcategory: movieData.subcategory
       })
       toast.success(`Added ${movieData.title} to cart`)
     }

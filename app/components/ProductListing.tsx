@@ -8,10 +8,38 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const products = [
-  { id: 1, name: 'Back to the Future Trilogy', price: 29.99, image: '/images/dvd-covers/7lyBcpYB0Qt8gYhXYaEZUNlNQAv.jpg' },
-  { id: 2, name: 'Jurassic Park Collection', price: 39.99, image: '/images/dvd-covers/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg' },
-  { id: 3, name: 'The Matrix Trilogy', price: 34.99, image: '/images/dvd-covers/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg' },
-  { id: 4, name: 'Star Wars: The Original Trilogy', price: 49.99, image: '/images/dvd-covers/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg' },
+  { 
+    id: 1, 
+    name: 'Back to the Future Trilogy', 
+    price: 29.99, 
+    image: '/images/dvd-covers/7lyBcpYB0Qt8gYhXYaEZUNlNQAv.jpg',
+    category: 'sci-fi',
+    subcategory: 'time-travel'
+  },
+  { 
+    id: 2, 
+    name: 'Jurassic Park Collection', 
+    price: 39.99, 
+    image: '/images/dvd-covers/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg',
+    category: 'action',
+    subcategory: 'adventure'
+  },
+  { 
+    id: 3, 
+    name: 'The Matrix Trilogy', 
+    price: 34.99, 
+    image: '/images/dvd-covers/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg',
+    category: 'sci-fi',
+    subcategory: 'cyberpunk'
+  },
+  { 
+    id: 4, 
+    name: 'Star Wars: The Original Trilogy', 
+    price: 49.99, 
+    image: '/images/dvd-covers/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg',
+    category: 'sci-fi',
+    subcategory: 'space-opera'
+  },
 ]
 
 export default function ProductListing() {
@@ -20,10 +48,12 @@ export default function ProductListing() {
   const handleAddToCart = (product: typeof products[0]) => {
     try {
       addToCart({
-        id: product.id,
+        id: product.id.toString(),
         title: product.name,
         price: product.price,
-        quantity: 1
+        category: product.category,
+        subcategory: product.subcategory,
+        mainCategory: product.category
       })
       toast.success(`Added ${product.name} to cart`)
     } catch (error) {

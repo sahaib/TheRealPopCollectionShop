@@ -16,7 +16,14 @@ interface CartState {
 
 interface CartContextType {
   state: CartState
-  addToCart: (item: CartItem) => void
+  addToCart: (item: { 
+    id: string; 
+    title: string; 
+    price: number;
+    category: string;
+    subcategory: string;
+    mainCategory: string;
+  }) => void
   removeFromCart: (id: string | number) => void
   updateQuantity: (id: string | number, quantity: number) => void
 }
