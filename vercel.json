@@ -1,6 +1,19 @@
 {
   "version": 2,
-  "buildCommand": "npx prisma generate && next build",
-  "installCommand": "npm install",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next",
+      "config": {
+        "nodeVersion": "18.x",
+        "installCommand": "npm install --legacy-peer-deps && npx prisma generate",
+        "buildCommand": "next build"
+      }
+    }
+  ],
+  "env": {
+    "PRISMA_SKIP_POSTINSTALL": "1",
+    "NEXT_TELEMETRY_DISABLED": "1"
+  }
 } 
