@@ -1,7 +1,12 @@
 "use client"
-import { motion, useScroll, useTransform } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import { Disc, Film, Archive, Star, Clock, CheckCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { useScroll, useTransform } from 'framer-motion'
+
+// Dynamically import Framer Motion components
+const MotionDiv = dynamic(() => import('framer-motion').then(mod => mod.motion.div), { ssr: false })
+const MotionSection = dynamic(() => import('framer-motion').then(mod => mod.motion.section), { ssr: false })
 
 export default function AboutPage() {
   const { scrollYProgress } = useScroll()
@@ -37,12 +42,12 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section with DVD Collection Animation */}
-      <motion.div 
+      <MotionDiv 
         className="relative h-[60vh] flex items-center justify-center overflow-hidden"
         initial={{ opacity: 1 }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-purple-600/20 to-blue-600/20" />
-        <motion.div 
+        <MotionDiv 
           className="absolute inset-0"
           animate={{ 
             background: [
@@ -59,7 +64,7 @@ export default function AboutPage() {
           const pos2 = generateRandomPosition()
           
           return (
-            <motion.div
+            <MotionDiv
               key={i}
               className="absolute"
               animate={{
@@ -74,34 +79,34 @@ export default function AboutPage() {
               }}
             >
               <Disc className="w-8 h-8 text-purple-400/30" />
-            </motion.div>
+            </MotionDiv>
           )
         })}
 
         <div className="text-center relative z-10">
-          <motion.h1 
+          <MotionDiv 
             className="text-4xl md:text-6xl font-bold text-white mb-4"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
             About The Real Pop Collection Shop
-          </motion.h1>
-          <motion.p
+          </MotionDiv>
+          <MotionDiv
             className="text-xl text-white/80"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Preserving Cinema's Legacy, One DVD at a Time
-          </motion.p>
+          </MotionDiv>
         </div>
-      </motion.div>
+      </MotionDiv>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12 space-y-24">
         {/* Our Story Section */}
-        <motion.section 
+        <MotionSection 
           className="relative bg-white/30 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 
                      border border-gray-200/20 dark:border-gray-700/30 shadow-lg
                      hover:bg-gradient-to-br hover:from-purple-100/50 hover:to-blue-100/50
@@ -112,22 +117,22 @@ export default function AboutPage() {
           viewport={{ once: true }}
           whileHover={{ scale: 1.02 }}
         >
-          <motion.div 
+          <MotionDiv 
             className="absolute -left-8 -top-8 w-16 h-16 text-purple-500"
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           >
             <Film className="w-full h-full" />
-          </motion.div>
+          </MotionDiv>
           
           <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Our Story</h2>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
             What started as a personal passion during the pandemic has evolved into something much bigger. As a film enthusiast, I (Sahaib) began meticulously cataloging my movie collection in a humble Google Sheet during the COVID lockdown. This simple act of documentation sparked something unexpected – a realization that physical media isn't just about ownership, it's about preserving stories, memories, and the authentic movie-watching experience that streaming services can't quite replicate.
           </p>
-        </motion.section>
+        </MotionSection>
 
         {/* Mission Section */}
-        <motion.section 
+        <MotionSection 
           className="relative bg-white/30 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 
                      border border-gray-200/20 dark:border-gray-700/30 shadow-lg
                      hover:bg-gradient-to-br hover:from-blue-100/50 hover:to-purple-100/50
@@ -136,7 +141,7 @@ export default function AboutPage() {
           whileHover={{ scale: 1.02 }}
         >
           <div className="absolute inset-0 bg-grid-white/[0.2] bg-[size:20px_20px] rounded-xl" />
-          <motion.div
+          <MotionDiv
             className="absolute inset-0 rounded-xl"
             animate={{
               background: [
@@ -153,10 +158,10 @@ export default function AboutPage() {
               Our mission transcends mere movie sales – we're here to rekindle the joy of tangible movie collections. In an age where content disappears from streaming platforms without warning, we believe in the permanence and pride of owning physical copies. Each DVD in our collection is more than just a disc; it's a piece of cinema history, a conversation starter, and an investment that appreciates in both value and sentiment over time.
             </p>
           </div>
-        </motion.section>
+        </MotionSection>
 
         {/* Quality Section */}
-        <motion.section 
+        <MotionSection 
           className="relative bg-white/30 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 
                      border border-gray-200/20 dark:border-gray-700/30 shadow-lg
                      hover:bg-gradient-to-br hover:from-purple-100/50 hover:to-blue-100/50
@@ -164,7 +169,7 @@ export default function AboutPage() {
                      transition-all duration-300"
           whileHover={{ scale: 1.02 }}
         >
-          <motion.div 
+          <MotionDiv 
             className="absolute inset-0 rounded-xl"
             animate={{
               background: [
@@ -181,10 +186,10 @@ export default function AboutPage() {
               Every DVD in our collection is carefully sourced and verified for quality. We understand that each addition to your collection is an investment, which is why we personally ensure that each item meets our rigorous standards before it reaches your hands. From classic masterpieces to contemporary gems, every piece in our inventory is guaranteed to provide the premium viewing experience you deserve.
             </p>
           </div>
-        </motion.section>
+        </MotionSection>
 
         {/* Stats Section */}
-        <motion.div 
+        <MotionDiv 
           className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -195,24 +200,24 @@ export default function AboutPage() {
             { icon: Clock, value: "24/7", label: "Customer Support" },
             { icon: CheckCircle, value: "100%", label: "Satisfaction Guaranteed" }
           ].map((stat, index) => (
-            <motion.div
+            <MotionDiv
               key={index}
               className="bg-white/10 dark:bg-gray-900/30 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-200/20 dark:border-gray-700/30 shadow-lg"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <motion.div
+              <MotionDiv
                 className="text-blue-500 dark:text-blue-400 w-12 h-12 mx-auto mb-4"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
                 {<stat.icon className="w-full h-full" />}
-              </motion.div>
+              </MotionDiv>
               <h3 className="text-4xl font-bold text-blue-500 dark:text-blue-400">{stat.value}</h3>
               <p className="text-gray-600 dark:text-gray-300 mt-2">{stat.label}</p>
-            </motion.div>
+            </MotionDiv>
           ))}
-        </motion.div>
+        </MotionDiv>
       </div>
     </div>
   )
