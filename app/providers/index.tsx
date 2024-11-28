@@ -2,7 +2,7 @@
 
 import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider } from '@/components/ThemeProvider'
-import { CartProvider } from '@/contexts/CartContext'
+import { CartProvider } from '@/app/contexts/CartContext'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const queryClient = new QueryClient()
