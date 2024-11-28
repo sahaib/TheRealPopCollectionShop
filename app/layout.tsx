@@ -1,10 +1,8 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { Providers } from './components/Providers'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import { ThemeProvider } from '@/components/ThemeProvider'
-import { CartProvider } from '@/contexts/CartContext'
-import { AuthProvider } from './providers/AuthProvider'
 import { Toaster } from 'sonner'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -29,15 +27,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} text-gray-900 dark:text-gray-100 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800`}>
-        <AuthProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <CartProvider>
-              <Header />
-              <main id="main-content" className="pt-16 transition-all duration-300">{children}</main>
-              <Footer />
-            </CartProvider>
-          </ThemeProvider>
-        </AuthProvider>
+        <Providers>
+          <Header />
+          <main id="main-content" className="pt-16 transition-all duration-300">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
         <Toaster position="top-center" />
       </body>
     </html>
