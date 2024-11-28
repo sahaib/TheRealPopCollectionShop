@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { collections } from '@/lib/collections';
-import { Groq } from 'groq-sdk';
 
-export const runtime = 'edge'; // Optional: Use Edge Runtime
 export const dynamic = 'force-dynamic'; // No caching
 
 // Helper function to extract movies by genre
@@ -25,6 +23,8 @@ export async function POST(request: NextRequest) {
       genre: movie.genre.join(', ')
     })).slice(0, 10);
 
+    // Import Groq dynamically to avoid build issues
+    const { default: Groq } = await import('groq-sdk');
     const groq = new Groq({
       apiKey: process.env.GROQ_API_KEY
     });
@@ -71,21 +71,11 @@ export async function POST(request: NextRequest) {
 
     } catch (error) {
       console.error('Groq API Error:', error);
-      return NextResponse.json({
-        recommendations: getMoviesByGenre(query)
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 3)
-          .map(movie => ({
-            title: movie.title,
-            reason: movie.description,
-            category: movie.category,
-            subcategory: movie.subcategory
-          }))
-      });
+      return NextResponse.json({ error: 'Failed to get recommendations' }, { status: 500 });
     }
 
   } catch (error) {
-    console.error('Route handler error:', error);
-    return NextResponse.json({ error: 'Failed to get recommendations' }, { status: 500 });
+    console.error('Request Error:', error);
+    return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
   }
 } 

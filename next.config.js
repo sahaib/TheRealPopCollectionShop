@@ -7,8 +7,7 @@ const nextConfig = {
     ],
   },
   experimental: {
-    serverComponentsExternalPackages: ['@sendgrid/mail'],
-    runtime: 'nodejs'
+    serverComponentsExternalPackages: ['@sendgrid/mail']
   },
   typescript: {
     ignoreBuildErrors: true
