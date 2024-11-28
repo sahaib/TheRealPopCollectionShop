@@ -1,6 +1,9 @@
+import { NextRequest, NextResponse } from 'next/server';
 import { collections } from '@/lib/collections';
 import { Groq } from 'groq-sdk';
-import { NextResponse } from 'next/server';
+
+export const runtime = 'edge'; // Optional: Use Edge Runtime
+export const dynamic = 'force-dynamic'; // No caching
 
 // Helper function to extract movies by genre
 function getMoviesByGenre(genre: string) {
@@ -13,7 +16,7 @@ function getMoviesByGenre(genre: string) {
   );
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     const { query } = await request.json();
     
@@ -30,7 +33,7 @@ export async function POST(request: Request) {
       const completion = await groq.chat.completions.create({
         messages: [{
           role: "user",
-          content: `Respond ONLY with a JSON object in this exact format, no additional text:
+          content: `Respond ONLY with a JSON object in this exact format:
             {"recommendations":[{"title":"movie title","reason":"reason for recommendation"}]}
             
             Choose 3 movies from this list that match the query "${query}": ${JSON.stringify(movies)}`
@@ -42,9 +45,7 @@ export async function POST(request: Request) {
       });
 
       const content = completion.choices[0].message.content?.trim() || '';
-      console.log('Raw Groq response:', content);
-
-      // Ensure we're parsing valid JSON
+      
       let recommendations;
       try {
         recommendations = JSON.parse(content);
@@ -70,7 +71,6 @@ export async function POST(request: Request) {
 
     } catch (error) {
       console.error('Groq API Error:', error);
-      // Fallback to local matching
       return NextResponse.json({
         recommendations: getMoviesByGenre(query)
           .sort(() => Math.random() - 0.5)
@@ -86,9 +86,6 @@ export async function POST(request: Request) {
 
   } catch (error) {
     console.error('Route handler error:', error);
-    return NextResponse.json(
-      { error: 'Failed to get recommendations' }, 
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to get recommendations' }, { status: 500 });
   }
 } 

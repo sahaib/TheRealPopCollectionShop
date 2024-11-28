@@ -6,7 +6,9 @@ const nextConfig = {
       'themoviedb.org'
     ],
   },
-  // ... any other existing config
+  experimental: {
+    serverComponentsExternalPackages: ['@sendgrid/mail']
+  }
 }
 
 module.exports = nextConfig 

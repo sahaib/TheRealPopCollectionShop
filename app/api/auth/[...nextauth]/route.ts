@@ -1,19 +1,17 @@
-import NextAuth, { Session, User } from 'next-auth'
+import NextAuth, { DefaultSession, NextAuthOptions } from 'next-auth'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import prisma from '@/lib/prisma'
 import GoogleProvider from 'next-auth/providers/google'
 
-// Define custom session type
-interface CustomSession extends Session {
-  user?: {
-    id?: string
-    name?: string | null
-    email?: string | null
-    image?: string | null
+declare module 'next-auth' {
+  interface Session extends DefaultSession {
+    user: {
+      id: string
+    } & DefaultSession['user']
   }
 }
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -22,12 +20,13 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    session: async ({ session, user }: { session: CustomSession; user: User }) => {
-      if (session?.user) {
-        session.user.id = user.id
-      }
-      return session
-    },
+    session: ({ session, user }) => ({
+      ...session,
+      user: {
+        ...session.user,
+        id: user.id,
+      },
+    }),
   },
 }
 
