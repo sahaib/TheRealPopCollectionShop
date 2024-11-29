@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Search, ShoppingCart } from 'lucide-react'
@@ -8,23 +8,19 @@ import AuthButton from './AuthButton'
 import SearchOverlay from './SearchOverlay'
 import ShoppingCartPanel from './ShoppingCart'
 import { useCart } from '@/hooks/useCart'
+import { useSession } from 'next-auth/react'
 
-function CartBadge() {
-  const { state } = useCart()
-  const itemCount = state.items.reduce((acc, item) => acc + item.quantity, 0)
-
-  if (itemCount === 0) return null
-
-  return (
-    <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-red-500 text-white rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center text-[10px] sm:text-xs">
-      {itemCount}
-    </span>
-  )
-}
+const CartBadge = ({ count }: { count: number }) => (
+  <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+    {count}
+  </div>
+);
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const { data: session } = useSession()
+  const { state } = useCart()
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50">
@@ -53,6 +49,11 @@ export default function Header() {
             <Link href="/contact" className="hover:text-blue-500 transition-colors">
               Contact
             </Link>
+            {session?.user?.email === 'sahaibsingh001.ss@gmail.com' && (
+              <Link href="/admin/movies" className="hover:text-blue-500 transition-colors">
+                🎬 Add Movies
+              </Link>
+            )}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -71,12 +72,12 @@ export default function Header() {
               aria-label="Shopping cart"
             >
               <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
-              <CartBadge />
+              <CartBadge count={state.items.reduce((acc, item) => acc + item.quantity, 0)} />
             </button>
           </div>
         </div>
       </div>
-      <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <SearchOverlay isOpen={isSearchOpen} onCloseAction={() => setIsSearchOpen(false)} />
       <ShoppingCartPanel isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   )

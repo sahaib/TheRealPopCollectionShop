@@ -1,9 +1,10 @@
 "use client"
-import { Search, X, Loader2, Sparkles } from 'lucide-react'
+import { Search, X, Film } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { collections } from '@/lib/collections'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
+import { useRouter } from 'next/navigation'
 
 interface SearchResult {
   title: string
@@ -11,23 +12,16 @@ interface SearchResult {
   category: string
 }
 
-interface AiRecommendation {
-  title: string
-  reason: string
-  category: string
-  subcategory: string
-}
-
 interface SearchOverlayProps {
   isOpen: boolean
-  onClose: () => void
+  onCloseAction: () => void
 }
 
-export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
+export default function SearchOverlay({ isOpen, onCloseAction }: SearchOverlayProps) {
+  const router = useRouter()
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<SearchResult[]>([])
-  const [aiRecommendations, setAiRecommendations] = useState<AiRecommendation[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [randomMovie, setRandomMovie] = useState<any>(null)
   const { theme } = useTheme()
 
   useEffect(() => {
@@ -40,7 +34,6 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     return () => mainContent?.classList.remove('blur-xl')
   }, [isOpen])
 
-  // Prevent background scrolling when overlay is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -52,15 +45,24 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     }
   }, [isOpen])
 
-  const handleSearch = async (searchQuery: string) => {
+  const getRandomMovie = () => {
+    const allMovies = Object.values(collections)
+      .flatMap(collection => 
+        Object.values(collection.categories || {})
+          .flatMap(category => Object.values(category))
+      );
+    
+    const randomIndex = Math.floor(Math.random() * allMovies.length);
+    setRandomMovie(allMovies[randomIndex]);
+  }
+
+  const handleSearch = (searchQuery: string) => {
     setQuery(searchQuery)
     if (!searchQuery) {
       setResults([])
-      setAiRecommendations([])
       return
     }
 
-    // Regular search results first
     const searchResults: SearchResult[] = []
     Object.entries(collections).forEach(([categoryKey, collection]) => {
       if (!collection?.categories) return
@@ -81,33 +83,50 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
       })
     })
     setResults(searchResults)
-
-    // Only trigger AI for queries that look like questions or preferences
-    if (searchQuery.includes('?') || 
-        searchQuery.toLowerCase().includes('recommend') ||
-        searchQuery.toLowerCase().includes('feel') ||
-        searchQuery.toLowerCase().includes('watch')) {
-      try {
-        setIsLoading(true)
-        const response = await fetch('/api/ai-recommendations', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ query: searchQuery })
-        })
-        
-        if (!response.ok) throw new Error('AI request failed');
-        
-        const data = await response.json()
-        if (data.recommendations?.length > 0) {
-          setAiRecommendations(data.recommendations)
-        }
-      } catch (error) {
-        console.error('Failed to get AI recommendations:', error)
-      } finally {
-        setIsLoading(false)
-      }
-    }
   }
+
+  const handleRandomMovieClick = async (movie: any) => {
+    try {
+      let targetCollection = '';
+      let targetCategory = '';
+      
+      Object.entries(collections).forEach(([collectionKey, collection]) => {
+        Object.entries(collection.categories || {}).forEach(([categoryKey, movies]) => {
+          if (Object.values(movies).some(m => m.title === movie.title)) {
+            targetCollection = collectionKey;
+            targetCategory = categoryKey;
+          }
+        });
+      });
+
+      await router.push(`/collections/${targetCollection}`);
+      onCloseAction();
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      const movieId = movie.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      
+      const listItem = document.getElementById(movieId);
+      const movieCard = document.querySelector(`[data-movie-id="${movieId}"]`);
+      
+      if (movieCard) {
+        movieCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        [listItem, movieCard].forEach(element => {
+          if (element) {
+            (element as HTMLElement).style.transition = 'all 0.3s ease';
+            element.classList.add('bg-purple-100', 'dark:bg-purple-900/30', 'scale-105', 'ring-2', 'ring-purple-500', 'z-10');
+            
+            setTimeout(() => {
+              element.classList.remove('bg-purple-100', 'dark:bg-purple-900/30', 'scale-105', 'ring-2', 'ring-purple-500', 'z-10');
+            }, 2000);
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Navigation error:', error);
+    }
+  };
 
   if (!isOpen) return null
 
@@ -115,7 +134,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     <div className="fixed inset-0 z-[9999]">
       <div 
         className="fixed inset-0 bg-black/80 backdrop-blur-sm"
-        onClick={onClose}
+        onClick={onCloseAction}
         style={{ pointerEvents: 'auto' }}
       />
       
@@ -125,17 +144,18 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
-            placeholder="Search movies or ask for recommendations..."
+            placeholder="Search movies or click for random suggestion..."
             className={`search-input search-input-glow ${theme === 'dark' ? 'search-input-dark' : ''} 
               w-full text-lg py-3
               text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400
               pl-12 pr-12 bg-white/90 dark:bg-black/90`}
             value={query}
             onChange={(e) => handleSearch(e.target.value)}
+            onClick={() => !query && getRandomMovie()}
             autoFocus
           />
           <button
-            onClick={onClose}
+            onClick={onCloseAction}
             className="absolute right-4 top-1/2 -translate-y-1/2 p-2"
           >
             <X className="w-5 h-5 text-gray-400" />
@@ -144,49 +164,81 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
 
         <div className="mt-2 bg-white/95 dark:bg-black/95 rounded-xl shadow-2xl backdrop-blur-xl">
           <div className="max-h-[60vh] overflow-y-auto">
-            {/* AI Recommendations */}
-            {isLoading && (
-              <div className="p-4 text-center">
-                <Loader2 className="w-6 h-6 animate-spin mx-auto text-blue-500" />
-              </div>
-            )}
-            
-            {aiRecommendations.length > 0 && (
+            {/* Random Movie Suggestion */}
+            {randomMovie && !query && (
               <div className="border-b border-gray-200 dark:border-gray-800">
-                <div className="p-4 flex items-center gap-2 text-sm font-medium text-blue-500">
-                  <Sparkles className="w-4 h-4" />
-                  AI Recommendations
+                <div className="p-4 flex items-center gap-2 text-sm font-medium text-purple-500">
+                  <Film className="w-4 h-4" />
+                  Random Suggestion
                 </div>
-                {aiRecommendations.map((rec, index) => (
-                  <Link
-                    key={`ai-${index}`}
-                    href={`/collections/${rec.category}/${rec.subcategory}`}
-                    onClick={onClose}
-                    className="block p-4 hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors"
-                  >
-                    <div className="font-medium text-gray-900 dark:text-white text-lg">
-                      {rec.title}
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                      {rec.reason}
-                    </div>
-                  </Link>
-                ))}
+                <div
+                  onClick={() => handleRandomMovieClick(randomMovie)}
+                  className="block p-4 hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors cursor-pointer"
+                >
+                  <div className="font-medium text-gray-900 dark:text-white text-lg">
+                    {randomMovie.title}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                    {randomMovie.description}
+                  </div>
+                  <div className="flex items-center gap-2 mt-2 text-sm text-gray-500">
+                    <span>⭐ {randomMovie.rating}</span>
+                    <span>📅 {randomMovie.releaseYear}</span>
+                    <span>⏱️ {randomMovie.duration}</span>
+                  </div>
+                </div>
               </div>
             )}
 
-            {/* Regular Search Results with improved visibility */}
+            {/* Regular Search Results */}
             {results.length > 0 && (
               <div>
                 <div className="p-4 text-sm font-medium text-gray-500 dark:text-gray-400">
                   Search Results
                 </div>
                 {results.map((result, index) => (
-                  <Link
+                  <div
                     key={`search-${index}`}
-                    href={result.url}
-                    onClick={onClose}
-                    className="block p-4 hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors"
+                    onClick={async () => {
+                      try {
+                        let targetCollection = '';
+                        let targetCategory = '';
+                        
+                        Object.entries(collections).forEach(([collectionKey, collection]) => {
+                          Object.entries(collection.categories || {}).forEach(([categoryKey, movies]) => {
+                            if (Object.values(movies).some(m => m.title === result.title)) {
+                              targetCollection = collectionKey;
+                              targetCategory = categoryKey;
+                            }
+                          });
+                        });
+
+                        await router.push(`/collections/${targetCollection}`);
+                        onCloseAction();
+                        
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                        
+                        const movieId = result.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                        const listItem = document.getElementById(movieId);
+                        const movieCard = document.querySelector(`[data-movie-id="${movieId}"]`);
+                        
+                        if (movieCard) {
+                          movieCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                          [listItem, movieCard].forEach(element => {
+                            if (element) {
+                              (element as HTMLElement).style.transition = 'all 0.3s ease';
+                              element.classList.add('bg-purple-100', 'dark:bg-purple-900/30', 'scale-105', 'ring-2', 'ring-purple-500', 'z-10');
+                              setTimeout(() => {
+                                element.classList.remove('bg-purple-100', 'dark:bg-purple-900/30', 'scale-105', 'ring-2', 'ring-purple-500', 'z-10');
+                              }, 2000);
+                            }
+                          });
+                        }
+                      } catch (error) {
+                        console.error('Navigation error:', error);
+                      }
+                    }}
+                    className="block p-4 hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors cursor-pointer"
                   >
                     <div className="font-medium text-gray-900 dark:text-white">
                       {result.title}
@@ -194,7 +246,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                     <div className="text-sm text-gray-600 dark:text-gray-300">
                       {result.category}
                     </div>
-                  </Link>
+                  </div>
                 ))}
               </div>
             )}

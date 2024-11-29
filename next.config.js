@@ -7,7 +7,7 @@ const nextConfig = {
     ],
   },
   experimental: {
-    serverComponentsExternalPackages: ['@sendgrid/mail']
+    serverComponentsExternalPackages: ['@sendgrid/mail', 'groq-sdk']
   },
   typescript: {
     ignoreBuildErrors: true

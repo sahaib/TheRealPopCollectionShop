@@ -144,7 +144,7 @@ const Collection3DCard = ({ collection }: { collection: any }) => {
 export default function ProfilePage() {
   const router = useRouter()
   const { data: session, status } = useSession()
-  const { items: favorites, removeFavorite } = useFavorites()
+  const {favorites, removeFavorite } = useFavorites()
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [orders, setOrders] = useState<string[]>([])
   const { addToCart, state } = useCart()
@@ -241,7 +241,7 @@ export default function ProfilePage() {
         <h2 className="text-2xl font-bold mb-4">Favorites</h2>
         {favorites.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {favorites.map((favorite) => (
+            {favorites.map((favorite: Favorite) => (
               <div 
                 key={favorite.id} 
                 className="p-4 rounded-lg bg-white dark:bg-gray-800 shadow"

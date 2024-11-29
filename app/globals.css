@@ -150,6 +150,14 @@ body {
   .shimmer {
     animation: shimmer 2s infinite;
   }
+
+  .highlight {
+    transition: all 500ms;
+    background-color: rgb(243, 232, 255);
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 0 0 2px rgb(168, 85, 247);
+  }
 }
 
 .dark {

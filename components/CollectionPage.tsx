@@ -58,23 +58,34 @@ export default function CollectionPage({ collection }: { collection: Collection 
                 {movieList.map((movie: any) => (
                   <motion.li
                     key={movie.id}
+                    id={movie.title.toLowerCase().replace(/\s+/g, '-')}
                     whileHover={{ x: 10 }}
-                    className="group"
+                    className="group transition-colors duration-300"
                   >
-                    <Link 
-                      href={`/collections/${collection.id}/${categoryName}/${movie.id}`}
+                    <div 
                       className="flex items-center justify-between p-2 rounded-lg
                                 hover:bg-purple-50 dark:hover:bg-purple-900/20
-                                transition-all duration-300"
+                                transition-all duration-300 cursor-pointer"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const movieElement = document.getElementById(movie.title.toLowerCase().replace(/\s+/g, '-'));
+                        if (movieElement) {
+                          movieElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                          movieElement.classList.add('bg-purple-100', 'dark:bg-purple-900/30', 'scale-105', 'ring-2', 'ring-purple-500', 'z-10');
+                          
+                          setTimeout(() => {
+                            movieElement.classList.remove('bg-purple-100', 'dark:bg-purple-900/30', 'scale-105', 'ring-2', 'ring-purple-500', 'z-10');
+                          }, 2000);
+                        }
+                      }}
                     >
                       <span className="group-hover:text-purple-600 dark:group-hover:text-purple-400">
                         {movie.title}
                       </span>
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity
-                                     text-purple-600 dark:text-purple-400">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity text-purple-600 dark:text-purple-400">
                         →
                       </span>
-                    </Link>
+                    </div>
                   </motion.li>
                 ))}
               </ul>
