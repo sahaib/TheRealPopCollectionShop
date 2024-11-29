@@ -1,35 +1,28 @@
-import NextAuth, { Session, User } from 'next-auth'
-import { PrismaAdapter } from '@auth/prisma-adapter'
-import prisma from '@/lib/prisma'
+import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 
-// Define custom session type
-interface CustomSession extends Session {
-  user?: {
-    id?: string
-    name?: string | null
-    email?: string | null
-    image?: string | null
-  }
-}
-
-export const authOptions = {
-  adapter: PrismaAdapter(prisma),
+const handler = NextAuth({
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: 'jwt',
+  },
   callbacks: {
-    session: async ({ session, user }: { session: CustomSession; user: User }) => {
-      if (session?.user) {
-        session.user.id = user.id
+    async session({ session, token }) {
+      return session;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
       }
-      return session
+      return token;
     },
   },
-}
+})
 
-const handler = NextAuth(authOptions)
 export { handler as GET, handler as POST } 

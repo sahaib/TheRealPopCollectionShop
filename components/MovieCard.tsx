@@ -53,23 +53,40 @@ export function MovieCard(props: MovieCardProps) {
       .catch(() => setImageSrc(null))
   }, [props.title, props.image])
 
-  const handleFavoriteClick = (e: React.MouseEvent) => {
+  const handleFavoriteClick = async (e: React.MouseEvent) => {
     e.preventDefault()
     if (!session) {
       toast.error('Please sign in to add favorites')
       return
     }
 
-    if (favorited) {
-      removeFavorite(props.id)
-      toast.success('Removed from favorites')
-    } else {
-      addFavorite({
-        id: props.id,
-        movieTitle: props.title,
-        createdAt: new Date().toISOString()
-      })
-      toast.success('Added to favorites')
+    try {
+      if (favorited) {
+        await fetch(`/api/favorites/${props.id}`, {
+          method: 'DELETE',
+        })
+        removeFavorite(props.id)
+        toast.success('Removed from favorites')
+      } else {
+        await fetch('/api/favorites', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            title: props.title
+          })
+        })
+        addFavorite({
+          id: props.id,
+          movieTitle: props.title,
+          createdAt: new Date().toISOString()
+        })
+        toast.success('Added to favorites')
+      }
+    } catch (error) {
+      toast.error('Failed to update favorites')
+      console.error(error)
     }
   }
 
@@ -95,70 +112,75 @@ export function MovieCard(props: MovieCardProps) {
     .replace(/[^a-z0-9-]/g, '')
 
   return (
-    <Link 
-      href={`/collections/${props.collectionId}/${props.categoryName}/${movieId}`}
-      className="group block"
+    <div 
+      data-movie-id={props.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+      className="group relative rounded-xl overflow-hidden"
     >
-      <div className="relative aspect-[2/3] overflow-hidden rounded-lg">
-        {imageSrc ? (
-          <Image
-            src={imageSrc}
-            alt={props.title}
-            fill
-            className="object-cover transition-transform group-hover:scale-105"
-            priority
-            onError={() => setImageSrc(null)}
-          />
-        ) : (
-          <div className="w-full h-full bg-[#1F2937] flex flex-col items-center justify-center text-gray-400">
-            <span className="text-lg">No Image Available</span>
-            <span className="text-sm mt-2">{props.title}</span>
-          </div>
-        )}
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-          <div className="absolute top-2 right-2 flex gap-2">
-            <button
-              onClick={handleFavoriteClick}
-              className={`p-2 rounded-full backdrop-blur-sm ${
-                favorited 
-                  ? 'bg-red-500 text-white' 
-                  : 'bg-black/20 hover:bg-red-500 text-white transition-colors'
-              }`}
-            >
-              <Heart className={`h-5 w-5 ${favorited ? 'fill-current' : ''}`} />
-            </button>
-            <button
-              onClick={handleAddToCart}
-              className={`p-2 rounded-full backdrop-blur-sm ${
-                isInCart 
-                  ? 'bg-green-500 text-white' 
-                  : 'bg-black/20 hover:bg-green-500 text-white transition-colors'
-              }`}
-            >
-              <ShoppingCart className="h-5 w-5" />
-            </button>
-          </div>
+      <Link 
+        href={`/collections/${props.collectionId}/${props.categoryName}/${movieId}`}
+        className="group block"
+      >
+        <div className="relative aspect-[2/3] overflow-hidden rounded-lg">
+          {imageSrc ? (
+            <Image
+              src={imageSrc}
+              alt={props.title}
+              fill
+              className="object-cover transition-transform group-hover:scale-105"
+              priority
+              onError={() => setImageSrc(null)}
+            />
+          ) : (
+            <div className="w-full h-full bg-[#1F2937] flex flex-col items-center justify-center text-gray-400">
+              <span className="text-lg">No Image Available</span>
+              <span className="text-sm mt-2">{props.title}</span>
+            </div>
+          )}
+          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <div className="absolute top-2 right-2 flex gap-2">
+              <button
+                onClick={handleFavoriteClick}
+                className={`p-2 rounded-full backdrop-blur-sm ${
+                  favorited 
+                    ? 'bg-red-500 text-white' 
+                    : 'bg-black/20 hover:bg-red-500 text-white transition-colors'
+                }`}
+              >
+                <Heart className={`h-5 w-5 ${favorited ? 'fill-current' : ''}`} />
+              </button>
+              <button
+                onClick={handleAddToCart}
+                className={`p-2 rounded-full backdrop-blur-sm ${
+                  isInCart 
+                    ? 'bg-green-500 text-white' 
+                    : 'bg-black/20 hover:bg-green-500 text-white transition-colors'
+                }`}
+              >
+                <ShoppingCart className="h-5 w-5" />
+              </button>
+            </div>
 
-          <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-            <h3 className="text-lg font-semibold">{props.title}</h3>
-            <p className="text-xl font-bold">${props.price.toFixed(2)}</p>
-            <div className="flex items-center gap-4 text-sm">
-              <span className="flex items-center gap-1">
-                <Star className="w-4 h-4 text-yellow-500" />
-                {props.rating}/5
-              </span>
-              <span className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
-                {props.duration}
-              </span>
-              <span className="flex items-center gap-1">
-                <Film className="w-4 h-4" />
-                {props.releaseYear}
-              </span>
+            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+              <h3 className="text-lg font-semibold">{props.title}</h3>
+              <p className="text-xl font-bold">${props.price.toFixed(2)}</p>
+              <div className="flex items-center gap-4 text-sm">
+                <span className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-500" />
+                  {props.rating}/5
+                </span>
+                <span className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  {props.duration}
+                </span>
+                <span className="flex items-center gap-1">
+                  <Film className="w-4 h-4" />
+                  {props.releaseYear}
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   )
 } 

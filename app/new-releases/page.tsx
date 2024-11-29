@@ -32,6 +32,11 @@ const newReleases = [
   }
 ]
 
+export const metadata = {
+  title: 'New Releases - TRPC Shop',
+  description: 'Check out our latest movie releases'
+}
+
 export default function NewReleasesPage() {
   return (
     <div className="container mx-auto px-4 py-8">

@@ -1,12 +1,12 @@
-import { NextResponse } from 'next/server'
-import sgMail from '@sendgrid/mail'
+import { NextRequest, NextResponse } from 'next/server'
+import { sendEmail } from '@/lib/sendgrid'
 
-// Initialize SendGrid with your API key
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!)
+export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
-    const { name, email, message, recaptchaToken } = await request.json()
+    const { name, email, message } = await request.json()
 
     // Verify reCAPTCHA first
     const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -24,41 +24,27 @@ export async function POST(request: Request) {
 
     // Send email using SendGrid with verified sender
     const msg = {
-      to: 'your_email@example.com',
+      to: 'support@trpc.shop',
       from: {
-        email: 'your_email@example.com',
-        name: 'Your Name'
+        email: 'support@trpc.shop',
+        name: 'TRPC Shop'
       },
-      replyTo: email,
-      subject: `New Contact Form Message from ${name}`,
-      text: `
-Name: ${name}
-Email: ${email}
-Message: ${message}
-      `,
+      subject: `Contact Form Submission from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `,
-    }
+        <p>${message}</p>
+      `
+    })
 
-    try {
-      await sgMail.send(msg)
-      return NextResponse.json({ success: true })
-    } catch (sendError: any) {
-      console.error('SendGrid error details:', sendError.response?.body)
-      return NextResponse.json(
-        { error: 'Failed to send email' },
-        { status: 500 }
-      )
-    }
+    return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Contact form error:', error)
     return NextResponse.json(
-      { error: 'Failed to process request' },
+      { error: 'Failed to send message' },
       { status: 500 }
     )
   }

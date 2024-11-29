@@ -1,6 +1,8 @@
+export const dynamic = 'force-dynamic'
+
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/lib/auth'
 import prisma from '@/lib/prisma'
 
 export async function GET(request: Request) {
@@ -73,7 +75,7 @@ export async function POST(request: Request) {
     }
 
     // Check for duplicate before adding
-    const isDuplicate = user.favorites.some(fav => fav.movieTitle === title)
+    const isDuplicate = user.favorites.some((fav: { movieTitle: string }) => fav.movieTitle === title)
     if (isDuplicate) {
       return NextResponse.json(
         { error: 'Movie already in favorites' }, 

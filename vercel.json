@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next",
+      "config": {
+        "nodeVersion": "20.x"
+      }
+    }
+  ],
+  "env": {
+    "NEXT_RUNTIME": "nodejs",
+    "NEXT_SHARP_PATH": "/tmp/node_modules/sharp"
+  }
+} 

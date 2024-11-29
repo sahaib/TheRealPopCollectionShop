@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { X, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { CartContext } from '@/contexts/CartContext'
+import { CartContext } from '@/app/contexts/CartContext'
 import { title } from 'process';
 
 export default function ShoppingCartPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {

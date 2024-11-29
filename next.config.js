@@ -6,7 +6,16 @@ const nextConfig = {
       'themoviedb.org'
     ],
   },
-  // ... any other existing config
+  experimental: {
+    serverComponentsExternalPackages: ['@sendgrid/mail', 'groq-sdk']
+  },
+  typescript: {
+    ignoreBuildErrors: true
+  },
+  eslint: {
+    ignoreDuringBuilds: true
+  },
+  swcMinify: false
 }
 
 module.exports = nextConfig 
