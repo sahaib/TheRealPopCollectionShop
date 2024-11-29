@@ -28,10 +28,10 @@ interface CartContextType {
   updateQuantity: (id: string | number, quantity: number) => void
 }
 
-export function useCart(): CartContextType {
+export function useCart() {
   const context = useContext(CartContext)
-  if (context === undefined) {
-    throw new Error('useCart must be used within a CartProvider');
+  if (!context) {
+    throw new Error('useCart must be used within a CartProvider')
   }
-  return context as CartContextType;
+  return context
 } 

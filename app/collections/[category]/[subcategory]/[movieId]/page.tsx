@@ -8,6 +8,7 @@ import { collections } from '@/lib/collections'
 import { motion } from 'framer-motion'
 import { Star, Clock, Film, Share2 } from 'lucide-react'
 import { toast } from 'sonner'
+import Breadcrumbs from '@/app/components/Breadcrumbs'
 
 interface PageProps {
   params: {
@@ -125,9 +126,27 @@ export default function MoviePage({ params }: PageProps) {
     }
   }
 
+  const breadcrumbItems = [
+    {
+      label: 'Collections',
+      href: '/collections'
+    },
+    {
+      label: collection?.name || '',
+      href: `/collections/${params.category}`
+    },
+    {
+      label: params.subcategory.replace(/-/g, ' '),
+      href: `/collections/${params.category}/${params.subcategory}`
+    },
+    {
+      label: movie?.title || ''
+    }
+  ]
 
   return (
-    <div className="container mx-auto py-16 px-4">
+    <div className="container mx-auto px-4 py-8">
+      <Breadcrumbs items={breadcrumbItems} />
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

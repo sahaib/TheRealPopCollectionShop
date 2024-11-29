@@ -8,6 +8,8 @@ import { Movie, getMovie, getRelatedMovies } from '@/app/lib/movieData'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Star, Clock, Film, Award, Share2 } from 'lucide-react'
 import { toast } from 'sonner'
+import SEOMetadata from '@/app/components/SEOMetadata'
+import MovieSchema from '@/app/components/MovieSchema'
 
 // Movies data
 const movies = [
@@ -76,8 +78,8 @@ const movies = [
 // Main component
 export default function MoviePage({ params }: { params: { id: string } }) {
   const movieData = movies.find(m => m.id === Number(params.id)) || null
-  const { addToCart, state } = useCart()
-  const isInCart = state.items.some(item => item.id === Number(params.id))
+  const { addToCart, cartCount } = useCart()
+  const isInCart = cartCount > 0
 
   // Styles definition
   const styles = {

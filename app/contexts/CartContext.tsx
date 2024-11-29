@@ -1,5 +1,6 @@
 "use client"
 import { createContext, useContext, useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
 
 interface CartItem {
   id: string
@@ -16,60 +17,76 @@ interface CartContextType {
     items: CartItem[]
     total: number
   }
+  cartCount: number
+  setCartCount: (count: number) => void
   addToCart: (item: Omit<CartItem, 'quantity'>) => void
-  removeFromCart: (id: string | number) => void
-  updateQuantity: (id: string, quantity: number) => void
+  removeFromCart: (id: string) => void
 }
 
 export const CartContext = createContext<CartContextType>({
   state: { items: [], total: 0 },
+  cartCount: 0,
+  setCartCount: () => {},
   addToCart: () => {},
-  removeFromCart: () => {},
-  updateQuantity: () => {}
+  removeFromCart: () => {}
 })
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  // Get initial state from localStorage
-  const [items, setItems] = useState<CartItem[]>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('cart')
-      return saved ? JSON.parse(saved) : []
-    }
-    return []
+  const { data: session } = useSession()
+  const [cartCount, setCartCount] = useState(0)
+  const [isClient, setIsClient] = useState(false)
+  const [state, setState] = useState<{items: CartItem[], total: number}>({
+    items: [],
+    total: 0
   })
 
-  // Save to localStorage whenever cart changes
+  // Load cart state from localStorage with user-specific key
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(items))
-  }, [items])
+    setIsClient(true)
+    if (session?.user?.email) {
+      const userCartKey = `cart_${session.user.email}`
+      const savedCart = localStorage.getItem(userCartKey)
+      if (savedCart) {
+        const { items, total } = JSON.parse(savedCart)
+        setState({ items, total })
+        setCartCount(items.length)
+      }
+    }
+  }, [session])
 
-  const addItem = (item: Omit<CartItem, 'quantity'>) => {
-    setItems(prev => [...prev, { ...item, quantity: 1 }])
+  // Save cart state to localStorage with user-specific key
+  useEffect(() => {
+    if (isClient && session?.user?.email) {
+      const userCartKey = `cart_${session.user.email}`
+      localStorage.setItem(userCartKey, JSON.stringify(state))
+      localStorage.setItem(`${userCartKey}_count`, state.items.length.toString())
+    }
+  }, [state, isClient, session])
+
+  const addToCart = (item: Omit<CartItem, 'quantity'>) => {
+    setCartCount(prev => prev + 1)
+    setState(prev => ({
+      items: [...prev.items, { ...item, quantity: 1 }],
+      total: prev.total + item.price
+    }))
   }
 
-  const removeItem = (id: string | number) => {
-    setItems(prev => prev.filter(item => item.id !== id.toString()))
-  }
-
-  const clearCart = () => {
-    setItems([])
+  const removeFromCart = (id: string) => {
+    setState(prev => {
+      const item = prev.items.find(item => item.id === id)
+      if (!item) return prev
+      
+      return {
+        items: prev.items.filter(item => item.id !== id),
+        total: prev.total - (item.price * item.quantity)
+      }
+    })
+    setCartCount(prev => prev - 1)
   }
 
   return (
-    <CartContext.Provider value={{
-      state: { 
-        items, 
-        total: items.reduce((sum, item) => sum + item.price * item.quantity, 0)
-      },
-      addToCart: addItem,
-      removeFromCart: removeItem,
-      updateQuantity: (id, qty) => {
-        setItems(prev => prev.map(item => 
-          item.id === id ? {...item, quantity: qty} : item
-        ))
-      }
-    }}>
-      {children}
+    <CartContext.Provider value={{ cartCount, setCartCount, state, addToCart, removeFromCart }}>
+      {isClient ? children : null}
     </CartContext.Provider>
   )
 }

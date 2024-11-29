@@ -4,12 +4,17 @@ import { Providers } from './providers'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { Toaster } from 'sonner'
+import Favicon from './components/Favicon'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'The Real Pop Collection Shop',
-  description: 'Reviving the old era with physical media that creates tangible memories',
+export const viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' }
+  ],
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -20,21 +25,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script 
-          async 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4473243229406280"
-          crossOrigin="anonymous"
-        />
+        <Favicon />
       </head>
-      <body className={`${inter.className} text-gray-900 dark:text-gray-100 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800`}>
+      <body className={inter.className}>
         <Providers>
           <Header />
-          <main id="main-content" className="pt-16 transition-all duration-300">
+          <main className="min-h-screen">
             {children}
           </main>
           <Footer />
+          <Toaster position="bottom-right" />
         </Providers>
-        <Toaster position="top-center" />
       </body>
     </html>
   )
