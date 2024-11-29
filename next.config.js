@@ -15,7 +15,24 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true
   },
-  swcMinify: false
+  swcMinify: false,
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY'
+          }
+        ]
+      }
+    ]
+  }
 }
 
 module.exports = nextConfig 
